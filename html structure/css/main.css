@@ -1,0 +1,208 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/*ESTRUTURA PRINCIPAL
+---------------------------------------------*/
+body {
+    font-family: Verdana;
+    color: #aaaaaa;
+}
+.page {
+    overflow: auto;
+}
+.header {
+    background-color: #e5e5e5;
+    padding: 15px;
+    text-align: center;
+    height: 80px;
+}
+.menu {
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+iframe {
+    width: 100%;
+    height: 500px;
+}
+.menu a {
+    background-color: #e5e5e5;
+    padding: 8px;
+    margin-top: 7px;
+    display: block;
+    width: 100%;
+    color: black;
+}
+.page .main {
+    float: left;
+    width: 80%;
+    padding: 100px;
+}
+/*ESTRUTURA CADASTRO IMÓVEIS
+---------------------------------------------*/
+.page .main .flex-main {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+.page .main .flex-main .divisao1,
+.divisao2 {
+    width: 50%;
+}
+.page .main .flex-main .divisao1 .tipoImovel {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.page .main .flex-main .divisao1 .tipoImovel .tipoImovel1,
+.tipoImovel2,
+.tipoImovel3 {
+    width: 33.3%;
+}
+.page .main .flex-main .info1,
+.info2 {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.page .main .flex-main .info1 .info1-1,
+.info1-2 {
+    width: 50%;
+}
+.page .main .flex-main .info2 .info2-1,
+.info2-2 {
+    width: 50%;
+}
+.page .main .flex-main .divisao1 input[type="text"] {
+    width: 100%;
+}
+.page .main .flex-main .divisao2 .flex-box{
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+.page .main .flex-main .divisao2 .flex-box .coluna1, .coluna2{
+    width: 50%;
+}
+.page .main .flex-main .divisao2 input[type="text"], textarea {
+    width: 100%;
+}
+.page .main .footer {
+    text-align: center;
+    padding: 10px;
+    margin-top: 7px;
+}
+.right {
+    background-color: #e5e5e5;
+    float: left;
+    width: 20%;
+    padding: 15px;
+    margin-top: 7px;
+    text-align: center;
+}
+/*ESTRUTURA LOGIN
+---------------------------------------------*/
+.login-screen {
+    margin: 0 auto;
+    margin-top: 100px;
+    width: 450px;
+    height: 25%;
+    padding: 40px;
+    border: 2px solid black;
+}
+.login-screen .logo {
+    text-align: center;
+}
+.login-screen form input,
+button {
+    width: 100%;
+}
+/*ESTRUTURA CADASTRO LOCADOR
+---------------------------------------------*/
+.side-screen {
+    float: left;
+    width: 58%;
+    padding: 0 20px;
+}
+.form-screen {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: #e5e5e5;
+    float: left;
+    width: 42%;
+}
+.form-screen main {
+    margin: 0 auto;
+    width: 60%;
+}
+.form-screen main .mensagem {
+    margin-top: 20%;
+}
+.form-screen main form {
+    margin-top: 10%;
+}
+.form-screen main form input[type="text"],
+input[type="email"],
+input[type="date"],
+select {
+    width: 100%;
+}
+.form-screen main form .flex-box {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+.form-screen main form .etapa1 .flex-box .divisao1 {
+    width: 10%;
+}
+.form-screen main form .etapa1 .flex-box .divisao2 {
+    width: 40%;
+}
+.form-screen main form .etapa1 .flex-box .divisao3 {
+    width: 50%;
+}
+.form-screen main form .etapa3 .flex-box .divisao1 {
+    width: 30%;
+}
+.form-screen main form .etapa3 .flex-box .divisao2 {
+    width: 70%;
+}
+
+.form-screen main form .flex-button {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+.form-screen main form button {
+    width: 100%;
+}
+.form-screen main form .flex-button .divisao1 {
+    width: 50%;
+}
+.form-screen main form .flex-button .divisao2 {
+    width: 50%;
+}
+/*RESPONSIVE PAGE
+---------------------------------------------*/
+@media only screen and (max-width: 720px) {
+    .menu,
+    .main,
+    .right,
+    .form-screen,
+    .login-screen {
+        width: 100%;
+    }
+    .side-screen {
+        display: none;
+    }
+    .page .main .flex-main{
+        display: inline-block;
+    }
+    .page .main .flex-main .divisao1,
+    .divisao2 {
+        width: 100%;
+    }
+}
