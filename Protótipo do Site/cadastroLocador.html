@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang=pt-br>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Cadastro Locador</title>
+    <link rel='stylesheet' href='./css/utilities/bootstrap.css'>
+    <link rel="stylesheet" href="./css/main.css">
+    <script src='./js/utilities/bootstrap.js'></script>
+    <script src='./js/utilities/jquery-3.5.1.js'></script>
+    <script src='./js/cadastroLocador.js'></script>
+    <script src='./js/main.js'></script>
+</head>
+
+<body>
+    <div class='container'>
+        <div class='row'>
+            <div class='col-md-6' style='background-color: #f3f3f3;'>
+                Mr. Belly
+            </div>
+            <div class='col-md-6' style='background-color: #e4e4e4;'>
+                <div class='container'>
+                    <div class='row'>
+                        <div class='col-md-12'>
+                            <h2>CADASTRO</h2>
+                            <p id='numeroEtapa'>Etapa 1 de 1</p>
+                            <P>Olá, bem vindo ao Mr. Belly!</P>
+                            <p>Para se cadastrar, precisamos que nos dê algumas informações essenciais, vamos lá!?</p>
+                        </div>
+                    </div>
+                </div>
+                <!---------------------------------------------------------------------------------------------------------------->
+                <div id='etapa1'>
+                    <div class='container'>
+                        <div class='row'>
+                            <div class='col-md-12'>
+                                <label for='nome'>Nome</label>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-md-12'>
+                                <input type='text' name='nome' id='nome'>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-md-12'>
+                                <label for='email'>E-mail</label>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-md-12'>
+                                <input type='email' name='email' id='email'>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-md-3'>
+                                <label for='ddd'>DDD</label>
+                                <input type='text' name='ddd' id='ddd'>
+                            </div>
+                            <div class='col-md-4'>
+                                <label for='numero'>Número</label>
+                                <input type='text' name='numero' id='numero'>
+                            </div>
+                            <div class='col-md-5'>
+                                <label for='tipoTelefone'>Descrição</label>
+                                <select name='tipoTelefone' id='tipoTelefone'>
+                                    <option value=''>Nenhum Marcador</option>
+                                    <option value='celular'>Celular</option>
+                                    <option value='Trabalho'>Trabalho</option>
+                                    <option value='Casa'>Casa</option>
+                                    <option value='Empresarial'>Empresarial</option>
+                                    <option value='Principal'>Principal</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-md-6'>
+                                <input type='radio' name='tipoPessoa' id='pessoaFisica' value='fisica' onclick='tipo(this.value)'><label for='fisica'> Pessoa Fisica</label>
+                            </div>
+                            <div class='col-md-6'>
+                                <input type='radio' name='tipoPessoa' id='pessoaJuridica' value='juridica' onclick='tipo(this.value)'><label for='juridica'> Pessoa Jurídica</label>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='row'>
+                                <div class='col-md-6'>
+                                    <button type='button' id='voltar' onclick='abrirPagina("./login.html")'>Voltar</button>
+                                </div>
+                                <div class='col-md-6'>
+                                    <button type='button' id='irPara2' value='irPara2' onclick='mudarQuadro(this.value)'>Avançar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---------------------------------------------------------------------------------------------------------------->
+                <div id='etapa2'>
+                    <div class='container'>
+                        <div id='quadroPessoaFisica'>
+                            <div class='row'>
+                                <div class='col-md-12'>
+                                    <label for='sobrenome'>Sobrenome</label>
+                                </div>
+                                <div class='col-md-12'>
+                                    <input type='text' name='sobrenome' id='sobrenome'>
+                                </div>
+                            </div>
+                            <div class='row'>
+                                <div class='col-md-12'>
+                                    <label for='cpf'>CPF</label>
+                                </div>
+                                <div class='col-md-12'>
+                                    <input type='text' name='cpf' id='cpf'>
+                                </div>
+                            </div>
+                            <div class='row'>
+                                <div class='col-md-12'>
+                                    <label for='rg'>RG</label>
+                                </div>
+                                <div class='col-md-12'>
+                                    <input type='text' name='rg' id='rg'>
+                                </div>
+                            </div>
+                            <div class='row'>
+                                <div class='col-md-12'><label for='nascimento'>Data de Nascimento</label></div>
+                                <div class='col-md-12'>
+                                    <input type='date' name='nascimento' id='nascimento'>
+                                </div>
+                            </div>
+                            <div class='row'>
+                                <div class='col-md-6'>
+                                    <input type='radio' name='sexo' id='masculino' value='M'><label for='masculino'> Masculino</label>
+                                </div>
+                                <div class='col-md-6'>
+                                    <input type='radio' name='sexo' id='feminino' value='F'><label for='feminino'> Feminino</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div id='quadroPessoaJuridica'>
+                            <div class='row'>
+                                <div class='col-md-12'>
+                                    <label for='cnpj'>CNPJ</label>
+                                </div>
+                                <div class='col-md-12'>
+                                    <input type='text' name='cnpj' id='cnpj'>
+                                </div>
+                            </div>
+                            <div class='row'>
+                                <div class='col-md-12'>
+                                    <label for='razaoSocial'>Razão Social</label>
+                                </div>
+                                <div class='col-md-12'>
+                                    <input type='text' name='razaoSocial' id='razaoSocial'>
+                                </div>
+                            </div>
+                            <!-- Botão do modal -->
+                            <div class='row'>
+                                <div class='col-md-12'>
+                                    <button type='button' data-bs-toggle='modal' data-bs-target='#exampleModal'>
+                                        Cadastrar Representante
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Modal -->
+                            <div class='modal fade' id='exampleModal' tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                                <div class='modal-dialog'>
+                                    <div class='modal-content'>
+                                        <div class='modal-header'>
+                                            <h5 class='modal-title' id='exampleModalLabel'>Cadastrar Representante</h5>
+                                            <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+                                        </div>
+                                        <div class='modal-body'>
+                                            <div class='row'>
+                                                <div class='col-md-12'>
+                                                    <label for='nome'>Nome</label>
+                                                </div>
+                                                <div class='col-md-12'>
+                                                    <input type='text' name='nome' id='nome'>
+                                                </div>
+                                            </div>
+                                            <div class='row'>
+                                                <div class='col-md-12'>
+                                                    <label for='sobrenome'>Sobrenome</label>
+                                                </div>
+                                                <div class='col-md-12'>
+                                                    <input type='text' name='sobrenome' id='sobrenome'>
+                                                </div>
+                                            </div>
+                                            <div class='row'>
+                                                <div class='col-md-12'>
+                                                    <label for='cpf'>CPF</label>
+                                                </div>
+                                                <div class='col-md-12'>
+                                                    <input type='text' name='cpf' id='cpf'>
+                                                </div>
+                                            </div>
+                                            <div class='row'>
+                                                <div class='col-md-12'>
+                                                    <label for='rg'>RG</label>
+                                                </div>
+                                                <div class='col-md-12'>
+                                                    <input type='text' name='rg' id='rg'>
+                                                </div>
+                                            </div>
+                                            <div class='row'>
+                                                <div class='col-md-12'><label for='nascimento'>Data de Nascimento</label></div>
+                                                <div class='col-md-12'>
+                                                    <input type='date' name='nascimento' id='nascimento'>
+                                                </div>
+                                            </div>
+                                            <div class='row'>
+                                                <div class='col-md-6'>
+                                                    <input type='radio' name='sexo' id='masculino' value='M'><label for='masculino'> Masculino</label>
+                                                </div>
+                                                <div class='col-md-6'>
+                                                    <input type='radio' name='sexo' id='feminino' value='F'><label for='feminino'> Feminino</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class='modal-footer'>
+                                            <div class='row'>
+                                                <div class='col-md-12'>
+                                                    <button type='button' data-bs-dismiss='modal'>OK!</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-md-6'>
+                                <button type='button' id='voltarPara1' value='voltarPara1' onclick='mudarQuadro(this.value)'>Voltar</button>
+                            </div>
+                            <div class='col-md-6'>
+                                <button type='button' id='irPara3' value='irPara3' onclick='mudarQuadro(this.value)'>Avançar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---------------------------------------------------------------------------------------------------------------->
+                <div id='etapa3'>
+                    <div class='container'>
+                        <div class='row'>
+                            <div class='col-md-12'>
+                                <label for='cep'>CEP</label>
+                            </div>
+                            <div class='col-md-12'>
+                                <input name='cep' type='text' id='cep' value='' maxlength='9' onblur='pesquisaCep(this.value);'>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-md-9'>
+                                <label for='rua'>Logradouro</label>
+                                <input name='rua' type='text' id='rua'>
+                            </div>
+                            <div class='col-md-3'>
+                                <label for='complemento'>Nº</label>
+                                <input name='complemento' type='text' id='complemento'>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-md-12'>
+                                <label for='bairro'>Bairro</label>
+                            </div>
+                            <div class='col-md-12'>
+                                <input name='bairro' type='text' id='bairro'>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-md-3'>
+                                <label for='uf'>Estado</label>
+                                <input name='uf' type='text' id='uf'>
+                            </div>
+                            <div class='col-md-9'>
+                                <label for='cidade'>Cidade</label>
+                                <input name='cidade' type='text' id='cidade'>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-md-6'>
+                                <button type='button' id='voltarPara2' value='voltarPara2' onclick='mudarQuadro(this.value)'>Voltar</button>
+                            </div>
+                            <div class='col-md-6'>
+                                <button type='button' id='irPara4' value='irPara4' onclick='mudarQuadro(this.value)'>Avançar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---------------------------------------------------------------------------------------------------------------->
+                <div id="etapa4">
+                    <div class=' container'>
+                        <div class='row'>
+                            <div class='col-md-12'>
+                                <label for='senha'>Insira uma senha</label>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-md-12'>
+                                <input type="password" name="senha" id="senha">
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-md-12'>
+                                <label for='senha'>Confirme a senha</label>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-md-12'>
+                                <input type="password" name="confirmaSenha" id="connfirmaSenha">
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-md-6'>
+                                <button type='button' id='voltarPara3' value='voltarPara3' onclick='mudarQuadro(this.value)'>Voltar</button>
+                            </div>
+                            <div class='col-md-6'>
+                                <button type='submit'>Avançar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---------------------------------------------------------------------------------------------------------------->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
