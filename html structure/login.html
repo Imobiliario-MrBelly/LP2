@@ -7,19 +7,39 @@
     <link rel="icon" href="../Design/Fav icon.svg" type="image/svg" />
     <title>Login - MR. Belly</title>
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
     <script src="./js/main.js"></script>
 </head>
 
 <body>
-    <div class="login-screen">
-        <section class="logo">Mr. Belly</section>
+    <div class="login-screen container px-5 pb-5 pt-4">
+
+        <div class="row mb-4 justify-content-center">
+            <div class="justify-content-center">
+                <img src="../html structure/css/img/Logo.png" alt="">
+            </div>
+        </div>
+
         <form action="">
-            <label>E-mail <br><input type="text" name="email" id="senha"></label><br>
-            <label>Senha <br><input type="password" name="senha" id="senha"></label><br>
-            <button type="submit">Entrar</button>
+            <div class="form-group">
+                <label for="email" class="roboto" style="color: #586E80; font-size: 16px;">E-mail </label>
+                <input id="email" class="form form-control" type="email" name="email">
+            </div>
+
+            <div class="form-group mt-3">
+                <label for="senha" class="roboto" style="color: #586E80; font-size: 16px;">Senha </label>
+                <input class="form form-control" type="password" name="email" id="senha">
+            </div>
+
+            <div class="row justify-content-md-center my-3">
+                <button class="btn-full btn m-3" type="submit">Entrar</button>
+            </div>
         </form>
-        <p>Ainda não tem sua conta?</p><br>
-        <button type="button" onclick="abrirPagina('./cadastroLocador.html')">Cadastrar</button>
+        <div class="row ">
+            <p class="roboto my-2 col-auto" style="color: #586E80;">Ainda não tem sua conta?</p>
+            <hr class="col-3 line mt-4">
+        </div>
+        <button class="btn-outline btn" type="button" onclick="abrirPagina('./cadastroLocador.html')">Cadastrar</button>
 
     </div>
 
