@@ -15969,7 +15969,7 @@
 											"top": 236,
 											"width": 150.31884765625,
 											"height": 13,
-											"text": "-localizacao: int",
+											"text": "-localizacao: String",
 											"horizontalAlignment": 0
 										}
 									],
@@ -20381,7 +20381,7 @@
 							},
 							"name": "localizacao",
 							"visibility": "private",
-							"type": "int"
+							"type": "String"
 						}
 					],
 					"operations": [
