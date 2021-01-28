@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+/*Configurações gerais*/
+
+input,
+select,
+button {
+    width: 100%;
+    /*height: 40px !important;*/
+}
+input[type="radio"] {
+    width: 10px;
+    /*margin-right: 15px;*/
+}
+
+body {
+    background-image: url("./img/duotone.svg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.btn-full {
+    border-radius: 8px !important;
+    border: none !important;
+    background-color: #011627 !important;
+    color: #fdfffc !important;
+    font-family: quickBold !important;
+    height: 40px !important;
+}
+.btn-outline {
+    border-radius: 8px !important;
+    border: solid 3px !important;
+    background-color: #fdfffc !important;
+    border-color: #011627 !important;
+    color: #011627 !important;
+    font-family: quickBold;
+    height: 40px !important;
+}
+
+/* Fontes */
+@font-face {
+    font-family: quickBold;
+    src: url("./fonts/Quicksand-Bold.ttf");
+}
+
+@font-face {
+    font-family: quickReg;
+    src: url("./fonts/Quicksand-Regular.ttf");
+}
+
+@font-face {
+    font-family: roboto;
+    src: url("./fonts/Roboto-Regular.ttf");
+}
+.quickBold {
+    font-family: quickBold !important;
+}
+
+.quickReg {
+    font-family: quickReg !important;
+}
+
+.roboto {
+    font-family: roboto !important;
+}
+/*Formulário login*/
+.login-frame {
+    background-color: #fdfffc;
+    border-radius: 8px;
+    width: 25% !important;
+}
+
+.login-frame .logo {
+    text-align: center;
+}
+.login-frame input {
+    background-color: #fdfffc;
+    border: solid 3px;
+    border-radius: 8px;
+}
+
+.line {
+    background-color: #586e80;
+    width: 40%;
+}
+
+@media only screen and (max-width: 720px) {
+}
