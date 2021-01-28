@@ -66,10 +66,16 @@ body {
     font-family: roboto !important;
 }
 /*Formulário login*/
+
+.pegaTudo{
+    display: flex !important;
+    align-items: center !important;
+}
+
 .login-frame {
     background-color: #fdfffc;
     border-radius: 8px;
-    width: 25% !important;
+    margin-top: 140px;
 }
 
 .login-frame .logo {
@@ -79,11 +85,20 @@ body {
     background-color: #fdfffc;
     border: solid 3px;
     border-radius: 8px;
+    border-color: #586E80;
 }
 
-.line {
+.nTemConta{
+    padding-right: 0px !important;
+}
+
+.line{
+    padding-left: 0px !important;
+}
+
+.line hr{
     background-color: #586e80;
-    width: 40%;
+    width: 100%;
 }
 
 @media only screen and (max-width: 720px) {
