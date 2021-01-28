@@ -133,7 +133,7 @@ select{
     height: 40px !important;
 }
 
-select::after::before{
+select{
     background-color: #fdfffc;
     border: solid 3px;
     border-radius: 8px;
@@ -141,4 +141,16 @@ select::after::before{
     height: 40px !important;
 }
 
+input[type="radio"] + label{
 
+    font-family: roboto;
+    color: #586E80;
+}
+
+.botoesCadastro1{
+    margin-top: 134px !important;
+}
+
+.botoesCadastro2{
+    margin-top: 92px !important;
+}

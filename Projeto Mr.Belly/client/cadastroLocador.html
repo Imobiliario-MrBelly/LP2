@@ -17,8 +17,8 @@
 <body>
     <div class='container-fluid h-100'>
         <div class='row justify-content-end geral'>
-            <div class='col-md-5 py-5 px-4' style='background-color: #fdfffc;'>
-                <div class='container  '>
+            <div class='col-md-4 py-4 px-4' style='background-color: #fdfffc;'>
+                <div class='container'>
                     <div class='row justify-content-between'>
                         <div class='col-md-3'>
                             <h2 class="quickBold cadastroLocador">CADASTRO</h2>
@@ -28,15 +28,16 @@
                             <img src="../client/css/img/monograma.png" alt="">
                         </div>
                     </div>
-                    <div class="row">
-                        <P class="roboto">Olá, bem vindo ao Mr. Belly!</P>
-                        <p class="roboto">Para se cadastrar, precisamos que nos dê algumas informações essenciais, vamos lá!?</p>
-                    </div>
+
                 </div>
                 <!---------------------------------------------------------------------------------------------------------------->
                 <div id='etapa1'>
-                    <div class='container'>
-                        <div class='row mt-3'>
+                    <div class='container mt-4'>
+                        <div class="row mt-5 mb-5">
+                            <P class="roboto" style="font-weight: bold;">Olá, bem vindo ao Mr. Belly!</P>
+                            <p class="roboto" style="font-weight: bold;">Para se cadastrar, precisamos que nos dê algumas informações essenciais, vamos lá!?</p>
+                        </div>
+                        <div class='row'>
                             <div class='col-md-12'>
                                 <label class="roboto" style="color: #586E80;" for='nome'>Nome</label>
                             </div>
@@ -77,19 +78,19 @@
                                 </select>
                             </div>
                         </div>
-                        <div class='row mb-5 mt-3 '>
-                            <div class='col-md-6'>
-                                <input type='radio' name='tipoPessoa' id='pessoaFisica' value='fisica' onclick='tipo(this.value)'><label for='fisica'> Pessoa Fisica</label>
+                        <div class='row mt-4 mb-5 mx-1'>
+                            <div class='row col-md-6 align-items-center'>
+                                <input class="col-4" type='radio' name='tipoPessoa' id='pessoaFisica' value='fisica' onclick='tipo(this.value)'><label class="col-8" for='fisica'> Pessoa Fisica</label>
                             </div>
-                            <div class='col-md-6'>
-                                <input type='radio' name='tipoPessoa' id='pessoaJuridica' value='juridica' onclick='tipo(this.value)'><label for='juridica'> Pessoa Jurídica</label>
+                            <div class='row col-md-6 align-items-center'>
+                                <input class="col-3" type='radio' name='tipoPessoa' id='pessoaJuridica' value='juridica' onclick='tipo(this.value)'><label class="col-9" for='juridica'> Pessoa Jurídica</label>
                             </div>
                         </div>
-                        <div class='row mt-5 justify-content-between'>
-                            <div class='col-md-5'>
+                        <div class='botoesCadastro1 row mt-5 justify-content-between align-content-bottom'>
+                            <div class='col-md-6'>
                                 <button class="btn-outline" type='button' id='voltar' onclick='abrirPagina("./login.html")'>Voltar</button>
                             </div>
-                            <div class='col-md-5 '>
+                            <div class='col-md-6'>
                                 <button class="btn-full" type='button' id='irPara2' value='irPara2' onclick='mudarQuadro(this.value)'>Próximo</button>
                             </div>
 
@@ -99,43 +100,47 @@
                 <!---------------------------------------------------------------------------------------------------------------->
                 <div id='etapa2'>
                     <div class='container'>
+                        <div class="row mt-5 mb-4">
+                            <P class="roboto" style="font-weight: bold;">Estamos quase lá!</P>
+                            <p class="roboto" style="font-weight: bold;">Agora precisamos de algumas informações sobre você.</p>
+                        </div>
                         <div id='quadroPessoaFisica'>
-                            <div class='row'>
+                            <div class='row mb-4'>
                                 <div class='col-md-12'>
-                                    <label for='sobrenome'>Sobrenome</label>
+                                    <label class="roboto" style="color: #586E80;" for='sobrenome'>Sobrenome</label>
                                 </div>
                                 <div class='col-md-12'>
                                     <input type='text' name='sobrenome' id='sobrenome'>
                                 </div>
                             </div>
-                            <div class='row'>
+                            <div class='row mb-4'>
                                 <div class='col-md-12'>
-                                    <label for='cpf'>CPF</label>
+                                    <label class="roboto" style="color: #586E80;" for='cpf'>CPF</label>
                                 </div>
                                 <div class='col-md-12'>
                                     <input type='text' name='cpf' id='cpf'>
                                 </div>
                             </div>
-                            <div class='row'>
+                            <div class='row mb-4'>
                                 <div class='col-md-12'>
-                                    <label for='rg'>RG</label>
+                                    <label class="roboto" style="color: #586E80;" for='rg'>RG</label>
                                 </div>
                                 <div class='col-md-12'>
                                     <input type='text' name='rg' id='rg'>
                                 </div>
                             </div>
-                            <div class='row'>
-                                <div class='col-md-12'><label for='nascimento'>Data de Nascimento</label></div>
+                            <div class='row mb-4'>
+                                <div class='col-md-12'><label class="roboto" style="color: #586E80;" for='nascimento'>Data de Nascimento</label></div>
                                 <div class='col-md-12'>
-                                    <input type='date' name='nascimento' id='nascimento'>
+                                    <input class="px-2" type='date' name='nascimento' id='nascimento'>
                                 </div>
                             </div>
-                            <div class='row'>
-                                <div class='col-md-6'>
-                                    <input type='radio' name='sexo' id='masculino' value='M'><label for='masculino'> Masculino</label>
+                            <div class='row mt-2 mx-1'>
+                                <div class='col-md-6 row align-items-center'>
+                                    <input class="col-2" type='radio' name='sexo' id='masculino' value='M'><label class="col-10" for='masculino'> Masculino</label>
                                 </div>
-                                <div class='col-md-6'>
-                                    <input type='radio' name='sexo' id='feminino' value='F'><label for='feminino'> Feminino</label>
+                                <div class='row col-md-6 align-items-center'>
+                                    <input class="col-2" type='radio' name='sexo' id='feminino' value='F'><label class="col-2" for='feminino'> Feminino</label>
                                 </div>
                             </div>
                         </div>
@@ -231,12 +236,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class='row'>
-                            <div class='col-md-6'>
-                                <button type='button' id='voltarPara1' value='voltarPara1' onclick='mudarQuadro(this.value)'>Voltar</button>
+                        <div class='botoesCadastro2 row justify-content-between '>
+                            <div class='col-md-6 '>
+                                <button class="btn-outline" type='button' id='voltarPara1' value='voltarPara1' onclick='mudarQuadro(this.value)'>Voltar</button>
                             </div>
                             <div class='col-md-6'>
-                                <button type='button' id='irPara3' value='irPara3' onclick='mudarQuadro(this.value)'>Avançar</button>
+                                <button class="btn-full" type='button' id='irPara3' value='irPara3' onclick='mudarQuadro(this.value)'>Próximo</button>
                             </div>
                         </div>
                     </div>
