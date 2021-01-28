@@ -8,4 +8,4 @@
 # Diagrama de Classes
 ![img diagrama de classes](https://github.com/Imobiliario-MrBelly/LP2/blob/main/Documentation/Diagrams/ClassDiagram.jpg)
 # Diagrama de Casos de Uso
-![img diagrama de casos de uso](https://github.com/Systems-NanneR/LP/blob/main/Documentation/UseCaseDiagram.jpg)
+![img diagrama de casos de uso](https://github.com/Imobiliario-MrBelly/LP2/blob/main/Documentation/Diagrams/UseCaseDiagram.jpg)
