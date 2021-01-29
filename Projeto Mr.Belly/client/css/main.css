@@ -24,7 +24,7 @@ input[type="radio"] {
     /*margin-right: 15px;*/
 }
 
-body {
+.img-background {
     background-image: url("./img/duotone.svg");
     background-repeat: no-repeat;
     background-size: 100%;
@@ -153,4 +153,8 @@ input[type="radio"] + label{
 
 .botoesCadastro2{
     margin-top: 92px !important;
+}
+/* Menu */
+iframe{
+    width: 100%;
 }
