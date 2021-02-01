@@ -1209,7 +1209,7 @@
 											"top": 254.5,
 											"width": 109,
 											"height": 13,
-											"text": "CRUD Locatário"
+											"text": "Editar Cadastro"
 										},
 										{
 											"_type": "LabelView",
@@ -2989,9 +2989,9 @@
 											},
 											"font": "Arial;13;1",
 											"left": 831,
-											"top": 480.5,
+											"top": 474,
 											"width": 115,
-											"height": 26,
+											"height": 39,
 											"text": "Solicitar Renovação Contrato",
 											"wordWrap": true
 										},
@@ -3023,9 +3023,9 @@
 									],
 									"font": "Arial;13;0",
 									"left": 826,
-									"top": 473.5,
+									"top": 467,
 									"width": 125,
-									"height": 38,
+									"height": 51,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF2+GNvNklYVTY="
 									},
@@ -5161,10 +5161,10 @@
 											},
 											"font": "Arial;13;1",
 											"left": 341,
-											"top": 88,
+											"top": 94.5,
 											"width": 103,
-											"height": 26,
-											"text": "Cadastrar Locatário",
+											"height": 13,
+											"text": "CRUD Locatário",
 											"wordWrap": true
 										},
 										{
@@ -5197,9 +5197,9 @@
 									],
 									"font": "Arial;13;0",
 									"left": 336,
-									"top": 81,
+									"top": 87.5,
 									"width": 113,
-									"height": 38,
+									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF3FnA0t8NGnco="
 									},
@@ -5861,7 +5861,7 @@
 									"font": "Arial;13;0",
 									"left": 540,
 									"top": 132.5,
-									"width": 95,
+									"width": 95.97265625,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF3IjnXsJO0A2o="
@@ -6149,7 +6149,7 @@
 									"font": "Arial;13;0",
 									"left": 1043,
 									"top": 276.5,
-									"width": 89,
+									"width": 90.18359375,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF3IkNor5q0d8k="
@@ -7091,7 +7091,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "CRUD Locatário"
+					"name": "Editar Cadastro"
 				},
 				{
 					"_type": "UMLUseCase",
@@ -7357,7 +7357,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Cadastrar Locatário"
+					"name": "CRUD Locatário"
 				},
 				{
 					"_type": "UMLUseCase",
