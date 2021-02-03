@@ -3,6 +3,10 @@
     margin: 0;
     padding: 0;
 }
+
+html{
+    height: 100% !important;
+}
 /*Configurações gerais*/
 
 input,
@@ -28,6 +32,10 @@ body {
     background-image: url("./img/duotone.svg");
     background-repeat: no-repeat;
     background-size: 100%;
+    height: 100% !important;
+}
+.geral{
+    height: 100% !important;
 }
 .btn-full {
     border-radius: 8px !important;
@@ -154,3 +162,4 @@ input[type="radio"] + label{
 .botoesCadastro2{
     margin-top: 92px !important;
 }
+
