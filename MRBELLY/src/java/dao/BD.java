@@ -18,13 +18,14 @@ public class BD {
         return instancia;
     }
 
-    public void getConexao() throws SQLException {
-
-        try (Connection conexao = DriverManager.getConnection("jdbc:mysql:sql5.freesqldatabase.com", "sql5391594", "TtMDfIzTer")) {
-            System.out.println("Conectado!");
-        }
+    public Connection getConexao() throws SQLException, ClassNotFoundException {
+        Connection conexao = null;
+        Class.forName("com.mysql.jdbc.Driver");
+        conexao = DriverManager.getConnection("jdbc:mysql:sql5.freesqldatabase.com", "sql5391594", "TtMDfIzTer");
+        return conexao;
+        
     }
-    public static void main(String [] args) throws SQLException{ 
+    public static void main(String [] args) throws SQLException, ClassNotFoundException{ 
     
    BD a=new BD();
    a.getConexao();
