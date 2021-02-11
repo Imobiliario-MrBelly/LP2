@@ -12,10 +12,6 @@ START TRANSACTION;
 SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Banco de dados: `mrbelly`
@@ -35,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `apartamento` (
   `residencial` int NOT NULL,
   PRIMARY KEY (`idAPARTAMENTO`),
   KEY `fk_APARTAMENTO_RESIDENCIAL1_idx` (`residencial`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -52,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `banco` (
   `locador` varchar(45) NOT NULL,
   PRIMARY KEY (`idtable1`),
   KEY `fk_BANCO_LOCADOR1_idx` (`locador`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -68,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `casa` (
   `residencial` int NOT NULL,
   PRIMARY KEY (`idcasa`),
   KEY `fk_casa_RESIDENCIAL1_idx` (`residencial`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -84,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `comercial` (
   `imovel` int NOT NULL,
   PRIMARY KEY (`idcomercial`),
   KEY `fk_comercial_IMOVEL_idx` (`imovel`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -105,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `contrato` (
   KEY `fk_CONTRATO_PESSOA1_idx` (`fiador`),
   KEY `fk_CONTRATO_LOCATARIO1_idx` (`locatario`),
   KEY `fk_CONTRATO_IMOVEL1_idx` (`imovel`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -124,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `endereco` (
   `numero` varchar(45) NOT NULL,
   `complemento` varchar(45) NOT NULL,
   PRIMARY KEY (`idtable1`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -140,7 +136,7 @@ CREATE TABLE IF NOT EXISTS `garagem` (
   `imovel` int NOT NULL,
   PRIMARY KEY (`idGARAGEM`),
   KEY `fk_GARAGEM_IMOVEL1_idx` (`imovel`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -161,7 +157,7 @@ CREATE TABLE IF NOT EXISTS `imovel` (
   PRIMARY KEY (`idIMOVEL`),
   KEY `fk_IMOVEL_ENDERECO1_idx` (`endereco`),
   KEY `fk_IMOVEL_LOCADOR1_idx` (`locador`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -179,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `locador` (
   KEY `fk_LOCADOR_ENDERECO1_idx` (`endereco`),
   KEY `fk_LOCADOR_LOGIN1_idx` (`login`),
   KEY `fk_LOCADOR_PESSOA1_idx` (`pessoa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -195,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `locatario` (
   PRIMARY KEY (`id`),
   KEY `fk_LOCATARIO_LOGIN1_idx` (`login`),
   KEY `fk_LOCATARIO_PESSOA1_idx` (`pessoa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -211,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `login` (
   `status` tinyint NOT NULL,
   `flag` int NOT NULL,
   PRIMARY KEY (`idLOGIN`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -234,7 +230,7 @@ CREATE TABLE IF NOT EXISTS `mensalidade` (
   PRIMARY KEY (`idmensalidade`),
   KEY `fk_mensalidade_CONTRATO1_idx` (`contrato`),
   KEY `fk_mensalidade_BANCO1_idx` (`banco`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -249,7 +245,7 @@ CREATE TABLE IF NOT EXISTS `pessoa` (
   `dataCadastro` date NOT NULL,
   `flag` int NOT NULL,
   PRIMARY KEY (`idPESSOA`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -268,7 +264,7 @@ CREATE TABLE IF NOT EXISTS `pes_fis` (
   `pessoa` int NOT NULL,
   PRIMARY KEY (`idPES_FIS`),
   KEY `fk_PES_FIS_PESSOA1_idx` (`pessoa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -286,7 +282,7 @@ CREATE TABLE IF NOT EXISTS `pes_jur` (
   PRIMARY KEY (`idPES_FIS`),
   KEY `fk_PES_FIS_PESSOA1_idx` (`pessoa`),
   KEY `fk_PES_JUR_PES_FIS1_idx` (`representante`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -305,7 +301,7 @@ CREATE TABLE IF NOT EXISTS `residencial` (
   `imovel` int NOT NULL,
   PRIMARY KEY (`idRESIDENCIAL`),
   KEY `fk_RESIDENCIAL_IMOVEL1_idx` (`imovel`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 -- --------------------------------------------------------
 
@@ -322,7 +318,7 @@ CREATE TABLE IF NOT EXISTS `telefone` (
   `pessoa` int NOT NULL,
   PRIMARY KEY (`idTELEFONE`),
   KEY `fk_TELEFONE_PESSOA1_idx` (`pessoa`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 --
 -- Restrições para despejos de tabelas
