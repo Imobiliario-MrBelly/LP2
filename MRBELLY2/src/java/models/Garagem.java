@@ -3,20 +3,20 @@ package models;
 public class Garagem extends Imovel{
     private int tamanho;
     private boolean coberturaChuva;
-    private int localizacao;
+    private String localizacao;
 
-    public Garagem(int tamanho, boolean coberturaChuva, int localizacao, Endereco endereco, double area, String descricao, double condominio, double iptu) {
+    public Garagem(int tamanho, boolean coberturaChuva, String localizacao, Endereco endereco, double area, String descricao, double condominio, double iptu) {
         super(endereco, area, descricao, condominio, iptu);
         this.tamanho = tamanho;
         this.coberturaChuva = coberturaChuva;
         this.localizacao = localizacao;
     }
 
-    public int getLocalizacao() {
+    public String getLocalizacao() {
         return localizacao;
     }
 
-    public void setLocalizacao(int localizacao) {
+    public void setLocalizacao(String localizacao) {
         this.localizacao = localizacao;
     }
 
@@ -28,7 +28,7 @@ public class Garagem extends Imovel{
         this.tamanho = tamanho;
     }
 
-    public boolean isCoberturaChuva() {
+    public boolean getCoberturaChuva() {
         return coberturaChuva;
     }
 
