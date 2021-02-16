@@ -86,7 +86,7 @@ public class CasaDAO extends DAO {
         }
     }
 
-    public List<Casa> obterEnderecos() throws SQLException, ClassNotFoundException {
+    public List<Casa> obterCasas() throws SQLException, ClassNotFoundException {
         Connection conexao = null;
         PreparedStatement comando = null;
         Casa casa = null;
