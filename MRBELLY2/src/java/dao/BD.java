@@ -25,10 +25,5 @@ public class BD {
         return conexao;
         
     }
-    public static void main(String [] args) throws SQLException, ClassNotFoundException{ 
     
-   BD a=new BD();
-   System.out.println(a.getConexao()); 
-   
-    }
 }
