@@ -36,7 +36,6 @@ public class CasaDAO extends DAO {
     public boolean alterar(Casa casa) throws SQLException, ClassNotFoundException {
         Connection conexao = null;
         PreparedStatement comando = null;
-        String stringSQL;
 
         try {
             conexao = BD.getInstancia().getConexao();
