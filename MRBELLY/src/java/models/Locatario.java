@@ -1,12 +1,28 @@
 package models;
 
 public class Locatario {
+
+    private int id;
     private Pessoa pessoa;
     private Login login;
+
+    public Locatario(int id, Pessoa pessoa, Login login) {
+        this.id = id;
+        this.pessoa = pessoa;
+        this.login = login;
+    }
 
     public Locatario(Pessoa pessoa, Login login) {
         this.pessoa = pessoa;
         this.login = login;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Login getLogin() {

@@ -3,6 +3,8 @@ package models;
 import java.util.Date;
 
 public class Contrato {
+
+    private int id;
     private Date dataInicio;
     private Date dataFim;
     private double valor;
@@ -10,6 +12,17 @@ public class Contrato {
     private Imovel imovel;
     private Locador locador;
     private Locatario locatario;
+
+    public Contrato(int id, Date dataInicio, Date dataFim, double valor, Pessoa fiador, Imovel imovel, Locador locador, Locatario locatario) {
+        this.id = id;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+        this.valor = valor;
+        this.fiador = fiador;
+        this.imovel = imovel;
+        this.locador = locador;
+        this.locatario = locatario;
+    }
 
     public Contrato(Date dataInicio, Date dataFim, double valor, Imovel imovel, Locador locador, Locatario locatario) {
         this.dataInicio = dataInicio;
@@ -28,6 +41,14 @@ public class Contrato {
         this.imovel = imovel;
         this.locador = locador;
         this.locatario = locatario;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Locatario getLocatario() {
