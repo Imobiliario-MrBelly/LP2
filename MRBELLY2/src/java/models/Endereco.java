@@ -1,6 +1,7 @@
 package models;
 
 class Endereco {
+    private int id;
     private String rua;
     private String numero;
     private String cep;
@@ -13,7 +14,26 @@ class Endereco {
         this.cep = cep;
         this.cidade = cidade;
         this.uf = uf;
+        
     }
+
+    public Endereco(int id, String rua, String numero, String cep, String cidade, String uf) {
+        this.id = id;
+        this.rua = rua;
+        this.numero = numero;
+        this.cep = cep;
+        this.cidade = cidade;
+        this.uf = uf;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
 
     public String getUf() {
         return uf;

@@ -1,7 +1,7 @@
 package models;
 
 public abstract class Imovel {
-
+    private int id ;
     private Endereco endereco;
     private double area;
     private String descricao;
@@ -15,6 +15,24 @@ public abstract class Imovel {
         this.condominio = condominio;
         this.iptu = iptu;
     }
+
+    public Imovel(int id, Endereco endereco, double area, String descricao, double condominio, double iptu) {
+        this.id = id;
+        this.endereco = endereco;
+        this.area = area;
+        this.descricao = descricao;
+        this.condominio = condominio;
+        this.iptu = iptu;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
 
     public double getIptu() {
         return iptu;
