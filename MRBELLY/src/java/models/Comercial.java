@@ -2,19 +2,19 @@ package models;
 
 public class Comercial extends Imovel{
     private int vagasGaragem;
-    private boolean sobreLoja;
+    private int sobreLoja;
 
-    public Comercial(int vagasGaragem, boolean sobreLoja, Endereco endereco, double area, String descricao, double condominio, double iptu) {
+    public Comercial(int vagasGaragem, int sobreLoja, Endereco endereco, double area, String descricao, double condominio, double iptu) {
         super(endereco, area, descricao, condominio, iptu);
         this.vagasGaragem = vagasGaragem;
         this.sobreLoja = sobreLoja;
     }
 
-    public boolean isSobreLoja() {
+    public int getSobreLoja() {
         return sobreLoja;
     }
 
-    public void setSobreLoja(boolean sobreLoja) {
+    public void setSobreLoja(int sobreLoja) {
         this.sobreLoja = sobreLoja;
     }
 
