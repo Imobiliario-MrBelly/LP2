@@ -44,7 +44,7 @@ public class ImovelDAO extends DAO {
     public boolean alterar(Imovel imovel) throws SQLException, ClassNotFoundException {
         Connection conexao = null;
         PreparedStatement comando = null;
-        String stringSQL;
+       
 
         try {
             conexao = BD.getInstancia().getConexao();
@@ -87,7 +87,7 @@ public class ImovelDAO extends DAO {
             ResultSet resultado = comando.executeQuery();
 
             resultado.first();
-            imovel = instaciaImovel(resultado);
+            imovel = instanciaImovel(resultado);
                   
             
         } finally {
@@ -128,7 +128,4 @@ public class ImovelDAO extends DAO {
         return imovel;
     }
 
-    private Imovel instaciaImovel(ResultSet resultado) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }

@@ -1,15 +1,31 @@
 
 package models;
 
-class Login {
+public class Login {
+    private int id;
     private String email;
     private String senha;
     private boolean status;
+
+    public Login(int id, String email, String senha, boolean status) {
+        this.id = id;
+        this.email = email;
+        this.senha = senha;
+        this.status = status;
+    }
 
     public Login(String email, String senha, boolean status) {
         this.email = email;
         this.senha = senha;
         this.status = status;
+    }
+
+    public int getId(){
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public boolean isStatus() {

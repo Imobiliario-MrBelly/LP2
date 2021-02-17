@@ -3,7 +3,15 @@ package models;
 import java.util.Date;
 
 public abstract class Pessoa {
+private int id;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     private int codigo;
     private Telefone telefone;
     private Date dataCadastro;
