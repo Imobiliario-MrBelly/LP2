@@ -1,0 +1,3 @@
+CREATE TABLE pessoa (id int AUTO_INCREMENT PRIMARY KEY, nome VARCHAR(45) NOT NULL,dataCadastro DATE NOT NULL,flag int NOT NULL);
+CREATE TABLE pessoaFisica(id int AUTO_INCREMENT PRIMARY key,sobrenome VARCHAR(45)NOT NULL, rg VARCHAR(45) NOT NULL,nascimento DATE NOT NULL,sexo TINYINT NOT NULL, pessoa int  NOT NULL, FOREIGN KEY(pessoa) REFERENCES pessoa(id));
+CREATE TABLE pessoaJuridica(id int AUTO_INCREMENT)

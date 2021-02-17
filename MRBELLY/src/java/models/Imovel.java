@@ -7,22 +7,33 @@ public abstract class Imovel {
     private String descricao;
     private double condominio;
     private double iptu;
+    private Locador locador;
 
-    public Imovel(Endereco endereco, double area, String descricao, double condominio, double iptu) {
+    public Imovel(Endereco endereco, double area, String descricao, double condominio, double iptu,Locador locador) {
         this.endereco = endereco;
         this.area = area;
         this.descricao = descricao;
         this.condominio = condominio;
         this.iptu = iptu;
+        this.locador=locador;
     }
 
-    public Imovel(int id, Endereco endereco, double area, String descricao, double condominio, double iptu) {
+    public Imovel(int id, Endereco endereco, double area, String descricao, double condominio, double iptu,Locador locador) {
         this.id = id;
         this.endereco = endereco;
         this.area = area;
         this.descricao = descricao;
         this.condominio = condominio;
         this.iptu = iptu;
+         this.locador=locador;
+    }
+
+    public Locador getLocador() {
+        return locador;
+    }
+
+    public void setLocador(Locador locador) {
+        this.locador = locador;
     }
 
     public int getId() {
