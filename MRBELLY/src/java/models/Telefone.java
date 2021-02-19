@@ -1,6 +1,6 @@
 package models;
 
-class Telefone {
+public class Telefone {
 
     private String ddd;
     private String numero;
