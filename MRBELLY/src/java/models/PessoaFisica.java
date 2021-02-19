@@ -9,9 +9,9 @@ public class PessoaFisica extends Pessoa {
     private String rg;
     private String cpf;
     private Date nascimento;
-    private char sexo;
+    private boolean sexo;
 
-    public PessoaFisica(String nome, String sobrenome, String rg, String cpf, Date nascimento, char sexo, int codigo, Telefone telefone, Date dataCadastro) {
+    public PessoaFisica(String nome, String sobrenome, String rg, String cpf, Date nascimento, boolean sexo, int codigo, Telefone telefone, Date dataCadastro) {
         super(codigo, telefone, dataCadastro);
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -61,11 +61,11 @@ public class PessoaFisica extends Pessoa {
         this.nascimento = nascimento;
     }
 
-    public char getSexo() {
+    public boolean getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(boolean sexo) {
         this.sexo = sexo;
     }   
 }
