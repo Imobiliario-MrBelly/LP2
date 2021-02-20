@@ -5,6 +5,9 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 
 import models.Pessoa;
 
@@ -16,31 +19,131 @@ public class PessoaDAO extends DAO {
         return instancia;
     }
     
-    public void gravar(Pessoa pessoa) throws SQLException,ClassNotFoundException, CloneNotSupportedException{
+    public void gravar(Pessoa p) throws SQLException,ClassNotFoundException, CloneNotSupportedException{
         Connection conexao = null;
         PreparedStatement comando = null;
         
         try {
             conexao = BD.getInstancia().getConexao();
             
-            comando  = conexao.prepareStatement("INSERT INTO PESSOA(nome, sobrenome, rg, cpf, nascimento, sexo, telefone, dataCadastro");
+            comando  = conexao.prepareStatement("INSERT INTO PESSOA(nome, sobrenome, rg, cpf, nascimento, sexo, dataCadastro");
             
-            comando.setString(1, pessoa.getNome());
-            comando.setString(2, pessoa.getSobrenome());
-            comando.setString(3, pessoa.getRg());
-            comando.setString(4, pessoa.getCpf());
-            comando.setDate(5, (Date) pessoa.getNascimento());
-            comando.setBoolean(6, pessoa.isSexo());
-            TelefoneDAO.
-            comando.setString(7, pessoa.getTelefone());
-            comando.setDate(8, x);
-            
+            comando.setString(1, p.getNome());
+            comando.setString(2, p.getSobrenome());
+            comando.setString(3, p.getRg());
+            comando.setString(4, p.getCpf());
+            comando.setDate(5, (Date) p.getNascimento());
+            comando.setBoolean(6, p.isSexo());
+            comando.setDate(8, (Date) p.getDataCadastro());
+            comando.executeUpdate();
             
         } finally{
-            
+            fecharConexao(conexao,comando);
         }
     }
     
-    
+    public boolean alterar(Pessoa p) throws SQLException, ClassNotFoundException {
+        Connection conexao = null;
+        PreparedStatement comando = null;
 
+        try {
+            conexao = BD.getInstancia().getConexao();
+            
+            comando = conexao.prepareStatement("UPDATE PESSOA SET nome=?, sobrenome=?,  rg=?, cpf=?, nascimento=?, sexo=?, dataCadastro=? WHERE id=?;");
+            
+            comando.setString(1, p.getNome());
+            comando.setString(2, p.getSobrenome());
+            comando.setString(3, p.getRg());
+            comando.setString(4, p.getCpf());
+            comando.setDate(5, (Date) p.getNascimento());
+            comando.setBoolean(6, p.isSexo());
+            comando.setDate(8, (Date) p.getDataCadastro());
+            
+            return comando.executeUpdate() > 0;
+            
+        } finally {
+            fecharConexao(conexao, comando);
+        }
+    }
+    
+    public boolean excluir(Pessoa p) throws SQLException, ClassNotFoundException {
+        Connection conexao = null;
+        PreparedStatement comando = null;
+
+        try {
+            conexao = BD.getInstancia().getConexao();
+            
+            comando = conexao.prepareStatement("DELETE FROM casa WHERE id=?;");
+            
+            comando.setInt(1, p.getId());
+            return comando.executeUpdate() > 0;
+            
+        } finally {
+            fecharConexao(conexao, comando);
+        }
+    }
+
+    public Pessoa obterPessoa(int id) throws SQLException, ClassNotFoundException {
+        Connection conexao = null;
+        PreparedStatement comando = null;
+        
+        Pessoa p = null;
+        try {
+            conexao = BD.getInstancia().getConexao();
+            
+            comando = conexao.prepareStatement("SELECT * FROM casa WHERE id=?;");
+            
+            comando.setInt(1, id);
+            ResultSet resultado = comando.executeQuery();
+
+            resultado.first();
+            String nome = resultado.getString("nome");
+            String sobrenome = resultado.getString("sobrenome");
+            String rg = resultado.getString("rg");
+            String cpf = resultado.getString("cpf");
+            Date nascimento = resultado.getDate("nascimento");
+            boolean sexo = resultado.getBoolean("sexo");
+            Date datCadastro = resultado.getDate("dataCadastro");
+
+            return p;
+            
+        } finally {
+            fecharConexao(conexao, comando);
+        }
+    }
+        
+        public List<Pessoa> obterPessoa() throws SQLException, ClassNotFoundException {
+        Connection conexao = null;
+        PreparedStatement comando = null;
+        
+        Pessoa p = null;
+        List<Pessoa> pessoas = new ArrayList();
+
+        try {
+            conexao = BD.getInstancia().getConexao();
+            
+            comando = conexao.prepareStatement("SELECT * FROM casa;");
+            
+            ResultSet resultado = comando.executeQuery();
+
+            while (resultado.next()) {
+                
+                int id = resultado.getInt("id");
+                String nome = resultado.getString("nome");
+                String sobrenome = resultado.getString("sobrenome");
+                String rg = resultado.getString("nome");
+                String cpf = resultado.getString("nome");
+                Date nascimento = resultado.getDate("nascimento");
+                boolean sexo = resultado.getBoolean("sexo");
+                Date dataCadastro = resultado.getDate("dataCadastro");
+                pessoas.add(p);
+                
+            }
+            
+            return pessoas;
+            
+        } finally {
+            fecharConexao(conexao, comando);
+        }
+    }
 }
