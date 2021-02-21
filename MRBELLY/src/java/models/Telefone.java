@@ -1,24 +1,25 @@
 package models;
 
-class Telefone {
+public class Telefone {
 
-    private String ddd;
+    private int id;
     private String numero;
     private String descricao;
+    private Pessoa pessoaId;
+
+    public Pessoa getPessoaId() {
+        return pessoaId;
+    }
+
+    public void setPessoaId(Pessoa pessoaId) {
+        this.pessoaId = pessoaId;
+    }
 
     public Telefone(String ddd, String numero, String descricao) {
-        this.ddd = ddd;
         this.numero = numero;
         this.descricao = descricao;
     }
 
-    public String getDdd() {
-        return ddd;
-    }
-
-    public void setDdd(String ddd) {
-        this.ddd = ddd;
-    }
 
     public String getNumero() {
         return numero;
@@ -34,5 +35,13 @@ class Telefone {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

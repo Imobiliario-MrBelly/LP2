@@ -3,7 +3,27 @@ package models;
 import java.util.Date;
 
 public abstract class Pessoa {
-private int id;
+    private int id;
+    private String nome;
+    private String sobrenome;
+    private String rg;
+    private String cpf;
+    private Date nascimento;
+    private boolean sexo;
+    private Telefone telefone;
+    private Date dataCadastro;
+    
+    public Pessoa(int id, String nome, String sobrenome, String rg, String cpf, Date nascimento, boolean sexo, Telefone telefone, Date dataCadastro) {
+        this.id = id;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.rg = rg;
+        this.cpf = cpf;
+        this.nascimento = nascimento;
+        this.sexo = sexo;
+        this.telefone = telefone;
+        this.dataCadastro = dataCadastro;
+    }
 
     public int getId() {
         return id;
@@ -12,22 +32,53 @@ private int id;
     public void setId(int id) {
         this.id = id;
     }
-    private int codigo;
-    private Telefone telefone;
-    private Date dataCadastro;
-    
-    public Pessoa(int codigo, Telefone telefone, Date dataCadastro) {
-        this.codigo = codigo;
-        this.telefone = telefone;
-        this.dataCadastro = dataCadastro;
+
+    public String getNome() {
+        return nome;
     }
 
-    public int getCodigo() {
-        return codigo;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public String getSobrenome() {
+        return sobrenome;
+    }
+
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
+    }
+
+    public String getRg() {
+        return rg;
+    }
+
+    public void setRg(String rg) {
+        this.rg = rg;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public Date getNascimento() {
+        return nascimento;
+    }
+
+    public void setNascimento(Date nascimento) {
+        this.nascimento = nascimento;
+    }
+
+    public boolean isSexo() {
+        return sexo;
+    }
+
+    public void setSexo(boolean sexo) {
+        this.sexo = sexo;
     }
 
     public Telefone getTelefone() {
@@ -45,5 +96,7 @@ private int id;
     public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
+
+
 
 }
