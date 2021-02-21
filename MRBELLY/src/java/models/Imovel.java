@@ -7,26 +7,32 @@ public abstract class Imovel {
     private String descricao;
     private double condominio;
     private double iptu;
+    private int garagem;
     private Locador locador;
 
-    public Imovel(Endereco endereco, double area, String descricao, double condominio, double iptu,Locador locador) {
-        this.endereco = endereco;
-        this.area = area;
-        this.descricao = descricao;
-        this.condominio = condominio;
-        this.iptu = iptu;
-        this.locador=locador;
-    }
-
-    public Imovel(int id, Endereco endereco, double area, String descricao, double condominio, double iptu,Locador locador) {
+    public Imovel(int id, Endereco endereco, double area, String descricao, double condominio, double iptu, int garagem, Locador locador) {
         this.id = id;
         this.endereco = endereco;
         this.area = area;
         this.descricao = descricao;
         this.condominio = condominio;
         this.iptu = iptu;
-         this.locador=locador;
+        this.garagem = garagem;
+        this.locador = locador;
     }
+
+
+    public Imovel(Endereco endereco, double area, String descricao, double condominio, double iptu, int garagem, Locador locador) {
+        this.endereco = endereco;
+        this.area = area;
+        this.descricao = descricao;
+        this.condominio = condominio;
+        this.iptu = iptu;
+        this.garagem = garagem;
+        this.locador = locador;
+    }
+
+    
 
     public Locador getLocador() {
         return locador;
@@ -83,5 +89,13 @@ public abstract class Imovel {
 
     public void setCondominio(double condominio) {
         this.condominio = condominio;
+    }
+    
+    public int getGaragem() {
+        return garagem;
+    }
+
+    public void setGaragem(int garagem) {
+        this.garagem = garagem;
     }
 }

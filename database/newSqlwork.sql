@@ -206,9 +206,9 @@ CREATE TABLE IF NOT EXISTS `mrbelly`.`imovel` (
   `id` INT NOT NULL,
   `tamanho` DOUBLE NOT NULL,
   `descricao` VARCHAR(45) NOT NULL,
+  `garagem` INT NOT NULL,
   `iptu` DOUBLE NOT NULL,
   `condomino` DOUBLE NOT NULL,
-  `flag` INT NOT NULL,
   `endereco` INT NOT NULL,
   `locador` INT NOT NULL,
   PRIMARY KEY (`id`),
@@ -227,109 +227,10 @@ CREATE TABLE IF NOT EXISTS `mrbelly`.`imovel` (
 ;
 
 
--- -----------------------------------------------------
--- Table `mrbelly`.`comercial`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `mrbelly`.`comercial` ;
-
-CREATE TABLE IF NOT EXISTS `mrbelly`.`comercial` (
-  `id` INT NOT NULL,
-  `garagem` INT NULL,
-  `sobreLoja` TINYINT NOT NULL,
-  `imovel` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_comercial_imovel1_idx` (`imovel` ASC) VISIBLE,
-  CONSTRAINT `fk_comercial_imovel1`
-    FOREIGN KEY (`imovel`)
-    REFERENCES `mrbelly`.`imovel` (`id`)
-    
-    ON UPDATE NO ACTION)
-;
 
 
--- -----------------------------------------------------
--- Table `mrbelly`.`garagem`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `mrbelly`.`garagem` ;
-
-CREATE TABLE IF NOT EXISTS `mrbelly`.`garagem` (
-  `id` INT NOT NULL,
-  `tamanho` INT NOT NULL,
-  `cobertura` TINYINT NOT NULL,
-  `localizacao` VARCHAR(45) NOT NULL,
-  `imovel` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_comercial_imovel1_idx` (`imovel` ASC) VISIBLE,
-  CONSTRAINT `fk_comercial_imovel10`
-    FOREIGN KEY (`imovel`)
-    REFERENCES `mrbelly`.`imovel` (`id`)
-    
-    ON UPDATE NO ACTION)
-;
 
 
--- -----------------------------------------------------
--- Table `mrbelly`.`residencial`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `mrbelly`.`residencial` ;
-
-CREATE TABLE IF NOT EXISTS `mrbelly`.`residencial` (
-  `id` INT NOT NULL,
-  `qntQuartos` INT NOT NULL,
-  `qntSalas` INT NOT NULL,
-  `qntCozinhas` INT NOT NULL,
-  `qntBanheiros` INT NOT NULL,
-  `garagem` INT NOT NULL,
-  `flag` INT NOT NULL,
-  `imovel` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_residencial_imovel1_idx` (`imovel` ASC) VISIBLE,
-  CONSTRAINT `fk_residencial_imovel1`
-    FOREIGN KEY (`imovel`)
-    REFERENCES `mrbelly`.`imovel` (`id`)
-    
-    ON UPDATE NO ACTION)
-;
-
-
--- -----------------------------------------------------
--- Table `mrbelly`.`casa`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `mrbelly`.`casa` ;
-
-CREATE TABLE IF NOT EXISTS `mrbelly`.`casa` (
-  `id` INT NOT NULL,
-  `areaCoberta` DOUBLE NOT NULL,
-  `areaDescoberta` DOUBLE NOT NULL,
-  `residencial` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_casa_residencial1_idx` (`residencial` ASC) VISIBLE,
-  CONSTRAINT `fk_casa_residencial1`
-    FOREIGN KEY (`residencial`)
-    REFERENCES `mrbelly`.`residencial` (`id`)
-    
-    ON UPDATE NO ACTION)
-;
-
-
--- -----------------------------------------------------
--- Table `mrbelly`.`apartamento`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `mrbelly`.`apartamento` ;
-
-CREATE TABLE IF NOT EXISTS `mrbelly`.`apartamento` (
-  `idapartamento` INT NOT NULL,
-  `andar` INT NOT NULL,
-  `elevador` TINYINT NOT NULL,
-  `residencial` INT NOT NULL,
-  PRIMARY KEY (`idapartamento`),
-  INDEX `fk_apartamento_residencial1_idx` (`residencial` ASC) VISIBLE,
-  CONSTRAINT `fk_apartamento_residencial1`
-    FOREIGN KEY (`residencial`)
-    REFERENCES `mrbelly`.`residencial` (`id`)
-    
-    ON UPDATE NO ACTION)
-;
 
 
 -- -----------------------------------------------------
