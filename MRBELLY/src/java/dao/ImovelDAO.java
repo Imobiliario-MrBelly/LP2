@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import static jdk.nashorn.internal.runtime.Debug.id;
 import models.Endereco;
 
 import models.Imovel;
@@ -14,7 +13,7 @@ import models.Locador;
 
 public class ImovelDAO extends DAO {
 
-    private static ImovelDAO instancia = new ImovelDAO();
+    private static final ImovelDAO instancia = new ImovelDAO();
 
     public static ImovelDAO getInstancia() {
         return instancia;
@@ -27,14 +26,15 @@ public class ImovelDAO extends DAO {
         try {
             conexao = BD.getInstancia().getConexao();
             comando = conexao.prepareStatement("INSERT INTO imovel (tamanho, "
-                    + "descricao, iptu, condomino, endereco,locador) VALUES "
+                    + "descricao,garagem ,iptu, condomino, endereco,locador) VALUES "
                     + "(?,?,?,?,?,?);");
             comando.setDouble(1, imovel.getArea());
             comando.setString(2, imovel.getDescricao());
-            comando.setDouble(3, imovel.getIptu());
-            comando.setDouble(4, imovel.getCondominio());
-            comando.setInt(5, imovel.getEndereco().getId());
-            comando.setInt(6, imovel.getLocador().getId());
+            comando.setInt(3, imovel.getGaragem());
+            comando.setDouble(4, imovel.getIptu());
+            comando.setDouble(5, imovel.getCondominio());
+            comando.setInt(6, imovel.getEndereco().getId());
+            comando.setInt(7, imovel.getLocador().getId());
             comando.executeUpdate();
         } finally {
             fecharConexao(conexao, comando);
@@ -48,14 +48,15 @@ public class ImovelDAO extends DAO {
 
         try {
             conexao = BD.getInstancia().getConexao();
-            comando = conexao.prepareStatement("UPDATE imovel SET tamanho=?, descricao=?, iptu=?, condominio=?, endereco=? ,locador=? WHERE id=?;");
+            comando = conexao.prepareStatement("UPDATE imovel SET tamanho=?, descricao=?, iptu=?, condominio=?, endereco=? ,locador=?,garagem=? WHERE id=?;");
             comando.setDouble(1, imovel.getArea());
             comando.setString(2, imovel.getDescricao());
             comando.setDouble(3, imovel.getIptu());
             comando.setDouble(4, imovel.getCondominio());
             comando.setInt(5, imovel.getEndereco().getId());
             comando.setInt(6, imovel.getLocador().getId());
-            comando.setInt(7, imovel.getId());
+            comando.setInt(7, imovel.getGaragem());
+            comando.setInt(8, imovel.getId());
             return comando.executeUpdate() > 0;
         } finally {
             fecharConexao(conexao, comando);
@@ -119,12 +120,15 @@ public class ImovelDAO extends DAO {
     public Imovel instanciaImovel(ResultSet resultado) throws SQLException, ClassNotFoundException{
          double iptu=resultado.getDouble("iptu");
          int id = resultado.getInt("id");
+         int garagem = resultado.getInt("garagem");
             double condominio=resultado.getDouble("condominio");
             double area=resultado.getDouble("tamanho");
             String descricao=resultado.getNString("descricao");
             Endereco endereco = EnderecoDAO.getInstancia().obterEndereco(resultado.getInt("endereco"));
             Locador locador = LocadorDAO.getInstancia().obterLocador(resultado.getInt("locador"));
-            Imovel imovel = new Imovel(id, endereco, area, descricao, condominio, iptu, locador);   
+            Imovel imovel = new Imovel(id, endereco, area, descricao, condominio, iptu, garagem, locador) {
+            }
+            
         return imovel;
     }
 
