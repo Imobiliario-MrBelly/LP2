@@ -15,7 +15,7 @@ public class PessoaDAO extends DAO {
     
     static private PessoaDAO instancia = new PessoaDAO();
     
-    static PessoaDAO getInstancia(){
+    public static PessoaDAO getInstancia(){
         return instancia;
     }
     
