@@ -1,8 +1,13 @@
 package models;
 
+import dao.PessoaDAO;
+import java.sql.SQLException;
 import java.util.Date;
+import java.util.List;
 
 public abstract class Pessoa {
+
+   
     private int id;
     private String nome;
     private String sobrenome;
@@ -97,6 +102,8 @@ public abstract class Pessoa {
         this.dataCadastro = dataCadastro;
     }
 
-
+public  static List<Pessoa> obterPessoas() throws SQLException, ClassNotFoundException{
+    return PessoaDAO.getInstancia().obterPessoa();
+}
 
 }
