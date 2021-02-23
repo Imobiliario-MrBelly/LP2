@@ -1,5 +1,9 @@
 package models;
 
+import dao.LocatarioDAO;
+import java.sql.SQLException;
+import java.util.List;
+
 public class Locatario {
 
     private int id;
@@ -40,4 +44,7 @@ public class Locatario {
     public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
     }
+public static List<Locatario> obterLocatario() throws SQLException, ClassNotFoundException{
+    return LocatarioDAO.getInstancia().obterLocatarios();
+} 
 }

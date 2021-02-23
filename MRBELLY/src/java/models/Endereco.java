@@ -1,5 +1,9 @@
 package models;
 
+import dao.EnderecoDAO;
+import java.sql.SQLException;
+import java.util.List;
+
 public class Endereco {
     private int id;
     private String rua;
@@ -74,5 +78,7 @@ public class Endereco {
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
-    
+    public static List<Endereco> obterEnderecos() throws ClassNotFoundException, SQLException{
+        return EnderecoDAO.getInstancia().obterEnderecos();
+    }
 }

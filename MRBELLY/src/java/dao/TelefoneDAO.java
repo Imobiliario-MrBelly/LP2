@@ -14,9 +14,11 @@ public class TelefoneDAO extends DAO{
     
     static private TelefoneDAO instancia = new TelefoneDAO();
     
-    static TelefoneDAO getInstacia(){
+    static public TelefoneDAO getInstacia(){
         return instancia;
     }
+
+  
     
     public void gravar(Telefone telefone) throws SQLException,ClassNotFoundException, CloneNotSupportedException{
         Connection conexao = null;

@@ -1,5 +1,9 @@
 package models;
 
+import dao.TelefoneDAO;
+import java.sql.SQLException;
+import java.util.List;
+
 public class Telefone {
 
     private int id;
@@ -44,4 +48,6 @@ public class Telefone {
     public void setId(int id) {
         this.id = id;
     }
-}
+public static List<Telefone> obterTelefones() throws SQLException, ClassNotFoundException{
+    return TelefoneDAO.getInstacia().obterPessoa();
+}}

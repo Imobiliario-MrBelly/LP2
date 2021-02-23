@@ -1,5 +1,6 @@
 package models;
 
+import dao.ParcelasDAO;
 import java.util.Date;
 
 public class Parcelas {
@@ -56,6 +57,8 @@ public class Parcelas {
     public void setAgencia(String agencia) {
         this.agencia = agencia;
     }
-   
+   public static List<Parcelas> obterParcelas(){
+       return ParcelasDAO.getInstancia().obterParcelas();
+   }
    
 }

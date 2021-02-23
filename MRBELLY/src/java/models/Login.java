@@ -1,6 +1,10 @@
 
 package models;
 
+import dao.LoginDAO;
+import java.sql.SQLException;
+import java.util.List;
+
 public class Login {
     private int id;
     private String email;
@@ -51,4 +55,7 @@ public class Login {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+public static List<Login> obterLogin() throws SQLException, ClassNotFoundException{
+    return LoginDAO.getInstancia().obterLogins();
+}
 }

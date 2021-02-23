@@ -14,7 +14,7 @@ import models.Pessoa;
 public class LoginDAO extends DAO{
 
     static private LoginDAO instancia = new LoginDAO();
-    static LoginDAO getInstancia() {
+    public static LoginDAO getInstancia() {
        return instancia;
     }
 

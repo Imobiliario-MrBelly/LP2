@@ -7,6 +7,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,17 +31,14 @@ public class pesquisaTelefone extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet pesquisaTelefone</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet pesquisaTelefone at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        try  {
+            request.setAttribute("Telefones", Telefone.obterTelefones());
+            RequestDispatcher view = request.getRequestDispatcher("/pesquisaTelefone.jsp");
+            view.forward(request,response);
+        } catch (SQLException ex) {
+           throw new ServletException(ex);
+        } catch (ClassNotFoundException ex) {
+           throw new ServletException(ex);
         }
     }
 

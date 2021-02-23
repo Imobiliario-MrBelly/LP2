@@ -1,6 +1,10 @@
 
 package models;
 
+import dao.LocadorDAO;
+import java.sql.SQLException;
+import java.util.List;
+
 public class Locador {
     private int id;
     private Pessoa pessoa;
@@ -51,4 +55,7 @@ public class Locador {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
+public static List<Locador> obterLocadores() throws SQLException, ClassNotFoundException{
+    return LocadorDAO.getInstancia().obterLocadores();
+}
 }
