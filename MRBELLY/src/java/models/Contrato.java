@@ -1,6 +1,9 @@
 package models;
 
+import dao.ContratoDAO;
+import java.sql.SQLException;
 import java.util.Date;
+import java.util.List;
 
 public class Contrato {
 
@@ -105,5 +108,8 @@ public class Contrato {
 
     public void setLocador(Locador locador) {
         this.locador = locador;
+    }
+    public static List<Contrato> obterContratos() throws SQLException, ClassNotFoundException{
+        return ContratoDAO.getInstancia().obterContratos();
     }
 }
