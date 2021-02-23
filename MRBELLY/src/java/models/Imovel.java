@@ -1,6 +1,14 @@
 package models;
 
+import dao.ImovelDAO;
+import java.sql.SQLException;
+import java.util.List;
+
 public abstract class Imovel {
+
+    public static List<Imovel> obterImoveis() throws SQLException, ClassNotFoundException {
+      return ImovelDAO.getInstancia().obterImoveis();
+    }
     private int id ;
     private Endereco endereco;
     private double area;
