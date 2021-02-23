@@ -8,6 +8,34 @@
         <servlet-name>pesquisaCliente</servlet-name>
         <servlet-class>controller.pesquisaPessoa</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>pesquisaContrato</servlet-name>
+        <servlet-class>controller.pesquisaContrato</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>pesquisaEndereco</servlet-name>
+        <servlet-class>controller.pesquisaEndereco</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>pesquisaLocador</servlet-name>
+        <servlet-class>controller.pesquisaLocador</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>pesquisaLocatario</servlet-name>
+        <servlet-class>controller.pesquisaLocatario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>pesquisaLogin</servlet-name>
+        <servlet-class>controller.pesquisaLogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>pesquisaParcelas</servlet-name>
+        <servlet-class>controller.pesquisaParcelas</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>pesquisaTelefone</servlet-name>
+        <servlet-class>controller.pesquisaTelefone</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>pesquisaImovel</servlet-name>
         <url-pattern>/pesquisaImovel</url-pattern>
@@ -15,6 +43,34 @@
     <servlet-mapping>
         <servlet-name>pesquisaCliente</servlet-name>
         <url-pattern>/pesquisaCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pesquisaContrato</servlet-name>
+        <url-pattern>/pesquisaContrato</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pesquisaEndereco</servlet-name>
+        <url-pattern>/pesquisaEndereco</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pesquisaLocador</servlet-name>
+        <url-pattern>/pesquisaLocador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pesquisaLocatario</servlet-name>
+        <url-pattern>/pesquisaLocatario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pesquisaLogin</servlet-name>
+        <url-pattern>/pesquisaLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pesquisaParcelas</servlet-name>
+        <url-pattern>/pesquisaParcelas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pesquisaTelefone</servlet-name>
+        <url-pattern>/pesquisaTelefone</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
