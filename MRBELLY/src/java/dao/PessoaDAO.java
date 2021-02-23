@@ -19,14 +19,16 @@ public class PessoaDAO extends DAO {
         return instancia;
     }
     
-    public void gravar(Pessoa p) throws SQLException,ClassNotFoundException, CloneNotSupportedException{
+    public void gravar(Pessoa p) throws SQLException,ClassNotFoundException,
+            CloneNotSupportedException{
         Connection conexao = null;
         PreparedStatement comando = null;
         
         try {
             conexao = BD.getInstancia().getConexao();
             
-            comando  = conexao.prepareStatement("INSERT INTO PESSOA(nome, sobrenome, rg, cpf, nascimento, sexo, dataCadastro");
+            comando  = conexao.prepareStatement("INSERT INTO PESSOA(nome, sobrenome, "
+                    + "rg, cpf, nascimento, sexo, dataCadastro");
             
             comando.setString(1, p.getNome());
             comando.setString(2, p.getSobrenome());
