@@ -14,6 +14,10 @@ DROP TABLE IF EXISTS `mrbelly`.`pessoa` ;
 CREATE TABLE IF NOT EXISTS `mrbelly`.`pessoa` (
   `id` INT NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
+  `sobrenome` VARCHAR(45) NOT NULL,
+  `rg` VARCHAR(45) NOT NULL,
+  `nascimento` DATE NOT NULL,
+  `sexo` TINYINT NOT NULL,
   `dataCadastro` DATE NOT NULL,
   `flag` INT NOT NULL,
   PRIMARY KEY (`id`))
@@ -42,50 +46,11 @@ CREATE TABLE IF NOT EXISTS `mrbelly`.`telefone` (
 -- -----------------------------------------------------
 -- Table `mrbelly`.`pessoaFisica`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mrbelly`.`pessoaFisica` ;
-
-CREATE TABLE IF NOT EXISTS `mrbelly`.`pessoaFisica` (
-  `id` INT NOT NULL,
-  `sobrenome` VARCHAR(45) NOT NULL,
-  `rg` VARCHAR(45) NOT NULL,
-  `nascimento` DATE NOT NULL,
-  `sexo` TINYINT NOT NULL,
-  `pessoa` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_pessoaFisica_pessoa1_idx` (`pessoa` ASC) VISIBLE,
-  CONSTRAINT `fk_pessoaFisica_pessoa1`
-    FOREIGN KEY (`pessoa`)
-    REFERENCES `mrbelly`.`pessoa` (`id`)
-    )
-;
 
 
 -- -----------------------------------------------------
 -- Table `mrbelly`.`pessoaJuridica`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `mrbelly`.`pessoaJuridica` ;
 
-CREATE TABLE IF NOT EXISTS `mrbelly`.`pessoaJuridica` (
-  `id` INT NOT NULL,
-  `cnpj` VARCHAR(45) NOT NULL,
-  `razaoSocial` VARCHAR(45) NOT NULL,
-  `sexo` TINYINT NOT NULL,
-  `pessoa` INT NOT NULL,
-  `pessoaFisica` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_pessoaFisica_pessoa1_idx` (`pessoa` ASC) VISIBLE,
-  INDEX `fk_pessoaJuridica_pessoaFisica1_idx` (`pessoaFisica` ASC) VISIBLE,
-  CONSTRAINT `fk_pessoaFisica_pessoa10`
-    FOREIGN KEY (`pessoa`)
-    REFERENCES `mrbelly`.`pessoa` (`id`)
-    
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_pessoaJuridica_pessoaFisica1`
-    FOREIGN KEY (`pessoaFisica`)
-    REFERENCES `mrbelly`.`pessoaFisica` (`id`)
-    
-    ON UPDATE NO ACTION)
-;
 
 
 -- -----------------------------------------------------
