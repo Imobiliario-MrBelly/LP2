@@ -126,7 +126,7 @@ public class ImovelDAO extends DAO {
             String descricao=resultado.getNString("descricao");
             Endereco endereco = EnderecoDAO.getInstancia().obterEndereco(resultado.getInt("endereco"));
             Locador locador = LocadorDAO.getInstancia().obterLocador(resultado.getInt("locador"));
-            Imovel imovel = new Imovel(id, endereco, area, descricao, condominio, iptu, garagem, locador) {
+            Imovel imovel = new Imovel(id, endereco, area, descricao, condominio, iptu, garagem, locador) {}; {
             }
             
         return imovel;
