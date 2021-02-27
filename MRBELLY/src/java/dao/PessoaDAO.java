@@ -28,7 +28,7 @@ public class PessoaDAO extends DAO {
             conexao = BD.getInstancia().getConexao();
             
             comando  = conexao.prepareStatement("INSERT INTO PESSOA(nome, sobrenome, "
-                    + "rg, cpf, nascimento, sexo, dataCadastro");
+                    + "rg, cpf, nascimento, sexo, dataCadastro) VALUES (?,?,?,?,?);");
             
             comando.setString(1, p.getNome());
             comando.setString(2, p.getSobrenome());
@@ -75,7 +75,7 @@ public class PessoaDAO extends DAO {
         try {
             conexao = BD.getInstancia().getConexao();
             
-            comando = conexao.prepareStatement("DELETE FROM casa WHERE id=?;");
+            comando = conexao.prepareStatement("DELETE FROM PESSOA WHERE id=?;");
             
             comando.setInt(1, p.getId());
             return comando.executeUpdate() > 0;
@@ -93,7 +93,7 @@ public class PessoaDAO extends DAO {
         try {
             conexao = BD.getInstancia().getConexao();
             
-            comando = conexao.prepareStatement("SELECT * FROM casa WHERE id=?;");
+            comando = conexao.prepareStatement("SELECT * FROM PESSOA WHERE id=?;");
             
             comando.setInt(1, id);
             ResultSet resultado = comando.executeQuery();
@@ -124,7 +124,7 @@ public class PessoaDAO extends DAO {
         try {
             conexao = BD.getInstancia().getConexao();
             
-            comando = conexao.prepareStatement("SELECT * FROM casa;");
+            comando = conexao.prepareStatement("SELECT * FROM PESSOA;");
             
             ResultSet resultado = comando.executeQuery();
 
