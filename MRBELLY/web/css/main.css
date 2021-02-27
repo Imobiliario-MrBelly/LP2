@@ -226,11 +226,12 @@ input[type="radio"] + label{
 
   /*Content*/
   .conteudo{
+   
     position: absolute;
     background-color: #fdfffc;
-    right: 53px;
+    right: 11px;
     top: 127px;
-    width: 80%;
+    width: 78%;
     height: 80% !important;
     border: solid #fdfffc;
     border-radius: 8px;
