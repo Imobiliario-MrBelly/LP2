@@ -9,17 +9,17 @@ public class Contrato {
 
     private int id;
     private Date dataInicio;
-    private Date dataFim;
+    private int periodo;
     private double valor;
     private Pessoa fiador;
     private Imovel imovel;
     private Locador locador;
     private Locatario locatario;
 
-    public Contrato(int id, Date dataInicio, Date dataFim, double valor, Pessoa fiador, Imovel imovel, Locador locador, Locatario locatario) {
+    public Contrato(int id, Date dataInicio,int periodo, double valor, Pessoa fiador, Imovel imovel, Locador locador, Locatario locatario) {
         this.id = id;
         this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
+        this.periodo = periodo;
         this.valor = valor;
         this.fiador = fiador;
         this.imovel = imovel;
@@ -27,9 +27,9 @@ public class Contrato {
         this.locatario = locatario;
     }
 
-    public Contrato(Date dataInicio, Date dataFim, double valor, Imovel imovel, Locador locador, Locatario locatario) {
+    public Contrato(Date dataInicio, int periodo, double valor, Imovel imovel, Locador locador, Locatario locatario) {
         this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
+        this.periodo = periodo;
         this.valor = valor;
         this.imovel = imovel;
         this.locador = locador;
@@ -111,5 +111,9 @@ public class Contrato {
     }
     public static List<Contrato> obterContratos() throws SQLException, ClassNotFoundException{
         return ContratoDAO.getInstancia().obterContratos();
+    }
+
+    public int getPeriodo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

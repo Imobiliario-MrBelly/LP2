@@ -24,9 +24,9 @@ public class ContratoDAO extends DAO {
         try {
             conexao = BD.getInstancia().getConexao();
 
-            comando = conexao.prepareStatement("INSERT INTO contrato (dataInicio, dataTermino, valor, imovel, locatario) VALUES (?,?,?,?,?);");
+            comando = conexao.prepareStatement("INSERT INTO contrato (dataInicio, periodo, valor, imovel, locatario) VALUES (?,?,?,?,?);");
             comando.setDate(1, (Date) contrato.getDataInicio());
-            comando.setDate(2, (Date) contrato.getDataFim());
+            comando.setInt(2, contrato.getPeriodo());
             comando.setDouble(3, contrato.getValor());
             comando.setInt(4, contrato.getImovel().getId());
             comando.setInt(5, contrato.getLocatario().getId());

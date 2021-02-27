@@ -1,4 +1,4 @@
-package dao;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,10 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import models.Endereco;
-import models.Locador;
-import models.Login;
-import models.Pessoa;
+
 
 public class LoginDAO extends DAO{
 
@@ -113,7 +110,7 @@ public class LoginDAO extends DAO{
         int id = resultado.getInt("id");
         String email = resultado.getNString("email");
         String senha = resultado.getNString("senha");
-        login = new Login(id, email, senha);
+        login = new Login(id, email, senha, true);
         return login;
     }
 }

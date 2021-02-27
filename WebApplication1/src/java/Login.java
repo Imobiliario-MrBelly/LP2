@@ -1,7 +1,7 @@
 
-package models;
 
-import dao.LoginDAO;
+
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -9,22 +9,20 @@ public class Login {
     private int id;
     private String email;
     private String senha;
-    
+    private boolean status;
 
-    public Login(int id, String email, String senha) {
+    public Login(int id, String email, String senha, boolean status) {
         this.id = id;
         this.email = email;
         this.senha = senha;
-       
+        this.status = status;
     }
 
-    public Login(String email, String senha) {
+    public Login(String email, String senha, boolean status) {
         this.email = email;
         this.senha = senha;
-        
+        this.status = status;
     }
-
-   
 
     public int getId(){
         return id;
@@ -34,6 +32,13 @@ public class Login {
         this.id = id;
     }
 
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
 
     public String getEmail() {
         return email;

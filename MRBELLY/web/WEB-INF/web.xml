@@ -6,7 +6,7 @@
     </servlet>
     <servlet>
         <servlet-name>pesquisaCliente</servlet-name>
-        <servlet-class>controller.pesquisaPessoa</servlet-class>
+        <servlet-class>controller.pesquisaPessoaController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>pesquisaContrato</servlet-name>
@@ -31,6 +31,10 @@
     <servlet>
         <servlet-name>pesquisaTelefone</servlet-name>
         <servlet-class>controller.pesquisaTelefone</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>pesquisaLoginController</servlet-name>
+        <servlet-class>controller.pesquisaLoginController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>pesquisaImovel</servlet-name>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>pesquisaTelefone</servlet-name>
         <url-pattern>/pesquisaTelefone</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pesquisaLoginController</servlet-name>
+        <url-pattern>/pesquisaLoginController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

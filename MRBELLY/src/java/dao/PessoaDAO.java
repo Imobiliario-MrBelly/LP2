@@ -135,9 +135,11 @@ public class PessoaDAO extends DAO {
                 String sobrenome = resultado.getString("sobrenome");
                 String rg = resultado.getString("nome");
                 String cpf = resultado.getString("nome");
-                Date nascimento = resultado.getDate("nascimento");
-                boolean sexo = resultado.getBoolean("sexo");
-                Date dataCadastro = resultado.getDate("dataCadastro");
+//                Date nascimento = resultado.getDate("nascimento");
+//                boolean sexo = resultado.getBoolean("sexo");
+//                Date dataCadastro = resultado.getDate("dataCadastro");
+                p=new Pessoa(id, nome, sobrenome, rg, cpf, null, true, null, null) {
+                }
                 pessoas.add(p);
                 
             }

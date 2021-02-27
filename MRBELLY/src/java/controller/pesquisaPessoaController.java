@@ -19,7 +19,7 @@ import models.Pessoa;
  *
  * @author Rennan
  */
-public class pesquisaPessoa extends HttpServlet {
+public class pesquisaPessoaController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>

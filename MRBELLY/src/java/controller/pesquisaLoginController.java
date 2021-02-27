@@ -8,18 +8,20 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import models.Telefone;
+import models.Login;
 
 /**
  *
  * @author Rennan
  */
-public class pesquisaTelefone extends HttpServlet {
+public class pesquisaLoginController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,13 +35,12 @@ public class pesquisaTelefone extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try  {
-            request.setAttribute("Telefones", Telefone.obterTelefones());
-            RequestDispatcher view = request.getRequestDispatcher("/pesquisaTelefone.jsp");
-            view.forward(request,response);
-        } catch (SQLException ex) {
-           throw new ServletException(ex);
-        } catch (ClassNotFoundException ex) {
+        try {
+            request.setAttribute("Logins", Login.obterLogin());
+            RequestDispatcher view;
+            view = request.getRequestDispatcher("/pesquisaLogin.jsp");
+            view.forward(request, response);
+        } catch (SQLException | ClassNotFoundException ex) {
            throw new ServletException(ex);
         }
     }

@@ -1,4 +1,4 @@
-package dao;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,8 +16,7 @@ public class BD {
     public Connection getConexao() throws ClassNotFoundException, SQLException{
 
         Connection conexao = null;
-        
-        Class.forName("com.mysql.cj.jdbc.Driver");
+        Class.forName("com.mysql.jdbc.Driver");
         conexao = DriverManager.getConnection("jdbc:mysql://localhost/mrbelly", "root", "");
        return conexao;
 
