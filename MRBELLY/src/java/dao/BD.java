@@ -18,7 +18,11 @@ public class BD {
         Connection conexao = null;
         
         Class.forName("com.mysql.cj.jdbc.Driver");
-        conexao = DriverManager.getConnection("jdbc:mysql://localhost/mrbelly", "root", "");
+        
+        //conexao = DriverManager.getConnection("jdbc:mysql://localhost/mrbelly", "root", "");
+        
+        // conexão Vinícius
+        conexao = DriverManager.getConnection("jdbc:mysql://localhost:3308/mrbelly", "root", "");
        return conexao;
 
 
