@@ -49,7 +49,7 @@ public void excluit (Locatario locatario) throws SQLException, ClassNotFoundExce
     PreparedStatement comando=null;
     try {
         conexao = BD.getInstancia().getConexao();
-        comando=conexao.prepareStatement("delete from locatario where id == ?");
+        comando=conexao.prepareStatement("delete from locatario where id = ?");
         
         comando.setInt(1, locatario.getId());
         comando.executeUpdate();
@@ -63,7 +63,7 @@ public Locatario obterLocatario(int id ) throws SQLException, ClassNotFoundExcep
     PreparedStatement comando=null;
     try {
         conexao = BD.getInstancia().getConexao();
-        comando=conexao.prepareStatement("select * from locatario where id == ?");
+        comando=conexao.prepareStatement("select * from locatario where id = ?");
         comando.setInt(1, id);
         ResultSet resultado = comando.executeQuery();
         return instanciaLocatario(resultado);

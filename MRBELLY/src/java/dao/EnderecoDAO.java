@@ -100,7 +100,7 @@ public class EnderecoDAO extends DAO {
 
         try {
             conexao = BD.getInstancia().getConexao();
-            comando = conexao.prepareStatement("SELECT * FROM endereco;");
+            comando = conexao.prepareStatement("SELECT * FROM endereco");
             ResultSet resultado = comando.executeQuery();
 
             while (resultado.next()) {

@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import models.Contrato;
+import models.Imovel;
+import models.Locatario;
 
 public class ContratoDAO extends DAO {
 
@@ -24,12 +26,13 @@ public class ContratoDAO extends DAO {
         try {
             conexao = BD.getInstancia().getConexao();
 
-            comando = conexao.prepareStatement("INSERT INTO contrato (dataInicio, periodo, valor, imovel, locatario) VALUES (?,?,?,?,?);");
-            comando.setDate(1, (Date) contrato.getDataInicio());
-            comando.setInt(2, contrato.getPeriodo());
-            comando.setDouble(3, contrato.getValor());
-            comando.setInt(4, contrato.getImovel().getId());
-            comando.setInt(5, contrato.getLocatario().getId());
+            comando = conexao.prepareStatement("INSERT INTO contrato (imovel, locatario, dataInicio, dataFim, valor, ) VALUES (?,?,?,?,?);");
+
+            comando.setInt(1, contrato.getImovel().getId());
+            comando.setInt(2, contrato.getLocatario().getId());
+            comando.setDate(3, (Date) contrato.getDataInicio());
+            comando.setDate(4, (Date) contrato.getDataFim());
+            comando.setDouble(5, contrato.getValor());
             comando.executeUpdate();
         } finally {
             fecharConexao(conexao, comando);
@@ -42,12 +45,13 @@ public class ContratoDAO extends DAO {
 
         try {
             conexao = BD.getInstancia().getConexao();
-            comando = conexao.prepareStatement("UPDATE contrato SET dataInicio=?, dataTermino=?, valor=?, imovel=?, locatario=? WHERE id=?;");
-            comando.setDate(1, (Date) contrato.getDataInicio());
-            comando.setDate(2, (Date) contrato.getDataFim());
-            comando.setDouble(3, contrato.getValor());
-            comando.setInt(4, contrato.getImovel().getId());
-            comando.setInt(5, contrato.getLocatario().getId());
+            comando = conexao.prepareStatement("UPDATE contrato SET imovel=?, locatario=?, dataInicio=?, dataFim=?, valor=? WHERE id=?;");
+            
+            comando.setInt(1, contrato.getImovel().getId());
+            comando.setInt(2, contrato.getLocatario().getId());
+            comando.setDate(3, (Date) contrato.getDataInicio());
+            comando.setDate(4, (Date) contrato.getDataFim());
+            comando.setDouble(5, contrato.getValor());
             comando.setInt(6, contrato.getId());
             return comando.executeUpdate() > 0;
         } finally {
@@ -81,11 +85,11 @@ public class ContratoDAO extends DAO {
 
             resultado.first();
 
+            int imovel = resultado.getInt("imovel");
+            int locatario = resultado.getInt("locatario");
             Date dataInicio = resultado.getDate("dataInicio");
-            Date dataFim = resultado.getDate("dataTermino");
+            Date dataFim = resultado.getDate("dataFim");
             double valor = resultado.getDouble("valor");
-            int imovel = resultado.getInt("imovel_id");
-            int locatario = resultado.getInt("locatario_id");
 
             //contrato = new Contrato(...)
             return contrato;
@@ -98,23 +102,27 @@ public class ContratoDAO extends DAO {
         Connection conexao = null;
         PreparedStatement comando = null;
         Contrato contrato = null;
+        
         List<Contrato> contratos = new ArrayList();
 
         try {
             conexao = BD.getInstancia().getConexao();
-            comando = conexao.prepareStatement("SELECT * FROM contrato;");
+            comando = conexao.prepareStatement("SELECT * FROM contrato");
             ResultSet resultado = comando.executeQuery();
 
             while (resultado.next()) {
-                
-                int id = resultado.getInt("id");
-                Date dataInicio = resultado.getDate("dataInicio");
-                Date dataFim = resultado.getDate("dataTermino");
-                double valor = resultado.getDouble("valor");
-                int imovel = resultado.getInt("imovel_id");
-                int locatario = resultado.getInt("locatario_id");
 
-                //contrato = new Contrato(...)
+                int id = resultado.getInt("id");
+                int imovel = resultado.getInt("imovel");
+                int locatario = resultado.getInt("locatario");
+                Date dataInicio = resultado.getDate("dataInicio");
+                Date dataFim = resultado.getDate("dataFim");
+                double valor = resultado.getDouble("valor");
+                
+                Imovel i = ImovelDAO.getInstancia().obterImovel(imovel);
+                Locatario l = LocatarioDAO.getInstancia().obterLocatario(locatario);
+                
+                contrato = new Contrato(id, i, l, dataInicio, dataFim, valor);
                 contratos.add(contrato);
             }
             return contratos;

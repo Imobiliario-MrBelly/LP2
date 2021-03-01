@@ -20,7 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `mrbelly`
 --
-
+CREATE DATABASE IF NOT EXISTS mrbelly;
+USE mrbelly;
 -- --------------------------------------------------------
 
 --
@@ -33,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `contrato` (
   `imovel` int NOT NULL,
   `locatario` int NOT NULL,
   `dataInicio` date NOT NULL,
-  `periodo` int NOT NULL,
+  `dataFim` date NOT NULL,
   `valor` double NOT NULL,
   KEY `imovel` (`imovel`),
   KEY `locatario` (`locatario`)
@@ -49,8 +50,9 @@ DROP TABLE IF EXISTS `endereco`;
 CREATE TABLE IF NOT EXISTS `endereco` (
   `id` int NOT NULL AUTO_INCREMENT,
   `rua` varchar(40) NOT NULL,
-  `bairro` varchar(45) DEFAULT NULL,
+  `numero` varchar(5) NOT NULL,
   `cep` varchar(8) NOT NULL,
+  `cidade` varchar(30) NOT NULL,
   `uf` varchar(2) NOT NULL,
   `complemento` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -124,19 +126,9 @@ CREATE TABLE IF NOT EXISTS `login` (
   `id` int NOT NULL AUTO_INCREMENT,
   `senha` varchar(32) NOT NULL,
   `email` varchar(32) NOT NULL,
+  `status` boolean not null,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Extraindo dados da tabela `login`
---
-
-INSERT INTO `login` (`id`, `senha`, `email`) VALUES
-(1, 'adailton', 'rennan'),
-(2, '1234', 'rennandamiao@gmail.com'),
-(3, 'junior', 'adailton');
-
--- --------------------------------------------------------
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Estrutura da tabela `pessoa`
@@ -149,20 +141,10 @@ CREATE TABLE IF NOT EXISTS `pessoa` (
   `cpf` varchar(11) NOT NULL,
   `rg` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `sobrenome` varchar(50) NOT NULL,
-  `sexo` tinyint(1) NOT NULL,
+  `sexo` varchar(1) NOT NULL,
   `cadastro` date NOT NULL,
-  `login` int NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `login` (`login`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Extraindo dados da tabela `pessoa`
---
-
-INSERT INTO `pessoa` (`id`, `nome`, `cpf`, `rg`, `sobrenome`, `sexo`, `cadastro`, `login`) VALUES
-(1, 'Rennan', '149633', 'sasldkas', '', 0, '0000-00-00', 1),
-(2, 'Rennan', '149633', 'sasldkas', '', 0, '0000-00-00', 1);
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 
@@ -185,3 +167,64 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- --------------------------------------------------------------------------------------------------
+-- INSERÇÃO DE DADOS NO BANCO
+
+INSERT INTO `login` ( `senha`, `email`, `status`) VALUES
+( 'adailton', 'rennan', true),
+('1234', 'rennandamiao@gmail.com', true),
+('junior', 'adailton', false),
+('adm', 'adm', true),
+('123', '123', false),
+('olamundo', 'olamundo', true);
+
+INSERT INTO `pessoa` ( `nome`, `cpf`, `rg`, `sobrenome`, `sexo`, `cadastro`) VALUES
+('Rennan', '11111111111', '11111111', 'Damião', 'M', curdate()),
+('Junio', '22222222222', '22222222', 'Goulartizinho', 'M', curdate()),
+('Vinicius', '33333333333', '33333333', 'Vasconcelos', 'M', curdate()),
+('Claudemir', '44444444444', '44444444', 'Valdisnei', 'M', curdate()),
+('Tony', '55555555555', '55555555', 'Ramos', 'M', curdate()),
+('Luís', '66666666666', '66666666', 'Inácio', 'M', curdate());
+
+INSERT INTO `endereco` (`rua`,`numero`,`cep`,`cidade`, `uf`, `complemento`) VALUES
+('rua','11','11111111','cidade1', 'MG', 'cA'),
+('rua','22','22222222','cidade2', 'MG', 'cB'),
+('rua','33','33333333','cidade3', 'MG', 'cC'),
+('rua','44','44444444','cidade4', 'MG', 'cD'),
+('rua','55','55555555','cidade5', 'MG', 'cE'),
+('rua','6' ,'66666666','cidade6', 'MG', 'cF'),
+('rua','77','77777777','cidade7', 'MG', 'cG'),
+('rua','88','88888888','cidade8', 'MG', 'cH'),
+('rua','99','99999999','cidade9', 'MG', 'cI');
+
+INSERT INTO `locador` (`endereco`,`pessoa`,`login`) VALUES
+(1,1,1),
+(2,2,2),
+(3,3,3);
+
+INSERT INTO `locatario` (`pessoa`,`login`) VALUES
+(4,4),
+(5,5),
+(6,6);
+
+INSERT INTO `imovel` (`salas`,`quartos`,`cozinha`,`banheiro`,`garagem`,`area`,`descricao`,`endereco`,`locador`) VALUES
+( 4, 5, 1, 2, 2, 100.4,'descricao1', 7, 1),
+( 3, 9, 2, 3, 1, 200.9,'descricao2', 8, 2),
+( 2, 4, 1, 1, 3, 300.0,'descricao3', 9, 3);
+
+INSERT INTO `contrato` (`imovel`,`locatario`,`dataInicio`,`dataFim`,`valor`) VALUES
+(1,1,'2018-10-29','2021-01-05',400.5),
+(2,2,'2019-07-11','2020-10-06',700.1),
+(3,3,'2018-06-30','2020-10-25',300.4);
+
+
+INSERT INTO `telefone` (`numero`,`ddd`,`descricao`,`pessoa`) VALUES
+('988451214','32','Empresa', 1),
+('988854212','32','Particular', 2),
+('988563214','21','Trabalho', 3),
+('988955452','32','Particular', 4),
+('988998555','32','Trabalho', 5),
+('988924778','32','Particular', 6);
+
+select * from pessoa;

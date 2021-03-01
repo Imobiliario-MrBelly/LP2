@@ -41,10 +41,10 @@
         <a href="pesquisaLoginController" class="quickBold  ">Logins</a>
       </div>
       <div class="mb-4 d-inline-block">
-        <a href="inquilinos.html" class="quickBold ">Contratos</a>
+        <a href="pesquisaContrato" class="quickBold ">Contratos</a>
       </div>
       <div class="mb-4">
-        <a href="meus-dados.html" class="quickBold ">Endereços</a>
+        <a href="pesquisaEndereco" class="quickBold ">Endereços</a>
       </div>
       <div class="mb-4">
         <a href="configuracoes.html" class="quickBold ">Imoveis</a>

@@ -33,8 +33,12 @@ public class pesquisaContrato extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try  {
-           request.setAttribute("Contratos",Contrato.obterContratos());
-           RequestDispatcher view = request.getRequestDispatcher("/pesquisaContrato.jsp");
+           request.setAttribute("Contratos", Contrato.obterContratos());
+           
+           RequestDispatcher view;
+           view = request.getRequestDispatcher("/pesquisaContrato.jsp");
+           view.forward(request, response);
+           
         } catch (SQLException | ClassNotFoundException ex) {
             throw new ServletException(ex);
         }

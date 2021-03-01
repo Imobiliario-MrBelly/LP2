@@ -8,42 +8,27 @@ import java.util.List;
 public class Contrato {
 
     private int id;
-    private Date dataInicio;
-    private int periodo;
-    private double valor;
-    private Pessoa fiador;
     private Imovel imovel;
-    private Locador locador;
     private Locatario locatario;
+    private Date dataInicio;
+    private Date dataFim;
+    private double valor;
 
-    public Contrato(int id, Date dataInicio,int periodo, double valor, Pessoa fiador, Imovel imovel, Locador locador, Locatario locatario) {
+    public Contrato(int id, Imovel imovel, Locatario locatario, Date dataInicio, Date dataFim, double valor) {
         this.id = id;
-        this.dataInicio = dataInicio;
-        this.periodo = periodo;
-        this.valor = valor;
-        this.fiador = fiador;
         this.imovel = imovel;
-        this.locador = locador;
         this.locatario = locatario;
-    }
-
-    public Contrato(Date dataInicio, int periodo, double valor, Imovel imovel, Locador locador, Locatario locatario) {
-        this.dataInicio = dataInicio;
-        this.periodo = periodo;
-        this.valor = valor;
-        this.imovel = imovel;
-        this.locador = locador;
-        this.locatario = locatario;
-    }
-
-    public Contrato(Date dataInicio, Date dataFim, double valor, Pessoa fiador, Imovel imovel, Locador locador, Locatario locatario) {
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
         this.valor = valor;
-        this.fiador = fiador;
+    }
+
+    public Contrato(Imovel imovel, Locatario locatario, Date dataInicio, Date dataFim, double valor) {
         this.imovel = imovel;
-        this.locador = locador;
         this.locatario = locatario;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+        this.valor = valor;
     }
 
     public int getId() {
@@ -52,6 +37,14 @@ public class Contrato {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Imovel getImovel() {
+        return imovel;
+    }
+
+    public void setImovel(Imovel imovel) {
+        this.imovel = imovel;
     }
 
     public Locatario getLocatario() {
@@ -86,34 +79,8 @@ public class Contrato {
         this.valor = valor;
     }
 
-    public Pessoa getFiador() {
-        return fiador;
-    }
-
-    public void setFiador(Pessoa fiador) {
-        this.fiador = fiador;
-    }
-
-    public Imovel getImovel() {
-        return imovel;
-    }
-
-    public void setImovel(Imovel imovel) {
-        this.imovel = imovel;
-    }
-
-    public Locador getLocador() {
-        return locador;
-    }
-
-    public void setLocador(Locador locador) {
-        this.locador = locador;
-    }
-    public static List<Contrato> obterContratos() throws SQLException, ClassNotFoundException{
+    
+    public static List<Contrato> obterContratos() throws SQLException, ClassNotFoundException {
         return ContratoDAO.getInstancia().obterContratos();
-    }
-
-    public int getPeriodo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

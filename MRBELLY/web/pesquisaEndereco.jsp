@@ -1,7 +1,7 @@
 <%-- 
-    Document   : pesquisaLogin
-    Created on : 25/02/2021, 11:07:01
-    Author     : Rennan
+    Document   : pesquisaEndereco
+    Created on : 28/02/2021, 18:41:43
+    Author     : vinic
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -13,7 +13,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home</title>
+        <title>Pesquisa Endereco</title>
         <link rel="icon" href="./css/img/Fav icon.svg" type="image/svg" />
         <link rel='stylesheet' href='./css/utilities/bootstrap.css'>
         <link rel="stylesheet" href="./css/main.css">
@@ -41,13 +41,13 @@
                     <a href="index.jsp" class="quickBold  ">index</a>
                 </div>
                 <div class="mb-4">
-                    <a href="pesquisaLoginController" class="quickBold ativo  ">Logins</a>
+                    <a href="pesquisaLoginController" class="quickBold">Logins</a>
                 </div>
                 <div class="mb-4 d-inline-block">
                     <a href="inquilinos.html" class="quickBold ">Contratos</a>
                 </div>
                 <div class="mb-4">
-                    <a href="meus-dados.html" class="quickBold ">Endereços</a>
+                    <a href="pesquisaEndereco" class="quickBold ativo">Endereços</a>
                 </div>
                 <div class="mb-4">
                     <a href="configuracoes.html" class="quickBold ">Imoveis</a>
@@ -81,27 +81,30 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Senha</th>
+                            <th scope="col">rua</th>
+                            <th scope="col">numero</th>
+                            <th scope="col">cep</th>
+                            <th scope="col">cidade</th>
+                            <th scope="col">uf</th>
                             <th colspan="2" scope="col">acoes</th>
                         </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${Logins}" var="login">
-
-
-                    
-                        <tr>
-                            <th scope="row"><c:out value="${login.id}"/></th>
-                            <td><c:out value="${login.email}"/></td>
-                            <td><c:out value="${login.senha}"/></td>
-                            <td><button>editar</button></td>
-                            <td><button>excluir</button></td>
-                        </tr>
-                    </c:forEach>
+                        <c:forEach items="${Enderecos}" var="endereco">
+                            <tr>
+                                <th scope="row"><c:out value="${endereco.id}"/></th>
+                                <td><c:out value="${endereco.rua}"/></td>
+                                <td><c:out value="${endereco.numero}"/></td>
+                                <td><c:out value="${endereco.cep}"/></td>
+                                <td><c:out value="${endereco.cidade}"/></td>
+                                <td><c:out value="${endereco.uf}"/></td>
+                                <td><button>editar</button></td>
+                                <td><button>excluir</button></td>
+                            </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
-                <button>Add novo login</button>
+                <button>Adicionar novo</button>
             </div></div>
 
 
@@ -115,39 +118,3 @@
     </body>
 
 </html>
-
-
-
-
-<!--
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>email</th>
-                    <th>senha</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>rennandamiao</td>
-                    <td>123</td>
-                </tr>
-<c:forEach items="${Logins}" var="login">
-<tr>
-    <td><c:out value="${login.email}"/></td>
-    <td><c:out value="${login.senha}"/></td>
-</tr>
-</c:forEach>
-</tbody>
-</table>
-
-</body>
-</html>-->

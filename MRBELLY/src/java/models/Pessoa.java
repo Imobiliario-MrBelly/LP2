@@ -5,28 +5,23 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 
-public abstract class Pessoa {
+public class Pessoa {
 
-   
     private int id;
     private String nome;
     private String sobrenome;
     private String rg;
     private String cpf;
-    private Date nascimento;
-    private boolean sexo;
-    private Telefone telefone;
+    private String sexo;
     private Date dataCadastro;
-    
-    public Pessoa(int id, String nome, String sobrenome, String rg, String cpf, Date nascimento, boolean sexo, Telefone telefone, Date dataCadastro) {
+
+    public Pessoa(int id, String nome, String sobrenome, String rg, String cpf, String sexo, Date dataCadastro) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.rg = rg;
         this.cpf = cpf;
-        this.nascimento = nascimento;
         this.sexo = sexo;
-        this.telefone = telefone;
         this.dataCadastro = dataCadastro;
     }
 
@@ -70,28 +65,12 @@ public abstract class Pessoa {
         this.cpf = cpf;
     }
 
-    public Date getNascimento() {
-        return nascimento;
-    }
-
-    public void setNascimento(Date nascimento) {
-        this.nascimento = nascimento;
-    }
-
-    public boolean isSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(boolean sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
-    }
-
-    public Telefone getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(Telefone telefone) {
-        this.telefone = telefone;
     }
 
     public Date getDataCadastro() {
@@ -102,8 +81,8 @@ public abstract class Pessoa {
         this.dataCadastro = dataCadastro;
     }
 
-public  static List<Pessoa> obterPessoas() throws SQLException, ClassNotFoundException{
-    return PessoaDAO.getInstancia().obterPessoa();
-}
+    public static List<Pessoa> obterPessoas() throws SQLException, ClassNotFoundException {
+        return PessoaDAO.getInstancia().obterPessoas();
+    }
 
 }

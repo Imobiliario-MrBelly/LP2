@@ -7,23 +7,23 @@ import java.util.List;
 public class Telefone {
 
     private int id;
+    private String ddd;
     private String numero;
     private String descricao;
     private Pessoa pessoaId;
 
-    public Pessoa getPessoaId() {
-        return pessoaId;
-    }
-
-    public void setPessoaId(Pessoa pessoaId) {
-        this.pessoaId = pessoaId;
-    }
-
-    public Telefone(String ddd, String numero, String descricao) {
+    public Telefone(int id,String ddd, String numero, String descricao, Pessoa pessoaId) {
+        this.id = id;
+        this.ddd = ddd;
         this.numero = numero;
         this.descricao = descricao;
+        this.pessoaId = pessoaId;
     }
-
+    public Telefone(String ddd, String numero, String descricao, Pessoa pessoaId) {
+        this.numero = numero;
+        this.descricao = descricao;
+        this.pessoaId = pessoaId;
+    }
 
     public String getNumero() {
         return numero;
@@ -40,7 +40,7 @@ public class Telefone {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-    
+
     public int getId() {
         return id;
     }
@@ -48,6 +48,24 @@ public class Telefone {
     public void setId(int id) {
         this.id = id;
     }
-public static List<Telefone> obterTelefones() throws SQLException, ClassNotFoundException{
-    return TelefoneDAO.getInstacia().obterPessoa();
-}}
+
+    public Pessoa getPessoaId() {
+        return pessoaId;
+    }
+
+    public void setPessoaId(Pessoa pessoaId) {
+        this.pessoaId = pessoaId;
+    }
+
+    public String getDdd() {
+        return ddd;
+    }
+
+    public void setDdd(String ddd) {
+        this.ddd = ddd;
+    }
+
+    public static List<Telefone> obterTelefones() throws SQLException, ClassNotFoundException {
+        return TelefoneDAO.getInstacia().obterTelefones();
+    }
+}

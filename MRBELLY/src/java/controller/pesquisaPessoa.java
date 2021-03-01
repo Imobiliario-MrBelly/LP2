@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,9 +18,10 @@ import models.Pessoa;
 
 /**
  *
- * @author Rennan
+ * @author vinic
  */
-public class pesquisaPessoaController extends HttpServlet {
+@WebServlet(name = "pesquisaPessoa", urlPatterns = {"/pesquisaPessoa"})
+public class pesquisaPessoa extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,14 +36,15 @@ public class pesquisaPessoaController extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
-            request.setAttribute("pessoas", Pessoa.obterPessoas());
-            RequestDispatcher view = request.getRequestDispatcher("/pesquisaPessoa.jsp");
+            
+            request.setAttribute("Pessoas", Pessoa.obterPessoas());
+            RequestDispatcher view;
+            view = request.getRequestDispatcher("/pesquisaPessoa.jsp");
             view.forward(request, response);
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new ServletException(e);
-
+            
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new ServletException(ex);
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

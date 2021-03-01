@@ -6,9 +6,11 @@
 package test;
 
 import dao.LoginDAO;
+import dao.TelefoneDAO;
 import java.sql.SQLException;
 import models.Login;
 import models.Pessoa;
+import models.Telefone;
 
 /**
  *
@@ -19,8 +21,15 @@ public class NewClass {
 //       Login log1=new Login("rennandamiao@gmail.com", "1234", true);
 //       LoginDAO.getInstancia().gravar(log1);
 //       
-       for(Pessoa ref : Pessoa.obterPessoas()){
+       /*for(Pessoa ref : Pessoa.obterPessoas()){
            System.out.println(ref.getNome());
+           System.out.println(ref.getDataCadastro());
+       }*/
+       
+       for(Telefone t: Telefone.obterTelefones()){
+           if(t.getPessoaId() != null){
+               System.out.println(t.getPessoaId().getNome());
+           }
        }
    }
 }
