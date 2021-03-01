@@ -47,20 +47,20 @@
         <a href="pesquisaEndereco" class="quickBold ">Endereços</a>
       </div>
       <div class="mb-4">
-        <a href="configuracoes.html" class="quickBold ">Imoveis</a>
+        <a href="pesquisaImoveis" class="quickBold ">Imoveis</a>
       </div>
         
         <div class="mb-4">
-        <a href="#" class="quickBold  ">Locadores</a>
+        <a href="pesquisaLocadores" class="quickBold  ">Locadores</a>
       </div>
       <div class="mb-4 d-inline-block">
-        <a href="inquilinos.html" class="quickBold ">locatarios</a>
+        <a href="pesquisaLocatario" class="quickBold ">locatarios</a>
       </div>
       <div class="mb-4">
         <a href="meus-dados.html" class="quickBold ">pessoas</a>
       </div>
       <div class="mb-4">
-        <a href="configuracoes.html" class="quickBold ">telefones</a>
+        <a href="pesquisaTelefone" class="quickBold ">telefones</a>
       </div>
 
       
