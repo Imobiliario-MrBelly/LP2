@@ -35,14 +35,14 @@ public class pesquisaLocatario extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
-        try  {
+        try {
             request.setAttribute("Locatarios", Locatario.obterLocatario());
             RequestDispatcher view = request.getRequestDispatcher("/pesquisaLocatario.jsp");
-            view.forward(request,response);
+            view.forward(request, response);
         } catch (SQLException ex) {
-           throw new ServletException(ex);
+            throw new ServletException(ex);
         } catch (ClassNotFoundException ex) {
-           throw new ServletException(ex);
+            throw new ServletException(ex);
         }
     }
 
