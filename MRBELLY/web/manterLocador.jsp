@@ -47,43 +47,23 @@
 
 
                 <div class="container conteudo">
-                    <h3 class="quickBold my-4">Manter imovel - ${operacao}</h3>
+                    <h3 class="quickBold my-4">Manter locador - ${operacao}</h3>
                     <hr>
                     <div class="row">
 
-                        <form action="ManterImovelController?acao=confirmarOperacao&operacao=${operacao}" method="POST" name="FormManterImovel">
+                        <form action="ManterLocadorController?acao=confirmarOperacao&operacao=${operacao}" method="POST" name="FormManterLocador">
 
                             <div class="form-group">
-                                <label for="idImovel">Id Imóvel</label>
-                                <input type=" number" class="form-control" id="idImovel" name="idImovel" value="${imovel.id}" <c:if test="${operacao !='Incluir'}">readonly</c:if>required>
+                                <label for="idLocador">Id Locador</label>
+                                <input type=" number" class="form-control" id="idLocador" name="idLocador" value="${locador.id}" <c:if test="${operacao !='Incluir'}">readonly</c:if>required>
                             </div>
                             <div class="form-group">
-                                <label for="endImovel">Endereço</label>
-                                <input type="text" class="form-control" id="endImovel" name="endImovel" value="${imovel.endereco}" <c:if test="${operacao =='Excluir'}">readonly</c:if>required>
+                                <label for="endLocador">Endereço</label>
+                                <input type="text" class="form-control" id="endLocador" name="endLocador" value="${locador.endereco}" <c:if test="${operacao =='Excluir'}">readonly</c:if>required>
                             </div>
                             <div class="form-group">
-                                <label for="areaImovel">Área</label>
-                                <input type=" number" class="form-control" id="areaImovel" name="areaImovel" value="${imovel.area}" <c:if test="${operacao =='Excluir'}">readonly</c:if>required>
-                            </div>
-                            <div class="form-group">
-                                <label for="descImovel">Descrição</label>
-                                <input type="text" class="form-control" id="descImovel" name="descImovel" value="${imovel.descricao}" <c:if test="${operacao =='Excluir'}">readonly</c:if>>
-                            </div>
-                            <div class="form-group">
-                                <label for="condImovel">Condominio</label>
-                                <input type=" number" class="form-control" id="condImovel" name="condImovel" value="${imovel.condominio}" <c:if test="${operacao =='Excluir'}">readonly</c:if>required>
-                            </div>
-                            <div class="form-group">
-                                <label for="iptuImovel">IPTU</label>
-                                <input type=" number" class="form-control" id="iptuImovel" name="iptuImovel" value="${imovel.iptu}" <c:if test="${operacao =='Excluir'}">readonly</c:if>>
-                            </div>
-                            <div class="form-group">
-                                <label for="garImovel">Garagem</label>
-                                <input type=" number" class="form-control" id="garImovel" name="garImovel" value="${imovel.garagem}" <c:if test="${operacao =='Excluir'}">readonly</c:if>required>
-                            </div>
-                            <div class="form-group">
-                                <label for="locImovel">locador</label>
-                                <input type=" number" class="form-control" id="locImovel" name="locImovel" value="${locador.nome}" <c:if test="${operacao =='Excluir'}">readonly</c:if>required>
+                                <label for="logLocador">Login</label>
+                                <input type=" number" class="form-control" id="logLocador" name="logLocador" value="${locador.login}" <c:if test="${operacao =='Excluir'}">readonly</c:if>required>
                             </div>
 
                         </form>

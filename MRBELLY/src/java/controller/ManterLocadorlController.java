@@ -16,7 +16,7 @@ import models.Locador;
  *
  * @author junio
  */
-public class ManterImovelController extends HttpServlet {
+public class ManterLocadorlController extends HttpServlet {
     
     
 
@@ -45,7 +45,6 @@ public class ManterImovelController extends HttpServlet {
         try{
             String operacao = request.getParameter("operacao");
             request.setAttribute("operacao", operacao);
-            request.setAttribute("locador", Locador.obterLocadores());
             if(!operacao.equals("Incluir")){
                 int id = Integer.parseInt(request.getParameter("id"));
                 Imovel imovel = Imovel.obterImovel(id);
@@ -79,7 +78,7 @@ public class ManterImovelController extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(ManterImovelController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManterLocadorlController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -97,7 +96,7 @@ public class ManterImovelController extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(ManterImovelController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ManterLocadorlController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

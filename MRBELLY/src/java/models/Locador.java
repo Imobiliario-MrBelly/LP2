@@ -4,10 +4,10 @@ package models;
 import dao.LocadorDAO;
 import java.sql.SQLException;
 import java.util.List;
+import static jdk.nashorn.internal.runtime.Debug.id;
 
 public class Locador {
     private int id;
-    private Pessoa pessoa;
     private Endereco endereco;
     private Login login;
 
@@ -19,8 +19,7 @@ public class Locador {
         this.id = id;
     }
 
-    public Locador(Pessoa pessoa, Endereco endereco, Login login) {
-        this.pessoa = pessoa;
+    public Locador(Endereco endereco, Login login) {
         this.endereco = endereco;
         this.login = login;
     }
@@ -29,23 +28,14 @@ public class Locador {
         return login;
     }
 
-    public Locador(int id, Pessoa pessoa, Endereco endereco, Login login) {
+    public Locador(int id, Endereco endereco, Login login) {
         this.id = id;
-        this.pessoa = pessoa;
         this.endereco = endereco;
         this.login = login;
     }
 
     public void setLogin(Login login) {
         this.login = login;
-    }
-
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
-
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
     }
 
     public Endereco getEndereco() {
@@ -55,7 +45,10 @@ public class Locador {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
-public static List<Locador> obterLocadores() throws SQLException, ClassNotFoundException{
-    return LocadorDAO.getInstancia().obterLocadores();
+    public static List<Locador> obterLocadores() throws SQLException, ClassNotFoundException{
+        return LocadorDAO.getInstancia().obterLocadores();
+    }
+    public static Locador obterLocador(int id) throws SQLException, ClassNotFoundException{
+    return LocadorDAO.getInstancia().obterLocador(id);
 }
 }
