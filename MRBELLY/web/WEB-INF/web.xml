@@ -32,6 +32,10 @@
         <servlet-name>pesquisaLoginController</servlet-name>
         <servlet-class>controller.pesquisaLoginController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManterImovelController</servlet-name>
+        <servlet-class>controller.ManterImovelController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>pesquisaImovel</servlet-name>
         <url-pattern>/pesquisaImovel</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>pesquisaLoginController</servlet-name>
         <url-pattern>/pesquisaLoginController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManterImovelController</servlet-name>
+        <url-pattern>/ManterImovelController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -6,14 +6,14 @@
 
             <head>
                 <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Imóveis</title>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <title>Contratos</title>
                 <link rel="icon" href="./css/img/Fav icon.svg" type="image/svg" />
                 <link rel='stylesheet' href='./css/utilities/bootstrap.css'>
                 <link rel="stylesheet" href="./css/main.css">
             </head>
 
-            <body style="background-color: #f0f0f0;">
+            <body>
 
                 <!--Menus-->
                 <nav class="navbar nav-personalizado px-5 py-4">
@@ -33,9 +33,9 @@
                     <div class="my-5">
                         <div class="mb-4"><a href="index.jsp" class="quickBold">INDEX</a></div>
                         <div class="mb-4"><a href="pesquisaLogin.jsp" class="quickBold  ">LOGINS</a></div>
-                        <div class="mb-4"><a href="pesquisaContrato.jsp" class="quickBold ">CONTRATOS</a></div>
+                        <div class="mb-4"><a href="pesquisaContrato.jsp" class="quickBold ativo">CONTRATOS</a></div>
                         <div class="mb-4"><a href="pesquisaEndereco.jsp" class="quickBold ">ENDEREÇOS</a></div>
-                        <div class="mb-4"><a href="pesquisaImovel.jsp" class="quickBold ativo">IMOVEIS</a></div>
+                        <div class="mb-4"><a href="pesquisaImovel.jsp" class="quickBold ">IMOVEIS</a></div>
                         <div class="mb-4"><a href="pesquisaLocador.jsp" class="quickBold  ">LOCADORES</a></div>
                         <div class="mb-4"><a href="pesquisaLocatario.jsp" class="quickBold ">LOCATARIOS</a></div>
                         <div class="mb-4"><a href="pesquisaPessoa.jsp" class="quickBold ">PESSOAS</a></div>
@@ -44,45 +44,49 @@
                 </div>
                 <!--Fim Menus-->
 
-                <!--Content-->
+
 
                 <div class="container conteudo">
+                    <h3 class="quickBold my-4">Manter imovel - ${operacao}</h3>
+                    <hr>
                     <div class="row">
                         <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">ESTADO</th>
-                                    <th scope="col">AREA</th>
-                                    <th scope="col">IPTU</th>
-                                    <th scope="col">NOME DO LOCPTADOR</th>
+                                    <th scope="col">LOCADOR</th>
+                                    <th scope="col">LOCATÁRIO</th>
+                                    <th scope="col">INÍCIO</th>
+                                    <th scope="col">TÉRMINO</th>
+                                    <th scope="col">VALOR</th>
 
                                     <th colspan="2" scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach items="${Imoveis}" var="imovel">
+                                <c:forEach items="${Contratos}" var="contrato">
                                     <tr>
                                         <th scope="row">
-                                            <c:out value="${imovel.id}" />
+                                            <c:out value="${contrato.id}" />
                                         </th>
-                                        <td>
-                                            <c:out value="${imovel.endereco.getUf()}" />
-                                        </td>
-                                        <td>
-                                            <c:out value="${imovel.area}" />
-                                        </td>
-                                        <td>
-                                            <c:out value="${imovel.iptu}" />
-                                        </td>
-                                        <td>
-                                            <c:out value="${imovel.locador.getPessoa().getNome()}" />
-                                        </td>
+                                        <th scope="row">
+                                            <c:out value="${contrato.imovel.getLocador().getPessoa().getNome()}" />
+                                        </th>
+                                        <th scope="row">
+                                            <c:out value="${contrato.locatario.getPessoa().getNome()}" />
+                                        </th>
+                                        <th scope="row">
+                                            <c:out value="${contrato.dataInicio}" />
+                                        </th>
+                                        <th scope="row">
+                                            <c:out value="${contrato.dataFim}" />
+                                        </th>
+                                        <th scope="row">
+                                            <c:out value="${contrato.valor}" />
+                                        </th>
 
-                                        <td><a class=" btn btn-primary btn-sm" href=
-                                               "ManterImovelController?acao=prepararOperacao&operacao=Editar&id=<c:out value=" ${imovel.id}"/>">Editar</a></td>
-                                        <td><a class=" btn btn-primary btn-sm" href=
-                                               "ManterImovelController?acao=prepararOperacao&operacao=Editar&id=<c:out value=" ${imovel.id}"/>">Editar</a></td>
+                                        <td><button>Editar</button></td>
+                                        <td><button>Excluir</button></td>
                                     </tr>
                                 </c:forEach>
                             </tbody>
@@ -91,14 +95,9 @@
                     </div>
                 </div>
 
-
-
-                <!--Fim Content-->
-
                 <script src='./js/utilities/bootstrap.js'></script>
                 <script src='./js/utilities/jquery-3.5.1.js'></script>
                 <script src='./js/main.js'></script>
-
             </body>
 
             </html>

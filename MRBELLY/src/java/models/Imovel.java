@@ -9,6 +9,9 @@ public abstract class Imovel {
     public static List<Imovel> obterImoveis() throws SQLException, ClassNotFoundException {
       return ImovelDAO.getInstancia().obterImoveis();
     }
+    public static Imovel obterImovel(int id) throws SQLException, ClassNotFoundException {
+      return ImovelDAO.getInstancia().obterImovel(id);
+    }
     private int id ;
     private Endereco endereco;
     private double area;
