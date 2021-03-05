@@ -47,8 +47,8 @@ public class ManterLocadorlController extends HttpServlet {
             request.setAttribute("operacao", operacao);
             if(!operacao.equals("Incluir")){
                 int id = Integer.parseInt(request.getParameter("id"));
-                Imovel imovel = Imovel.obterImovel(id);
-                request.setAttribute("imovel", imovel);
+                Locador locador = Locador.obterLocador(id);
+                request.setAttribute("locador", locador);
             }
             RequestDispatcher view = request.getRequestDispatcher("/manterImovel.jsp");
             view.forward(request, response);
