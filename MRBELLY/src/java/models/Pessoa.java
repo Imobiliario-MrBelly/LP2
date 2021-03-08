@@ -84,5 +84,8 @@ public class Pessoa {
     public static List<Pessoa> obterPessoas() throws SQLException, ClassNotFoundException {
         return PessoaDAO.getInstancia().obterPessoas();
     }
+    public static Pessoa obterPessoa(int id) throws SQLException, ClassNotFoundException {
+        return PessoaDAO.getInstancia().obterPessoa(id);
+    }
 
 }
