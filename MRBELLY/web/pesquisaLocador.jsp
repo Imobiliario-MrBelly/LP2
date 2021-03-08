@@ -69,13 +69,17 @@
                                 <td><c:out value="${locador.pessoa.getCpf()}"/></td>
                                 <td><c:out value="${locador.endereco.getUf()}"/></td>
 
-                                <td><button>Editar</button></td>
-                                <td><button>Excluir</button></td>
+                                 <td><a class="btn btn-sm btn-primary" href="ManterContrato?acao=preparaOperacao=Editar&codContrato=<c:out value="${locador.id}"/>">Editar</a></td>
+                            <td><a class="btn btn-sm btn-danger" href="ManterContrato?acao=preparaOperacao=Excluir&codContrato=<c:out value="${locador.id}"/>">Excluir</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>
                 </table>
-                <button>Adicionar</button>
+                  <form action="ManterLocador?acao=prepararOperacao&operacao=Incluir" method="post">
+                    <input class="btn btn-success" type="submit" name="btnIncluir" value="Incluir">
+                </form>
+                
+             
             </div></div>
 
 
