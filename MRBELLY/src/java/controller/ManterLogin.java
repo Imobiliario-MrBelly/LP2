@@ -7,10 +7,13 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.Login;
 
 /**
  *
@@ -28,13 +31,13 @@ public class ManterLogin extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         String acao = request.getParameter("acao");
 
         if (acao.equals("confirmarOperacao")) {
 
             confirmarOperacao(request, response);
-        } else if (acao.equals("prepararOperacao")) {
+        } else if (acao.equals("preparaOperacao")) {
 
             prepararOperacao(request, response);
         }
@@ -43,7 +46,7 @@ public class ManterLogin extends HttpServlet {
     private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) {
     }
 
-    private void prepararOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    private void prepararOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException, ClassNotFoundException {
         try {
             String operacao = request.getParameter("operacao");
 
@@ -52,7 +55,7 @@ public class ManterLogin extends HttpServlet {
 
             if (!operacao.equals("Incluir")) {
 
-                int id = Integer.parseInt(request.getParameter("id"));
+                int id = Integer.parseInt(request.getParameter("codLogin"));
                 Login login = Login.obterLogin(id);
                 request.setAttribute("login", login);
             }
@@ -66,11 +69,6 @@ public class ManterLogin extends HttpServlet {
         } catch (IOException e) {
             throw new ServletException(e);
 
-        } catch (SQLException e) {
-            throw new ServletException(e);
-
-        } catch (ClassNotFoundException e) {
-            throw new ServletException(e);
         }
     }
 
