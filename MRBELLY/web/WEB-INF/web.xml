@@ -25,20 +25,12 @@
         <servlet-class>controller.pesquisaLocatario</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>pesquisaLogin</servlet-name>
-        <servlet-class>controller.pesquisaLogin</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>pesquisaTelefone</servlet-name>
         <servlet-class>controller.pesquisaTelefone</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>pesquisaLoginController</servlet-name>
         <servlet-class>controller.pesquisaLoginController</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>ManterImovelController</servlet-name>
-        <servlet-class>controller.ManterImovelController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>pesquisaImovel</servlet-name>
@@ -65,20 +57,12 @@
         <url-pattern>/pesquisaLocatario</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>pesquisaLogin</servlet-name>
-        <url-pattern>/pesquisaLogin</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>pesquisaTelefone</servlet-name>
         <url-pattern>/pesquisaTelefone</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>pesquisaLoginController</servlet-name>
         <url-pattern>/pesquisaLoginController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ManterImovelController</servlet-name>
-        <url-pattern>/ManterImovelController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

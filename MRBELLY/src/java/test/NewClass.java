@@ -8,6 +8,9 @@ package test;
 import dao.LoginDAO;
 import dao.TelefoneDAO;
 import java.sql.SQLException;
+import models.Contrato;
+import models.Locador;
+import models.Locatario;
 import models.Login;
 import models.Pessoa;
 import models.Telefone;
@@ -26,10 +29,14 @@ public class NewClass {
            System.out.println(ref.getDataCadastro());
        }*/
        
-       for(Telefone t: Telefone.obterTelefones()){
+       /*for(Telefone t: Telefone.obterTelefones()){
            if(t.getPessoaId() != null){
                System.out.println(t.getPessoaId().getNome());
            }
+       }*/
+       
+       for(Contrato c : Contrato.obterContratos()){
+           System.out.println(c.getId());
        }
    }
 }

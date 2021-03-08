@@ -11,11 +11,12 @@ import models.Locador;
 import models.Login;
 import models.Pessoa;
 
-public class LoginDAO extends DAO{
+public class LoginDAO extends DAO {
 
     static private LoginDAO instancia = new LoginDAO();
+
     public static LoginDAO getInstancia() {
-       return instancia;
+        return instancia;
     }
 
     public void gravar(Login login) throws SQLException, ClassNotFoundException {
@@ -26,8 +27,8 @@ public class LoginDAO extends DAO{
             conexao = BD.getInstancia().getConexao();
 
             comando = conexao.prepareStatement("INSERT INTO login (email,senha) VALUES (?,?);");
-          comando.setString(1, login.getEmail());
-          comando.setString(2,login.getSenha());
+            comando.setString(1, login.getEmail());
+            comando.setString(2, login.getSenha());
             comando.executeUpdate();
 
         } finally {
@@ -42,7 +43,7 @@ public class LoginDAO extends DAO{
         try {
             conexao = BD.getInstancia().getConexao();
             comando = conexao.prepareStatement("UPDATE login SET email=?, senha=? WHERE id=?;");
-            comando.setString(1,login.getEmail());
+            comando.setString(1, login.getEmail());
             comando.setString(2, login.getSenha());
             comando.setInt(3, login.getId());
 
@@ -72,13 +73,13 @@ public class LoginDAO extends DAO{
         Login login = null;
         try {
             conexao = BD.getInstancia().getConexao();
-            comando = conexao.prepareStatement("SELECT * FROM locador WHERE id=?;");
+            comando = conexao.prepareStatement("SELECT * FROM login WHERE id=?;");
             comando.setInt(1, id);
             ResultSet resultado = comando.executeQuery();
 
-            resultado.first();
-            login = instanciaLogin(resultado);
-
+            while (resultado.next()) {
+                login = instanciaLogin(resultado);
+            }
             return login;
         } finally {
             fecharConexao(conexao, comando);
@@ -97,16 +98,14 @@ public class LoginDAO extends DAO{
             ResultSet resultado = comando.executeQuery();
 
             while (resultado.next()) {
-               login = instanciaLogin(resultado);
-               logins.add(login);
+                login = instanciaLogin(resultado);
+                logins.add(login);
             }
             return logins;
         } finally {
             fecharConexao(conexao, comando);
         }
     }
-
-    
 
     public Login instanciaLogin(ResultSet resultado) throws SQLException, ClassNotFoundException {
         Login login = null;
