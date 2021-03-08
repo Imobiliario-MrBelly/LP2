@@ -71,7 +71,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="txtSenha">Código do Login</label>
-                                <input type="text" class="form-control" id="txtEmail" name="txtSenha" value="${login.senha}" disabled="">
+                                <input type="text" class="form-control" id="txtEmail" name="txtSenha" value="${login.senha}" >
                                                                                      
                             </div>
                         </form>
