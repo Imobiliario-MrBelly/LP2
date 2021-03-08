@@ -73,5 +73,8 @@ public class Parcelas {
    public static List<Parcelas> obterParcelas()throws SQLException, ClassNotFoundException{
        return ParcelasDAO.getInstancia().obterParcelas();
    }
+   public static Parcelas obterParcela(int id )throws SQLException, ClassNotFoundException{
+       return ParcelasDAO.getInstancia().obterParcela(id);
+   }
    
 }
