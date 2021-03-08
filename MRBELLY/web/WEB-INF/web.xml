@@ -64,6 +64,10 @@
         <servlet-name>ManterTelefone</servlet-name>
         <servlet-class>controller.ManterTelefone</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ManterLogin</servlet-name>
+        <servlet-class>controller.ManterLogin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>pesquisaImovel</servlet-name>
         <url-pattern>/pesquisaImovel</url-pattern>
@@ -127,6 +131,10 @@
     <servlet-mapping>
         <servlet-name>ManterTelefone</servlet-name>
         <url-pattern>/ManterTelefone</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManterLogin</servlet-name>
+        <url-pattern>/ManterLogin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
