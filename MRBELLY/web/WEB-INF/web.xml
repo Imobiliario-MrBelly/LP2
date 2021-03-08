@@ -25,6 +25,10 @@
         <servlet-class>controller.pesquisaLocatario</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>pesquisaLogin</servlet-name>
+        <servlet-class>controller.pesquisaLogin</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>pesquisaTelefone</servlet-name>
         <servlet-class>controller.pesquisaTelefone</servlet-class>
     </servlet>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>pesquisaLocatario</servlet-name>
         <url-pattern>/pesquisaLocatario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>pesquisaLogin</servlet-name>
+        <url-pattern>/pesquisaLogin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>pesquisaTelefone</servlet-name>

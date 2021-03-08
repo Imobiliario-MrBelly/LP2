@@ -13,7 +13,7 @@ import models.Locador;
 import models.Login;
 import models.Pessoa;
 
-public class LocadorDAO extends DAO {
+public class LocadorDAO extends DAO{
 
     private static LocadorDAO instancia = new LocadorDAO();
 
@@ -81,9 +81,9 @@ public class LocadorDAO extends DAO {
             comando.setInt(1, id);
             ResultSet resultado = comando.executeQuery();
 
-            while (resultado.next()) {
-                locador = instanciaLocador(resultado);
-            }
+            resultado.first();
+            locador = instanciaLocador(resultado);
+
             return locador;
         } finally {
             fecharConexao(conexao, comando);
@@ -102,14 +102,16 @@ public class LocadorDAO extends DAO {
             ResultSet resultado = comando.executeQuery();
 
             while (resultado.next()) {
-                locador = instanciaLocador(resultado);
-                locadores.add(locador);
+               locador = instanciaLocador(resultado);
+               locadores.add(locador);
             }
             return locadores;
         } finally {
             fecharConexao(conexao, comando);
         }
     }
+
+    
 
     public Locador instanciaLocador(ResultSet resultado) throws SQLException, ClassNotFoundException {
         Locador locador = null;

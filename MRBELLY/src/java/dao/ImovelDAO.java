@@ -44,6 +44,7 @@ public class ImovelDAO extends DAO {
     public boolean alterar(Imovel imovel) throws SQLException, ClassNotFoundException {
         Connection conexao = null;
         PreparedStatement comando = null;
+       
 
         try {
             conexao = BD.getInstancia().getConexao();
@@ -86,14 +87,13 @@ public class ImovelDAO extends DAO {
             comando.setInt(1, id);
             ResultSet resultado = comando.executeQuery();
 
-            while (resultado.next()) {
-                imovel = instanciaImovel(resultado);
-            }
-            return imovel;
+            resultado.first();
+            imovel = instanciaImovel(resultado);
+                  
+            
         } finally {
             fecharConexao(conexao, comando);
-        }
-
+        }return imovel;
     }
 
     public List<Imovel> obterImoveis() throws SQLException, ClassNotFoundException {
@@ -111,26 +111,24 @@ public class ImovelDAO extends DAO {
                 imovel = instanciaImovel(resultado);
                 imoveis.add(imovel);
             }
-            return imoveis;
+           
         } finally {
             fecharConexao(conexao, comando);
         }
-
+         return imoveis;
     }
-
-    public Imovel instanciaImovel(ResultSet resultado) throws SQLException, ClassNotFoundException {
-        int id = resultado.getInt("id");
-        int garagem = resultado.getInt("garagem");
-        double condominio = resultado.getDouble("condominio");
-        double area = resultado.getDouble("area");
-        String descricao = resultado.getNString("descricao");
-        double iptu = resultado.getDouble("iptu");
-
-        Endereco endereco = EnderecoDAO.getInstancia().obterEndereco(resultado.getInt("endereco"));
-        Locador locador = LocadorDAO.getInstancia().obterLocador(resultado.getInt("locador"));
-        Imovel imovel = new Imovel(id, endereco, area, descricao, condominio, iptu, garagem, locador) {
-        };
-
+    public Imovel instanciaImovel(ResultSet resultado) throws SQLException, ClassNotFoundException{
+         double iptu=resultado.getDouble("iptu");
+         int id = resultado.getInt("id");
+         int garagem = resultado.getInt("garagem");
+            double condominio=resultado.getDouble("condominio");
+            double area=resultado.getDouble("tamanho");
+            String descricao=resultado.getNString("descricao");
+            Endereco endereco = EnderecoDAO.getInstancia().obterEndereco(resultado.getInt("endereco"));
+            Locador locador = LocadorDAO.getInstancia().obterLocador(resultado.getInt("locador"));
+            Imovel imovel = new Imovel(id, endereco, area, descricao, condominio, iptu, garagem, locador) {} ;
+            
+            
         return imovel;
     }
 
