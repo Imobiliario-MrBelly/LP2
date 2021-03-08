@@ -53,4 +53,7 @@ public class Login {
 public static List<Login> obterLogin() throws SQLException, ClassNotFoundException{
     return LoginDAO.getInstancia().obterLogins();
 }
+public static Login obterLogin(int id) throws SQLException, ClassNotFoundException{
+    return LoginDAO.getInstancia().obterLogin(id);
+}
 }
