@@ -30,14 +30,15 @@ USE mrbelly;
 
 DROP TABLE IF EXISTS `contrato`;
 CREATE TABLE IF NOT EXISTS `contrato` (
-  `id` int NOT NULL,
+  `id` int NOT NULL AUTO_INCREMENT,
   `imovel` int NOT NULL,
   `locatario` int NOT NULL,
   `dataInicio` date NOT NULL,
   `dataFim` date NOT NULL,
   `valor` double NOT NULL,
   KEY `imovel` (`imovel`),
-  KEY `locatario` (`locatario`)
+  KEY `locatario` (`locatario`),
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -67,13 +68,11 @@ CREATE TABLE IF NOT EXISTS `endereco` (
 DROP TABLE IF EXISTS `imovel`;
 CREATE TABLE IF NOT EXISTS `imovel` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `salas` int NOT NULL,
-  `quartos` int NOT NULL,
-  `cozinha` int NOT NULL,
-  `banheiro` int NOT NULL,
   `garagem` int NOT NULL,
+  `condominio` double NOT NULL,
   `area` double NOT NULL,
-  `descricao` varchar(50) NOT NULL,
+  `descricao` varchar(100),
+  `iptu` double NOT NULL,
   `endereco` int NOT NULL,
   `locador` int NOT NULL,
   PRIMARY KEY (`id`),
@@ -208,10 +207,10 @@ INSERT INTO `locatario` (`pessoa`,`login`) VALUES
 (5,5),
 (6,6);
 
-INSERT INTO `imovel` (`salas`,`quartos`,`cozinha`,`banheiro`,`garagem`,`area`,`descricao`,`endereco`,`locador`) VALUES
-( 4, 5, 1, 2, 2, 100.4,'descricao1', 7, 1),
-( 3, 9, 2, 3, 1, 200.9,'descricao2', 8, 2),
-( 2, 4, 1, 1, 3, 300.0,'descricao3', 9, 3);
+INSERT INTO `imovel` (`garagem`,`condominio`,`area`,`descricao`,`iptu`,`endereco`,`locador`) VALUES
+( 4, 100.20, 100.4,'descricao1',400.7, 7, 1),
+( 3, 150.20, 200.9,'descricao2',600.8, 8, 2),
+( 2, 120.45, 300.0,'descricao3',378.1, 9, 3);
 
 INSERT INTO `contrato` (`imovel`,`locatario`,`dataInicio`,`dataFim`,`valor`) VALUES
 (1,1,'2018-10-29','2021-01-05',400.5),
@@ -226,5 +225,3 @@ INSERT INTO `telefone` (`numero`,`ddd`,`descricao`,`pessoa`) VALUES
 ('988955452','32','Particular', 4),
 ('988998555','32','Trabalho', 5),
 ('988924778','32','Particular', 6);
-
-select * from pessoa;

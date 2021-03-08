@@ -7,7 +7,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Endereços</title>
+        <title>Locadores</title>
         <link rel="icon" href="./css/img/Fav icon.svg" type="image/svg" />
         <link rel='stylesheet' href='./css/utilities/bootstrap.css'>
         <link rel="stylesheet" href="./css/main.css">
@@ -31,12 +31,12 @@
         <div class="sidenav px-4 d-inline">
             <h5 class="quickBold mt-4">MENU</h5>
             <div class="my-5">
-                <div class="mb-4"><a href="index.jsp" class="quickBold">INDEX</a></div>
+                <div class="mb-4"><a href="index.jsp" class="quickBold ">INDEX</a></div>
                 <div class="mb-4"><a href="pesquisaLoginController" class="quickBold  ">LOGINS</a></div>
                 <div class="mb-4"><a href="pesquisaContrato" class="quickBold ">CONTRATOS</a></div>
-                <div class="mb-4"><a href="pesquisaEndereco" class="quickBold ativo">ENDEREÇOS</a></div>
+                <div class="mb-4"><a href="pesquisaEndereco" class="quickBold ">ENDEREÇOS</a></div>
                 <div class="mb-4"><a href="pesquisaImovel" class="quickBold ">IMOVEIS</a></div>
-                <div class="mb-4"><a href="pesquisaLocador" class="quickBold  ">LOCADORES</a></div>
+                <div class="mb-4"><a href="pesquisaLocador" class="quickBold  ativo">LOCADORES</a></div>
                 <div class="mb-4"><a href="pesquisaLocatario" class="quickBold ">LOCATARIOS</a></div>
                 <div class="mb-4"><a href="pesquisaPessoa" class="quickBold ">PESSOAS</a></div>
                 <div class="mb-4"><a href="pesquisaTelefone" class="quickBold ">TELEFONES</a></div>
@@ -52,23 +52,23 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">RUA</th>
-                            <th scope="col">NÚMERO</th>
-                            <th scope="col">CEP</th>
-                            <th scope="col">CIDADE</th>
-                            <th scope="col">UF</th>
+                            <th scope="col">NOME</th>
+                            <th scope="col">E-MAIL</th>
+                            <th scope="col">CPF</th>
+                            <th scope="col">ESTADO</th>
+
                             <th colspan="2" scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${Enderecos}" var="endereco">
+                        <c:forEach items="${Locadores}" var="locador">
                             <tr>
-                                <th scope="row"><c:out value="${endereco.id}"/></th>
-                                <td><c:out value="${endereco.rua}"/></td>
-                                <td><c:out value="${endereco.numero}"/></td>
-                                <td><c:out value="${endereco.cep}"/></td>
-                                <td><c:out value="${endereco.cidade}"/></td>
-                                <td><c:out value="${endereco.uf}"/></td>
+                                <th scope="row"><c:out value="${locador.id}"/></th>
+                                <td><c:out value="${locador.pessoa.getNome()}"/></td>
+                                <td><c:out value="${locador.login.getEmail()}"/></td>
+                                <td><c:out value="${locador.pessoa.getCpf()}"/></td>
+                                <td><c:out value="${locador.endereco.getUf()}"/></td>
+
                                 <td><button>Editar</button></td>
                                 <td><button>Excluir</button></td>
                             </tr>
