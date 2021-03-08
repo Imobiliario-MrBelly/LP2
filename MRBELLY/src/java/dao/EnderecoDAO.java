@@ -78,15 +78,14 @@ public class EnderecoDAO extends DAO {
             comando.setInt(1, id);
             ResultSet resultado = comando.executeQuery();
 
-            while (resultado.next()) {
-                String rua = resultado.getNString("rua");
-                String numero = resultado.getNString("numero");
-                String cep = resultado.getNString("cep");
-                String cidade = resultado.getNString("cidade");
-                String uf = resultado.getNString("uf");
+            resultado.first();
+            String rua = resultado.getNString("rua");
+            String numero = resultado.getNString("numero");
+            String cep = resultado.getNString("cep");
+            String cidade = resultado.getNString("cidade");
+            String uf = resultado.getNString("uf");
 
-                endereco = new Endereco(id, rua, numero, cep, cidade, uf);
-            }
+            endereco = new Endereco(id, rua, numero, cep, cidade, uf);
             return endereco;
         } finally {
             fecharConexao(conexao, comando);

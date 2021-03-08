@@ -37,7 +37,7 @@ public class pesquisaImovel extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try  {
-            request.setAttribute("Imoveis", Imovel.obterImoveis());
+            request.setAttribute("imoveis", Imovel.obterImoveis());
             RequestDispatcher view = request.getRequestDispatcher("/pesquisaImovel.jsp");
             view.forward(request,response);
         } catch (SQLException ex) {
