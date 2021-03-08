@@ -67,17 +67,13 @@
                                 <td><c:out value="${pessoa.sobrenome}"/></td>
                                 <td><c:out value="${pessoa.cpf}"/></td>
                                 
-                               <td><a class="btn btn-sm btn-primary" href="ManterPessoa?acao=preparaOperacao=Editar&codPessoa=<c:out value="${pessoa.id}"/>">Editar</a></td>
-                            <td><a class="btn btn-sm btn-danger" href="ManterPessoa?acao=preparaOperacao=Excluir&codPessoa=<c:out value="${pessoa.id}"/>">Excluir</a></td>
+                                <td><button>Editar</button></td>
+                                <td><button>Excluir</button></td>
                             </tr>
                         </c:forEach>
                     </tbody>
                 </table>
-               <form action="ManterPessoa?acao=prepararOperacao&operacao=Incluir" method="post">
-                    <input class="btn btn-success" type="submit" name="btnIncluir" value="Incluir">
-                </form>
-                
-                
+                <button>Adicionar</button>
             </div></div>
 
 

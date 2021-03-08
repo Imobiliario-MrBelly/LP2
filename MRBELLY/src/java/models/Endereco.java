@@ -81,7 +81,4 @@ public class Endereco {
     public static List<Endereco> obterEnderecos() throws ClassNotFoundException, SQLException{
         return EnderecoDAO.getInstancia().obterEnderecos();
     }
-     public static Endereco obterEndereco(int id) throws ClassNotFoundException, SQLException{
-        return EnderecoDAO.getInstancia().obterEndereco(id);
-    }
 }

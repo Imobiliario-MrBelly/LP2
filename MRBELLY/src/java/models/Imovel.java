@@ -6,7 +6,9 @@ import java.util.List;
 
 public abstract class Imovel {
 
-   
+    public static List<Imovel> obterImoveis() throws SQLException, ClassNotFoundException {
+      return ImovelDAO.getInstancia().obterImoveis();
+    }
     private int id ;
     private Endereco endereco;
     private double area;
@@ -103,12 +105,5 @@ public abstract class Imovel {
 
     public void setGaragem(int garagem) {
         this.garagem = garagem;
-    }
-    
-     public static List<Imovel> obterImoveis() throws SQLException, ClassNotFoundException {
-      return ImovelDAO.getInstancia().obterImoveis();
-    }
-      public static Imovel obterImovel(int id ) throws SQLException, ClassNotFoundException {
-      return ImovelDAO.getInstancia().obterImovel(id);
     }
 }

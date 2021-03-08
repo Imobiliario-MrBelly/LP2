@@ -47,7 +47,4 @@ public class Locatario {
 public static List<Locatario> obterLocatario() throws SQLException, ClassNotFoundException{
     return LocatarioDAO.getInstancia().obterLocatarios();
 } 
-public static Locatario obterLocatario(int id) throws SQLException, ClassNotFoundException{
-    return LocatarioDAO.getInstancia().obterLocatario(id);
-} 
 }

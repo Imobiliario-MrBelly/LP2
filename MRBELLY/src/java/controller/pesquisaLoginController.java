@@ -6,19 +6,22 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import models.Telefone;
+import models.Login;
 
 /**
  *
- * @author vinic
+ * @author Rennan
  */
-public class ManterTelefone extends HttpServlet {
+public class pesquisaLoginController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,48 +34,14 @@ public class ManterTelefone extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String acao = request.getParameter("acao");
-
-        if (acao.equals("confirmarOperacao")) {
-
-            confirmarOperacao(request, response);
-        } else if (acao.equals("prepararOperacao")) {
-
-            prepararOperacao(request, response);
-        }
-    }
-
-    private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) {
-    }
-
-    private void prepararOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+        response.setContentType("text/html;charset=UTF-8");
         try {
-            String operacao = request.getParameter("operacao");
-
-            request.setAttribute("operacao", operacao);
-            request.setAttribute("telefones", Telefone.obterTelefones());
-
-            if (!operacao.equals("Incluir")) {
-
-                int id = Integer.parseInt(request.getParameter("id"));
-                Telefone telefone = Telefone.obterTelefone(id);
-                request.setAttribute("telefone", telefone);
-            }
-
-            RequestDispatcher view = request.getRequestDispatcher("/manterTelefone.jsp");
+            request.setAttribute("Logins", Login.obterLogin());
+            RequestDispatcher view;
+            view = request.getRequestDispatcher("/pesquisaLogin.jsp");
             view.forward(request, response);
-
-        } catch (ServletException e) {
-            throw e;
-
-        } catch (IOException e) {
-            throw new ServletException(e);
-
-        } catch (SQLException e) {
-            throw new ServletException(e);
-
-        } catch (ClassNotFoundException e) {
-            throw new ServletException(e);
+        } catch (SQLException | ClassNotFoundException ex) {
+           throw new ServletException(ex);
         }
     }
 
