@@ -69,13 +69,16 @@
                                 <td><c:out value="${telefone.descricao}"/></td>
                                 <td><c:out value="${telefone.pessoaId.getNome()}"/></td>
                                 
-                                <td><button>Editar</button></td>
-                                <td><button>Excluir</button></td>
+                                <td><a class="btn btn-sm btn-primary" href="ManterTelefone?acao=preparaOperacao=Editar&codTelefone=<c:out value="${telefone.id}"/>">Editar</a></td>
+                            <td><a class="btn btn-sm btn-danger" href="ManterTelefone?acao=preparaOperacao=Excluir&codTelefone=<c:out value="${telefone.id}"/>">Excluir</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>
                 </table>
-                <button>Adicionar</button>
+               <form action="ManterTelefone?acao=prepararOperacao&operacao=Incluir" method="post">
+                    <input class="btn btn-success" type="submit" name="btnIncluir" value="Incluir">
+                </form>
+               
             </div></div>
 
 
