@@ -51,22 +51,22 @@ public class ManterLogin extends HttpServlet {
             if (!operacao.equals("Incluir")) {
 
                 int id = Integer.parseInt(request.getParameter("id"));
-               // Login login = Login.obterLogin(id);
-                //request.setAttribute("login", login);
-            }  
-            
+                Login login = Login.obterLogin(id);
+                request.setAttribute("login", login);
+            }
+
             RequestDispatcher view = request.getRequestDispatcher("/manterLogin.jsp");
             view.forward(request, response);
-            
+
         } catch (ServletException e) {
             throw e;
-            
+
         } catch (IOException e) {
             throw new ServletException(e);
-            
+
         } catch (SQLException e) {
             throw new ServletException(e);
-            
+
         } catch (ClassNotFoundException e) {
             throw new ServletException(e);
         }
