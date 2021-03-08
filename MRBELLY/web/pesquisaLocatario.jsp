@@ -67,13 +67,17 @@
                                 <td><c:out value="${locatario.login.getEmail()}"/></td>
                                 <td><c:out value="${locatario.pessoa.getCpf()}"/></td>
                                 
-                                <td><button>Editar</button></td>
-                                <td><button>Excluir</button></td>
+                                <td><a class="btn btn-sm btn-primary" href="ManterLocario?acao=preparaOperacao=Editar&codLocatario=<c:out value="${locatario.id}"/>">Editar</a></td>
+                            <td><a class="btn btn-sm btn-danger" href="ManterLocatario?acao=preparaOperacao=Excluir&codLocatario=<c:out value="${locatario.id}"/>">Excluir</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>
                 </table>
-                <button>Adicionar</button>
+                <form action="ManterLocatario?acao=prepararOperacao&operacao=Incluir" method="post">
+                    <input class="btn btn-success" type="submit" name="btnIncluir" value="Incluir">
+                </form>
+                
+                
             </div></div>
 
 
