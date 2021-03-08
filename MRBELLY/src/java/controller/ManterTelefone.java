@@ -6,11 +6,13 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.SQLException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.Telefone;
 
 /**
  *
@@ -29,18 +31,48 @@ public class ManterTelefone extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ManterTelefone</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ManterTelefone at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        String acao = request.getParameter("acao");
+
+        if (acao.equals("confirmarOperacao")) {
+
+            confirmarOperacao(request, response);
+        } else if (acao.equals("prepararOperacao")) {
+
+            prepararOperacao(request, response);
+        }
+    }
+
+    private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) {
+    }
+
+    private void prepararOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+        try {
+            String operacao = request.getParameter("operacao");
+
+            request.setAttribute("operacao", operacao);
+            request.setAttribute("telefones", Telefone.obterTelefones());
+
+            if (!operacao.equals("Incluir")) {
+
+                int id = Integer.parseInt(request.getParameter("id"));
+                Telefone telefone = Telefone.obterTelefone(id);
+                request.setAttribute("telefone", telefone);
+            }
+
+            RequestDispatcher view = request.getRequestDispatcher("/manterTelefone.jsp");
+            view.forward(request, response);
+
+        } catch (ServletException e) {
+            throw e;
+
+        } catch (IOException e) {
+            throw new ServletException(e);
+
+        } catch (SQLException e) {
+            throw new ServletException(e);
+
+        } catch (ClassNotFoundException e) {
+            throw new ServletException(e);
         }
     }
 
