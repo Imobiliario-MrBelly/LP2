@@ -1,3 +1,9 @@
+<%-- 
+    Document   : pesquisaEndereco
+    Created on : 28/02/2021, 18:41:43
+    Author     : vinic
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt"prefix="fmt" %>
@@ -7,7 +13,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Endereços</title>
+        <title>Pesquisa Endereco</title>
         <link rel="icon" href="./css/img/Fav icon.svg" type="image/svg" />
         <link rel='stylesheet' href='./css/utilities/bootstrap.css'>
         <link rel="stylesheet" href="./css/main.css">
@@ -31,6 +37,7 @@
         <div class="sidenav px-4 d-inline">
             <h5 class="quickBold mt-4">MENU</h5>
             <div class="my-5">
+<<<<<<< HEAD
                <div class="mb-4"><a href="index.jsp" class="quickBold ">INDEX</a></div>
                 <div class="mb-4"><a href="pesquisaLogin.jsp" class="quickBold  ">LOGINS</a></div>
                 <div class="mb-4"><a href="pesquisaContrato.jsp" class="quickBold ">CONTRATOS</a></div>
@@ -40,7 +47,41 @@
                 <div class="mb-4"><a href="pesquisaLocatario.jsp" class="quickBold ">LOCATARIOS</a></div>
                 <div class="mb-4"><a href="pesquisaPessoa.jsp" class="quickBold ">PESSOAS</a></div>
                 <div class="mb-4"><a href="pesquisaTelefone.jsp" class="quickBold ">TELEFONES</a></div>
+=======
+                <div class="mb-4">
+                    <a href="index.jsp" class="quickBold  ">index</a>
+                </div>
+                <div class="mb-4">
+                    <a href="pesquisaLoginController" class="quickBold">Logins</a>
+                </div>
+                <div class="mb-4 d-inline-block">
+                    <a href="inquilinos.html" class="quickBold ">Contratos</a>
+                </div>
+                <div class="mb-4">
+                    <a href="pesquisaEndereco" class="quickBold ativo">Endereços</a>
+                </div>
+                <div class="mb-4">
+                    <a href="configuracoes.html" class="quickBold ">Imoveis</a>
+                </div>
+
+                <div class="mb-4">
+                    <a href="#" class="quickBold  ">Locadores</a>
+                </div>
+                <div class="mb-4 d-inline-block">
+                    <a href="inquilinos.html" class="quickBold ">locatarios</a>
+                </div>
+                <div class="mb-4">
+                    <a href="meus-dados.html" class="quickBold ">pessoas</a>
+                </div>
+                <div class="mb-4">
+                    <a href="configuracoes.html" class="quickBold ">telefones</a>
+                </div>
+
+
+
+>>>>>>> parent of 58cf944 (finalização das páginas pesquisa e dos controllers)
             </div>
+
         </div>
         <!--Fim Menus-->
 
@@ -52,12 +93,12 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">RUA</th>
-                            <th scope="col">NÚMERO</th>
-                            <th scope="col">CEP</th>
-                            <th scope="col">CIDADE</th>
-                            <th scope="col">UF</th>
-                            <th colspan="2" scope="col"></th>
+                            <th scope="col">rua</th>
+                            <th scope="col">numero</th>
+                            <th scope="col">cep</th>
+                            <th scope="col">cidade</th>
+                            <th scope="col">uf</th>
+                            <th colspan="2" scope="col">acoes</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,13 +110,13 @@
                                 <td><c:out value="${endereco.cep}"/></td>
                                 <td><c:out value="${endereco.cidade}"/></td>
                                 <td><c:out value="${endereco.uf}"/></td>
-                                <td><button>Editar</button></td>
-                                <td><button>Excluir</button></td>
+                                <td><button>editar</button></td>
+                                <td><button>excluir</button></td>
                             </tr>
                         </c:forEach>
                     </tbody>
                 </table>
-                <button>Adicionar</button>
+                <button>Adicionar novo</button>
             </div></div>
 
 

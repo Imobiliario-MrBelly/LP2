@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dao.LoginDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -15,13 +16,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import models.Locatario;
+import models.Login;
 
 /**
  *
  * @author Rennan
  */
-public class pesquisaLocatario extends HttpServlet {
+public class pesquisaLogin extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,8 +37,8 @@ public class pesquisaLocatario extends HttpServlet {
             throws ServletException, IOException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         try  {
-            request.setAttribute("Locatarios", Locatario.obterLocatario());
-            RequestDispatcher view = request.getRequestDispatcher("/pesquisaLocatario.jsp");
+            request.setAttribute("Logins", LoginDAO.getInstancia().obterLogins());
+            RequestDispatcher view = request.getRequestDispatcher("/teste.jsp");
             view.forward(request,response);
         } catch (SQLException ex) {
            throw new ServletException(ex);
@@ -61,7 +62,7 @@ public class pesquisaLocatario extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(pesquisaLocatario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(pesquisaLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -79,7 +80,7 @@ public class pesquisaLocatario extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
-            Logger.getLogger(pesquisaLocatario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(pesquisaLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
