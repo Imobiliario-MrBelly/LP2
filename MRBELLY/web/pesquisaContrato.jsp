@@ -75,7 +75,7 @@
                         </c:forEach>
                     </tbody>
                 </table>
-                <form action="ManterContraot?acao=prepararOperacao&operacao=Incluir" method="post">
+                <form action="ManterContrato?acao=prepararOperacao&operacao=Incluir" method="post">
                     <input class="btn btn-success" type="submit" name="btnIncluir" value="Incluir">
                 </form>
                 
