@@ -28,3 +28,7 @@
 /MRBELLY/build/
 /WebApplication1/nbproject/private/
 /WebApplication1/build/
+MRBELLY/nbproject/project.properties
+MRBELLY/nbproject/ant-deploy.xml
+MRBELLY/nbproject/private/private.properties
+MRBELLY/nbproject/private/private.xml
