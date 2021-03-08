@@ -58,4 +58,7 @@ public class Locador {
 public static List<Locador> obterLocadores() throws SQLException, ClassNotFoundException{
     return LocadorDAO.getInstancia().obterLocadores();
 }
+public static Locador obterLocador(int id) throws SQLException, ClassNotFoundException{
+    return LocadorDAO.getInstancia().obterLocador(id);
+}
 }

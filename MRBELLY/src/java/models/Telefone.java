@@ -68,4 +68,7 @@ public class Telefone {
     public static List<Telefone> obterTelefones() throws SQLException, ClassNotFoundException {
         return TelefoneDAO.getInstacia().obterTelefones();
     }
+    public static Telefone obterTelefone( int id) throws SQLException, ClassNotFoundException {
+        return TelefoneDAO.getInstacia().obterTelefone(id);
+    }
 }

@@ -83,4 +83,7 @@ public class Contrato {
     public static List<Contrato> obterContratos() throws SQLException, ClassNotFoundException {
         return ContratoDAO.getInstancia().obterContratos();
     }
+    public static Contrato obterContrato(int id) throws SQLException, ClassNotFoundException{
+        return ContratoDAO.getInstancia().obterContrato(id);
+    }
 }

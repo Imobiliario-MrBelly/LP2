@@ -30,7 +30,39 @@
     </servlet>
     <servlet>
         <servlet-name>pesquisaLoginController</servlet-name>
-        <servlet-class>controller.pesquisaLoginController</servlet-class>
+        <servlet-class>controller.pesquisaLogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManterContrato</servlet-name>
+        <servlet-class>controller.ManterContrato</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManterEndereco</servlet-name>
+        <servlet-class>controller.ManterEndereco</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManterImovel</servlet-name>
+        <servlet-class>controller.ManterImovel</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManterLocador</servlet-name>
+        <servlet-class>controller.ManterLocador</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManterLocatario</servlet-name>
+        <servlet-class>controller.ManterLocatario</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManterLogin</servlet-name>
+        <servlet-class>controller.ManterLogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManterPessoa</servlet-name>
+        <servlet-class>controller.ManterPessoa</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManterTelefone</servlet-name>
+        <servlet-class>controller.ManterTelefone</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>pesquisaImovel</servlet-name>
@@ -63,6 +95,38 @@
     <servlet-mapping>
         <servlet-name>pesquisaLoginController</servlet-name>
         <url-pattern>/pesquisaLoginController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManterContrato</servlet-name>
+        <url-pattern>/ManterContrato</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManterEndereco</servlet-name>
+        <url-pattern>/ManterEndereco</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManterImovel</servlet-name>
+        <url-pattern>/ManterImovel</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManterLocador</servlet-name>
+        <url-pattern>/ManterLocador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManterLocatario</servlet-name>
+        <url-pattern>/ManterLocatario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManterLogin</servlet-name>
+        <url-pattern>/ManterLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManterPessoa</servlet-name>
+        <url-pattern>/ManterPessoa</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManterTelefone</servlet-name>
+        <url-pattern>/ManterTelefone</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -72,13 +72,15 @@
                             <th scope="row"><c:out value="${login.id}"/></th>
                             <td><c:out value="${login.email}"/></td>
                             <td><c:out value="${login.senha}"/></td>
-                            <td><button>Editar</button></td>
-                            <td><button>Excluir</button></td>
+                            <td><a class="btn btn-sm btn-primary" href="ManterLogin?acao=preparaOperacao=Editar&codLogin=<c:out value="${login.id}"/>">Editar</a></td>
+                            <td><a class="btn btn-sm btn-danger" href="ManterLogin?acao=preparaOperacao=Excluir&codLogin=<c:out value="${login.id}"/>">Excluir</a></td>
                         </tr>
                     </c:forEach>
                     </tbody>
                 </table>
-                <button>Adicionar</button>
+                <form action="ManterLogin?acao=prepararOperacao&operacao=Incluir" method="post">
+                    <input class="btn btn-success" type="submit" name="btnIncluir" value="Incluir">
+                </form>
             </div></div>
 
 
