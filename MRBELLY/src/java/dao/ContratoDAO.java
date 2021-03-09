@@ -46,7 +46,7 @@ public class ContratoDAO extends DAO {
         try {
             conexao = BD.getInstancia().getConexao();
             comando = conexao.prepareStatement("UPDATE contrato SET imovel=?, locatario=?, dataInicio=?, dataFim=?, valor=? WHERE id=?;");
-            
+
             comando.setInt(1, contrato.getImovel().getId());
             comando.setInt(2, contrato.getLocatario().getId());
             comando.setDate(3, (Date) contrato.getDataInicio());
@@ -83,15 +83,18 @@ public class ContratoDAO extends DAO {
             comando.setInt(1, id);
             ResultSet resultado = comando.executeQuery();
 
-            resultado.first();
+            while (resultado.next()) {
+                int imovel = resultado.getInt("imovel");
+                int locatario = resultado.getInt("locatario");
+                Date dataInicio = resultado.getDate("dataInicio");
+                Date dataFim = resultado.getDate("dataFim");
+                double valor = resultado.getDouble("valor");
 
-            int imovel = resultado.getInt("imovel");
-            int locatario = resultado.getInt("locatario");
-            Date dataInicio = resultado.getDate("dataInicio");
-            Date dataFim = resultado.getDate("dataFim");
-            double valor = resultado.getDouble("valor");
+                Imovel i = ImovelDAO.getInstancia().obterImovel(imovel);
+                Locatario l = LocatarioDAO.getInstancia().obterLocatario(locatario);
 
-            //contrato = new Contrato(...)
+                contrato = new Contrato(id, i, l, dataInicio, dataFim, valor);
+            }
             return contrato;
         } finally {
             fecharConexao(conexao, comando);
@@ -102,7 +105,7 @@ public class ContratoDAO extends DAO {
         Connection conexao = null;
         PreparedStatement comando = null;
         Contrato contrato = null;
-        
+
         List<Contrato> contratos = new ArrayList();
 
         try {
@@ -118,10 +121,10 @@ public class ContratoDAO extends DAO {
                 Date dataInicio = resultado.getDate("dataInicio");
                 Date dataFim = resultado.getDate("dataFim");
                 double valor = resultado.getDouble("valor");
-                
+
                 Imovel i = ImovelDAO.getInstancia().obterImovel(imovel);
                 Locatario l = LocatarioDAO.getInstancia().obterLocatario(locatario);
-                
+
                 contrato = new Contrato(id, i, l, dataInicio, dataFim, valor);
                 contratos.add(contrato);
             }

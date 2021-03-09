@@ -68,9 +68,8 @@
                                 <th scope="row"><c:out value="${contrato.dataInicio}"/></th>
                                 <th scope="row"><c:out value="${contrato.dataFim}"/></th>
                                 <th scope="row"><c:out value="${contrato.valor}"/></th>
-
-                                <td><a class="btn btn-sm btn-primary" href="ManterContrato?acao=preparaOperacao=Editar&codContrato=<c:out value="${contrato.id}"/>">Editar</a></td>
-                            <td><a class="btn btn-sm btn-danger" href="ManterContrato?acao=preparaOperacao=Excluir&codContrato=<c:out value="${contrato.id}"/>">Excluir</a></td>
+                                <td><a class="btn btn-sm btn-primary" href="ManterContrato?acao=prepararOperacao&operacao=Editar&id=<c:out value="${contrato.id}"/>">Editar</a></td>
+                                <td><a class="btn btn-sm btn-danger" href="ManterContrato?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${contrato.id}"/>">Excluir</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>
@@ -78,7 +77,7 @@
                 <form action="ManterContrato?acao=prepararOperacao&operacao=Incluir" method="post">
                     <input class="btn btn-success" type="submit" name="btnIncluir" value="Incluir">
                 </form>
-                
+
             </div></div>
 
         <script src='./js/utilities/bootstrap.js'></script>

@@ -61,7 +61,7 @@
                         
                             <div class="form-group">
                                 <label for="txtCodLogin">Código do Login</label>
-                                <input type="number" class="form-control" id="txtCodLogin" name="txtCodLogin" value="${login.id}" disabled="">
+                                <input type="text" class="form-control" id="txtCodLogin" name="txtCodLogin" value="${login.id}">
                                                                                      
                             </div>
                             <div class="form-group">
@@ -70,8 +70,8 @@
                                                                                      
                             </div>
                             <div class="form-group">
-                                <label for="txtSenha">Código do Login</label>
-                                <input type="text" class="form-control" id="txtEmail" name="txtSenha" value="${login.senha}" >
+                                <label for="txtSenha">Senha</label>
+                                <input type="text" class="form-control" id="txtSenha" name="txtSenha" value="${login.senha}" >
                                                                                      
                             </div>
                         </form>

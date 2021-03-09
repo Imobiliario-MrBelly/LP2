@@ -56,7 +56,7 @@
                             <th scope="col">NÚMERO</th>
                             <th scope="col">DESCRIÇÃO</th>
                             <th scope="col">NOME</th>
-                            
+
                             <th colspan="2" scope="col"></th>
                         </tr>
                     </thead>
@@ -68,17 +68,16 @@
                                 <td><c:out value="${telefone.numero}"/></td>
                                 <td><c:out value="${telefone.descricao}"/></td>
                                 <td><c:out value="${telefone.pessoaId.getNome()}"/></td>
-                                
-                                <td><a class="btn btn-sm btn-primary" href="ManterTelefone?acao=preparaOperacao=Editar&codTelefone=<c:out value="${telefone.id}"/>">Editar</a></td>
-                            <td><a class="btn btn-sm btn-danger" href="ManterTelefone?acao=preparaOperacao=Excluir&codTelefone=<c:out value="${telefone.id}"/>">Excluir</a></td>
+                                <td><a class="btn btn-sm btn-primary" href="ManterTelefone?acao=prepararOperacao&operacao=Editar&id=<c:out value="${telefone.id}"/>">Editar</a></td>
+                                <td><a class="btn btn-sm btn-danger" href="ManterTelefone?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${telefone.id}"/>">Excluir</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>
                 </table>
-               <form action="ManterTelefone?acao=prepararOperacao&operacao=Incluir" method="post">
+                <form action="ManterTelefone?acao=prepararOperacao&operacao=Incluir" method="post">
                     <input class="btn btn-success" type="submit" name="btnIncluir" value="Incluir">
                 </form>
-               
+
             </div></div>
 
 

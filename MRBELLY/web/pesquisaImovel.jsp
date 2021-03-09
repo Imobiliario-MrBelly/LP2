@@ -68,9 +68,8 @@
                                 <td><c:out value="${imovel.area}"/></td>
                                 <td><c:out value="${imovel.iptu}"/></td>
                                 <td><c:out value="${imovel.locador.getPessoa().getNome()}"/></td>
-
-                                <td><a class="btn btn-sm btn-primary" href="ManterImovel?acao=preparaOperacao=Editar&codContrato=<c:out value="${imovel.id}"/>">Editar</a></td>
-                            <td><a class="btn btn-sm btn-danger" href="ManterImovel?acao=preparaOperacao=Excluir&codContrato=<c:out value="${imovel.id}"/>">Excluir</a></td>
+                                <td><a class="btn btn-sm btn-primary" href="ManterImovel?acao=prepararOperacao&operacao=Editar&id=<c:out value="${imovel.id}"/>">Editar</a></td>
+                                <td><a class="btn btn-sm btn-danger" href="ManterImovel?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${imovel.id}"/>">Excluir</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>
@@ -78,8 +77,8 @@
                 <form action="ManterImovel?acao=prepararOperacao&operacao=Incluir" method="post">
                     <input class="btn btn-success" type="submit" name="btnIncluir" value="Incluir">
                 </form>
-                
-                
+
+
             </div></div>
 
 

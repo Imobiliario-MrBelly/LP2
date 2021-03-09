@@ -7,10 +7,15 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.Locatario;
 
 /**
  *
@@ -18,29 +23,50 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ManterLocatario extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ManterLocatario</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ManterLocatario at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            throws ServletException, IOException, SQLException {
+        String acao = request.getParameter("acao");
+
+        if (acao.equals("confirmarOperacao")) {
+
+            confirmarOperacao(request, response);
+        } else if (acao.equals("prepararOperacao")) {
+
+            prepararOperacao(request, response);
+        }
+    }
+
+    private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) {
+    }
+
+    private void prepararOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException {
+        try {
+            String operacao = request.getParameter("operacao");
+
+            request.setAttribute("operacao", operacao);
+            request.setAttribute("locatario", Locatario.obterLocatario());
+
+            if (!operacao.equals("Incluir")) {
+
+                int id = Integer.parseInt(request.getParameter("id"));
+                Locatario locatario = Locatario.obterLocatario(id);
+                request.setAttribute("locatario", locatario);
+            }
+
+            RequestDispatcher view = request.getRequestDispatcher("/manterLocatario.jsp");
+            view.forward(request, response);
+
+        } catch (ServletException e) {
+            throw e;
+
+        } catch (IOException e) {
+            throw new ServletException(e);
+
+        } catch (SQLException e) {
+            throw new ServletException(e);
+
+        } catch (ClassNotFoundException e) {
+            throw new ServletException(e);
         }
     }
 
@@ -56,7 +82,11 @@ public class ManterLocatario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(ManterLocatario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -70,7 +100,11 @@ public class ManterLocatario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (SQLException ex) {
+            Logger.getLogger(ManterLocatario.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

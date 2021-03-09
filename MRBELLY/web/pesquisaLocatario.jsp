@@ -15,7 +15,7 @@
 
     <body style="background-color: #f0f0f0;">
 
-       <!--Menus-->
+        <!--Menus-->
         <nav class="navbar nav-personalizado px-5 py-4">
             <a class="navbar-brand"><img src="../client/css/img/Logo home.png" alt=""></a>
 
@@ -55,7 +55,7 @@
                             <th scope="col">NOME</th>
                             <th scope="col">E-MAIL</th>
                             <th scope="col">CPF</th>
-                            
+
                             <th colspan="2" scope="col"></th>
                         </tr>
                     </thead>
@@ -66,9 +66,8 @@
                                 <td><c:out value="${locatario.pessoa.getNome()}"/></td>
                                 <td><c:out value="${locatario.login.getEmail()}"/></td>
                                 <td><c:out value="${locatario.pessoa.getCpf()}"/></td>
-                                
-                                <td><a class="btn btn-sm btn-primary" href="ManterLocario?acao=preparaOperacao=Editar&codLocatario=<c:out value="${locatario.id}"/>">Editar</a></td>
-                            <td><a class="btn btn-sm btn-danger" href="ManterLocatario?acao=preparaOperacao=Excluir&codLocatario=<c:out value="${locatario.id}"/>">Excluir</a></td>
+                                <td><a class="btn btn-sm btn-primary" href="ManterLocatario?acao=prepararOperacao&operacao=Editar&id=<c:out value="${locatario.id}"/>">Editar</a></td>
+                                <td><a class="btn btn-sm btn-danger" href="ManterLocatario?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${locatario.id}"/>">Excluir</a></td>
                             </tr>
                         </c:forEach>
                     </tbody>
@@ -76,8 +75,8 @@
                 <form action="ManterLocatario?acao=prepararOperacao&operacao=Incluir" method="post">
                     <input class="btn btn-success" type="submit" name="btnIncluir" value="Incluir">
                 </form>
-                
-                
+
+
             </div></div>
 
 
