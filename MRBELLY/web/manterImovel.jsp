@@ -96,7 +96,7 @@
                         </div>
                         <div class="form-group">
                             <label for="txtLocador">Locador</label>
-                            <input type="text" class="form-control" id="txtLocador" name="txtLocador" value="${imovel.locador.getId()}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                            
                             <select name="txtLocador" id="txtLocador">
 
                                 <c:forEach items="${locadores}" var="locador">
