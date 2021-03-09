@@ -78,10 +78,18 @@
                                 <label for="txtCodDescricao">Descrição</label>
                                 <input type="text" class="form-control" id="txtCodDescricao" name="txtCodDescricao" value="${telefone.descricao}"<c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
 
-                        </div>
-                        <div class="form-group">
-                            <label for="txtPessoa">Pessoa</label>
-                            <input type="text" class="form-control" id="txtPessoa" name="txtPessoa" value="${telefone.pessoaId.getId()}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                                <label  for="txtDescricao">Sexo</label>
+
+                                <select class="form-control" id="txtDescricao" name="txtDescricao" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                                <option value="Particular" <c:if test="${telefone.descricao=='Particular'}">selected=""</c:if>>Particular</option>
+                                <option value="Trabalho" <c:if test="${telefone.descricao=='Trabalho'}">selected=""</c:if>>Trabalho</option>
+                                <option value="Empresa" <c:if test="${telefone.descricao=='Empresa'}">selected=""</c:if>>Empresa</option>
+                                <option value="Outros" <c:if test="${telefone.descricao=='Outros'}">selected=""</c:if>>Outros</option>
+                                </select> 
+                            </div>
+                            <div class="form-group">
+                                <label for="txtPessoa">Pessoa</label>
+                                <input type="text" class="form-control" id="txtPessoa" name="txtPessoa" value="${telefone.pessoaId.getId()}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
 
                         </div>
                     </form>
