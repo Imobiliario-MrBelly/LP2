@@ -76,9 +76,6 @@
                             </div>
                             <div class="form-group">
                                 <label for="txtCodDescricao">Descrição</label>
-                                <input type="text" class="form-control" id="txtCodDescricao" name="txtCodDescricao" value="${telefone.descricao}"<c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
-
-                                <label  for="txtDescricao">Sexo</label>
 
                                 <select class="form-control" id="txtDescricao" name="txtDescricao" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
                                 <option value="Particular" <c:if test="${telefone.descricao=='Particular'}">selected=""</c:if>>Particular</option>
@@ -89,7 +86,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="txtPessoa">Pessoa</label>
-                                <input type="text" class="form-control" id="txtPessoa" name="txtPessoa" value="${telefone.pessoaId.getId()}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                                <input type="text" class="form-control" id="txtPessoa" name="txtPessoa" value="${telefone.pessoaId.getNome()}" disabled="">
 
                         </div>
                                 <button type="submit" class="btn btn-success"> Confirmar</button>

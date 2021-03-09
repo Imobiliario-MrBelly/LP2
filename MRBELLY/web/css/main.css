@@ -232,7 +232,7 @@ input[type="radio"] + label{
     right: 11px;
     top: 127px;
     width: 78%;
-/*    height: 80% !important;*/
+    min-height: 80% !important;
     border: solid #fdfffc;
     border-radius: 8px;
     box-shadow: 0px 0px 20px #cbcbcb;
