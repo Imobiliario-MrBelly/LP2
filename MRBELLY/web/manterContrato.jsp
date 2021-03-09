@@ -110,6 +110,7 @@
                                 <input type="text" class="form-control" id="txtValor" name="txtValor" value="${contrato.valor}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
 
                         </div>
+                            <button type="submit" class="btn btn-success"> Confirmar</button>               
                     </form>
                 </div>
             </div>

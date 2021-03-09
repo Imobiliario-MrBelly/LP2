@@ -99,6 +99,7 @@
                             <input type="text" class="form-control" id="txtLocador" name="txtLocador" value="${imovel.locador.getId()}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
 
                         </div>
+                            <button type="submit" class="btn btn-success"> Confirmar</button>
                         </form>
                     </div>
                 </div>

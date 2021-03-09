@@ -95,6 +95,7 @@
                                 <label for="txtCadastro">Data de Cadastro</label>
                                 <input type="text" class="form-control" id="txtCadastro" name="txtCadastro" value="${pessoa.dataCadastro}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>                                                      
                         </div>
+                        <button type="submit" class="btn btn-success"> Confirmar</button>
                     </form>
                 </div>
             </div>

@@ -74,6 +74,7 @@
                                 <input type="text" class="form-control" id="txtSenha" name="txtSenha" value="${login.senha}"<c:if test="${operacao=='Excluir'}">disabled=""</c:if> >
                                                                                      
                             </div>
+                                <button type="submit" class="btn btn-success"> Confirmar</button>
                         </form>
                     </div>
                 </div>
