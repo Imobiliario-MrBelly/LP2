@@ -51,27 +51,32 @@
  <div class="container conteudo">
             <div class="row">
                 <div class="page-header">
-                    <h1> Manter Login - ${operacao}</h1>
+                    <h1> Manter Locador - ${operacao}</h1>
                 </div>
                 
             </div>
                 <div class="row">
                     <div class="col-sm-8">
-                        <form action="ManterLogin?acao=confirmarOperacao&operacao=${operacao}" method="post">
+                        <form action="ManterLocador?acao=confirmarOperacao&operacao=${operacao}" method="post">
                         
                             <div class="form-group">
-                                <label for="txtCodLogin">Código do Login</label>
-                                <input type="number" class="form-control" id="txtCodLogin" name="txtCodLogin" value="${login.id}" disabled="">
+                                <label for="txtCodLocador">Código do Locador</label>
+                                <input type="text" class="form-control" id="txtCodLocador" name="txtCodLocador" value="${locador.id}">
                                                                                      
                             </div>
                             <div class="form-group">
-                                <label for="txtEmail">Email</label>
-                                <input type="text" class="form-control" id="txtEmail" name="txtEmail" value="${login.email}" >
+                                <label for="txtPessoa">Pessoa</label>
+                                <input type="text" class="form-control" id="txtPessoa" name="txtPessoa" value="${locador.pessoa.getId()}" >
                                                                                      
                             </div>
                             <div class="form-group">
-                                <label for="txtSenha">Código do Login</label>
-                                <input type="text" class="form-control" id="txtEmail" name="txtSenha" value="${login.senha}" >
+                                <label for="txtEndereco">Endereço</label>
+                                <input type="text" class="form-control" id="txtEndereco" name="txtEndereco" value="${locador.endereco.getId()}" >
+                                                                                     
+                            </div>
+                                <div class="form-group">
+                                <label for="txtLogin">Login</label>
+                                <input type="text" class="form-control" id="txtLogin" name="txtLogin" value="${locador.login.getId()}" >
                                                                                      
                             </div>
                         </form>
