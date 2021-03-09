@@ -89,7 +89,9 @@
                                 <input type="text" class="form-control" id="txtPessoa" name="txtPessoa" value="${telefone.pessoaId.getNome()}" disabled="">
 
                         </div>
-                                <button type="submit" class="btn btn-success"> Confirmar</button>
+                                <div class="form-group">
+                            <br>
+                            <button type="submit" class="btn btn-success"> Confirmar</button> </div>   
                     </form>
                 </div>
             </div>

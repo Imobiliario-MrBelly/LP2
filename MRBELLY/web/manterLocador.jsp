@@ -79,7 +79,9 @@
                                 <input type="text" class="form-control" id="txtLogin" name="txtLogin" value="${locador.login.getId()}"<c:if test="${operacao=='Excluir'}">disabled=""</c:if> >
                                                                                      
                             </div>
-                                <button type="submit" class="btn btn-success"> Confirmar</button>
+                               <div class="form-group">
+                            <br>
+                            <button type="submit" class="btn btn-success"> Confirmar</button> </div>   
                         </form>
                     </div>
                 </div>

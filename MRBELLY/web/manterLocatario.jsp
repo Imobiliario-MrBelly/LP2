@@ -61,7 +61,7 @@
 
                         <div class="form-group">
                             <label for="txtCodLocatario">Código do Locatário</label>
-                            <input type="number" class="form-control" id="txtCodLocatario" name="txtCodLocatario" value="${locatario.id}">
+                            <input type="number" class="form-control"  name="txtCodLocatario" id="txtCodLocatario" disabled=""  value="${locatario.id}">
 
                         </div>
                         <div class="form-group">
@@ -74,7 +74,9 @@
                             <input type="text" class="form-control" id="txtLogin" name="txtLogin" value="${locatario.login.getId()}" >
 
                         </div>
-                            <button type="submit" class="btn btn-success"> Confirmar</button>
+                           <div class="form-group">
+                            <br>
+                            <button type="submit" class="btn btn-success"> Confirmar</button> </div>   
                     </form>
                 </div>
             </div>

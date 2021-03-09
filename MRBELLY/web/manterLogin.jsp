@@ -61,7 +61,7 @@
                         
                             <div class="form-group">
                                 <label for="txtCodLogin">Código do Login</label>
-                                <input type="text" class="form-control" id="txtCodLogin" name="txtCodLogin" value="${login.id}">
+                                <input type="text" class="form-control" id="txtCodLogin" name="txtCodLogin" disabled="" value="${login.id}" >
                                                                                      
                             </div>
                             <div class="form-group">
@@ -74,7 +74,9 @@
                                 <input type="text" class="form-control" id="txtSenha" name="txtSenha" value="${login.senha}"<c:if test="${operacao=='Excluir'}">disabled=""</c:if> >
                                                                                      
                             </div>
-                                <button type="submit" class="btn btn-success"> Confirmar</button>
+                                <div class="form-group">
+                            <br>
+                            <button type="submit" class="btn btn-success"> Confirmar</button> </div>   
                         </form>
                     </div>
                 </div>

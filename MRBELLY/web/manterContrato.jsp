@@ -68,24 +68,35 @@
                             <div class="form-group">
                                 <label for="txtImovel">Imovel:</label>
                                 <select name="txtImovel" id="txtLocatario">
+                                    <c:if test = "${operacao=='Incluir'}">
+                                        <c:forEach items="${imoveis}" var="imovel">
 
-                                    <c:forEach items="${imoveis}" var="imovel">
-                                        <c:if test="${imovel.locador.id==contrato.imovel.locador.id}">
                                             <option value="${imovel.id}"
                                                     <c:if test="${imovel.id==contrato.imovel.id}">selected=""</c:if>>
                                                 ${imovel.descricao}
                                             </option>
-                                        </c:if>
-                                    </c:forEach>
+
+                                        </c:forEach>  
+                                    </c:if>
+                                    <c:if test = "${operacao!='Incluir'}">  
+                                        <c:forEach items="${imoveis}" var="imovel">
+                                            <c:if test="${imovel.locador.id==contrato.imovel.locador.id}">
+                                                <option value="${imovel.id}"
+                                                        <c:if test="${imovel.id==contrato.imovel.id}">selected=""</c:if>>
+                                                    ${imovel.descricao}
+                                                </option>
+                                            </c:if>
+                                        </c:forEach>
+                                    </c:if>
                                 </select>
                             </div>
 
 
-                          
-                            </div>
-                            <div class="form-group">
-                                <label for="txtLocatario">Locatario:</label>
-                                <select name="txtLocatario" id="txtLocatario">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="txtLocatario">Locatario:</label>
+                            <select name="txtLocatario" id="txtLocatario">
 
                                 <c:forEach items="${locatarios}" var="locatario">
                                     <option value="${locatario.id}"
@@ -110,7 +121,9 @@
                                 <input type="text" class="form-control" id="txtValor" name="txtValor" value="${contrato.valor}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
 
                         </div>
-                            <button type="submit" class="btn btn-success"> Confirmar</button>               
+                        <div class="form-group">
+                            <br>
+                            <button type="submit" class="btn btn-success"> Confirmar</button> </div>        
                     </form>
                 </div>
             </div>

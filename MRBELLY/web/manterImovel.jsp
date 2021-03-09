@@ -107,7 +107,9 @@
                                 </c:forEach>
                             </select>
                         </div>
-                            <button type="submit" class="btn btn-success"> Confirmar</button>
+                            <div class="form-group">
+                            <br>
+                            <button type="submit" class="btn btn-success"> Confirmar</button> </div>   
                         </form>
                     </div>
                 </div>
