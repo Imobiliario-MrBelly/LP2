@@ -19,7 +19,7 @@
     <body style="background-color: #f0f0f0;">
 
         <!--Menus-->
-        <nav class="navbar nav-personalizado px-5 py-4">
+        <nav class="navbar nav-personalizado fixed-top px-5 py-4">
             <a class="navbar-brand"><img src="../client/css/img/Logo home.png" alt=""></a>
 
             <div class="dropdown">
@@ -97,7 +97,15 @@
                         <div class="form-group">
                             <label for="txtLocador">Locador</label>
                             <input type="text" class="form-control" id="txtLocador" name="txtLocador" value="${imovel.locador.getId()}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                            <select name="txtLocador" id="txtLocador">
 
+                                <c:forEach items="${locadores}" var="locador">
+                                    <option value="${locador.id}"
+                                            <c:if test="${locador.id==imovel.locador.id}">selected=""</c:if>>
+                                        ${locador.pessoa.nome} ${locador.pessoa.sobrenome}
+                                    </option>
+                                </c:forEach>
+                            </select>
                         </div>
                             <button type="submit" class="btn btn-success"> Confirmar</button>
                         </form>
