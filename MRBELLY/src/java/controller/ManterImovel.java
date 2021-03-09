@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import models.Imovel;
+import models.Locador;
 
 /**
  *
@@ -45,7 +46,7 @@ public class ManterImovel extends HttpServlet {
 
             request.setAttribute("operacao", operacao);
             request.setAttribute("imoveis", Imovel.obterImoveis());
-
+            request.setAttribute("locadores", Locador.obterLocadores());
             if (!operacao.equals("Incluir")) {
 
                 int id = Integer.parseInt(request.getParameter("id"));
