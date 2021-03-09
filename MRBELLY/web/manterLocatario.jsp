@@ -48,36 +48,36 @@
         <!--Fim Menus-->
 
         <!--Content-->
- <div class="container conteudo">
+        <div class="container conteudo">
             <div class="row">
                 <div class="page-header">
-                    <h1> Manter Login - ${operacao}</h1>
+                    <h1> Manter Locatário - ${operacao}</h1>
                 </div>
-                
+
             </div>
-                <div class="row">
-                    <div class="col-sm-8">
-                        <form action="ManterLogin?acao=confirmarOperacao&operacao=${operacao}" method="post">
-                        
-                            <div class="form-group">
-                                <label for="txtCodLogin">Código do Login</label>
-                                <input type="number" class="form-control" id="txtCodLogin" name="txtCodLogin" value="${login.id}" disabled="">
-                                                                                     
-                            </div>
-                            <div class="form-group">
-                                <label for="txtEmail">Email</label>
-                                <input type="text" class="form-control" id="txtEmail" name="txtEmail" value="${login.email}" >
-                                                                                     
-                            </div>
-                            <div class="form-group">
-                                <label for="txtSenha">Código do Login</label>
-                                <input type="text" class="form-control" id="txtEmail" name="txtSenha" value="${login.senha}" >
-                                                                                     
-                            </div>
-                        </form>
-                    </div>
+            <div class="row">
+                <div class="col-sm-8">
+                    <form action="ManterLocatario?acao=confirmarOperacao&operacao=${operacao}" method="post">
+
+                        <div class="form-group">
+                            <label for="txtCodLocatario">Código do Locatário</label>
+                            <input type="number" class="form-control" id="txtCodLocatario" name="txtCodLocatario" value="${locatario.id}">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="txtPessoa">Pessoa</label>
+                            <input type="text" class="form-control" id="txtPessoa" name="txtPessoa" value="${locatario.pessoa.getId()}" >
+
+                        </div>
+                        <div class="form-group">
+                            <label for="txtLogin">Login</label>
+                            <input type="text" class="form-control" id="txtLogin" name="txtLogin" value="${locatario.login.getId()}" >
+
+                        </div>
+                    </form>
                 </div>
- </div>
+            </div>
+        </div>
 
 
         <!--Fim Content-->
