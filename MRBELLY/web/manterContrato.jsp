@@ -61,32 +61,32 @@
 
                         <div class="form-group">
                             <label for="txtCodContrato">Código do Contrato</label>
-                            <input type="text" class="form-control" id="txtCodContrato" name="txtCodContrato" value="${contrato.id}">
+                            <input type="text" class="form-control" id="txtCodContrato" name="txtCodContrato" value="${contrato.id}" disabled="">
 
                         </div>
                         <div class="form-group">
                             <label for="txtImovel">Imóvel</label>
-                            <input type="text" class="form-control" id="txtImovel" name="txtImovel" value="${contrato.imovel.getId()}" >
+                            <input type="text" class="form-control" id="txtImovel" name="txtImovel" value="${contrato.imovel.getId()}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
 
                         </div>
                         <div class="form-group">
                             <label for="txtLocatario">Locatário</label>
-                            <input type="text" class="form-control" id="txtLocatario" name="txtLocatario" value="${contrato.locatario.getId()}" >
+                            <input type="text" class="form-control" id="txtLocatario" name="txtLocatario" value="${contrato.locatario.getId()}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
 
                         </div>
                         <div class="form-group">
                             <label for="txtInicio">Data de Início</label>
-                            <input type="text" class="form-control" id="txtInicio" name="txtInicio" value="${contrato.dataInicio}">
+                            <input type="text" class="form-control" id="txtInicio" name="txtInicio" value="${contrato.dataInicio}"<c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
 
                         </div>
                         <div class="form-group">
                             <label for="txtFim">Data de Término</label>
-                            <input type="text" class="form-control" id="txtFim" name="txtFim" value="${contrato.dataFim}" >
+                            <input type="text" class="form-control" id="txtFim" name="txtFim" value="${contrato.dataFim}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
 
                         </div>
                         <div class="form-group">
                             <label for="txtValor">Valor</label>
-                            <input type="text" class="form-control" id="txtValor" name="txtValor" value="${contrato.valor}" >
+                            <input type="text" class="form-control" id="txtValor" name="txtValor" value="${contrato.valor}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
 
                         </div>
                     </form>
