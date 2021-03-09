@@ -48,36 +48,57 @@
         <!--Fim Menus-->
 
         <!--Content-->
- <div class="container conteudo">
+        <div class="container conteudo">
             <div class="row">
                 <div class="page-header">
-                    <h1> Manter Login - ${operacao}</h1>
+                    <h1> Manter Pessoa - ${operacao}</h1>
                 </div>
-                
+
             </div>
-                <div class="row">
-                    <div class="col-sm-8">
-                        <form action="ManterLogin?acao=confirmarOperacao&operacao=${operacao}" method="post">
-                        
-                            <div class="form-group">
-                                <label for="txtCodLogin">Código do Login</label>
-                                <input type="number" class="form-control" id="txtCodLogin" name="txtCodLogin" value="${login.id}" disabled="">
-                                                                                     
+            <div class="row">
+                <div class="col-sm-8">
+                    <form action="ManterPessoa?acao=confirmarOperacao&operacao=${operacao}" method="post">
+
+                        <div class="form-group">
+                            <label for="txtCodPessoa">Código do Pessoa</label>
+                            <input type="text" class="form-control" id="txtCodPessoa" name="txtCodPessoa" value="${pessoa.id}" disabled="">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="txtNome">Nome</label>
+                            <input type="text" class="form-control" id="txtNome" name="txtNome" value="${pessoa.nome}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+
                             </div>
                             <div class="form-group">
-                                <label for="txtEmail">Email</label>
-                                <input type="text" class="form-control" id="txtEmail" name="txtEmail" value="${login.email}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
-                                                                                     
+                                <label for="txtSobrenome">Sobrenome</label>
+                                <input type="text" class="form-control" id="txtSobrenome" name="txtSobrenome" value="${pessoa.sobrenome}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>                                                      
                             </div>
                             <div class="form-group">
-                                <label for="txtSenha">Código do Login</label>
-                                <input type="text" class="form-control" id="txtEmail" name="txtSenha" value="${login.senha}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
-                                                                                     
+                                <label for="txtRg">RG</label>
+                                <input type="text" class="form-control" id="txtRg" name="txtRg" value="${pessoa.rg}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+
                             </div>
-                        </form>
-                    </div>
+                            <div class="form-group">
+                                <label for="txtCpf">CPF</label>
+                                <input type="text" class="form-control" id="txtCpf" name="txtCpf" value="${pessoa.cpf}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>                                                      
+                            </div>
+                            <div class="form-group">
+                                <label  for="txtSexo">Sexo</label>
+
+                                <select class="form-control" id="txtSexo" name="txtSexo" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                                    <option value="M" <c:if test="${pessoa.sexo=='M'}">selected=""</c:if>>Masculino</option>
+                                    <option value="F" <c:if test="${pessoa.sexo=='F'}">selected=""</c:if>>Feminimo</option>
+                                    <option value="O" <c:if test="${pessoa.sexo=='O'}">selected=""</c:if>>Outros</option>
+                                </select> 
+                            </div>
+                            <div class="form-group">
+                                <label for="txtCadastro">Data de Cadastro</label>
+                                <input type="text" class="form-control" id="txtCadastro" name="txtCadastro" value="${pessoa.dataCadastro}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>                                                      
+                        </div>
+                    </form>
                 </div>
- </div>
+            </div>
+        </div>
 
 
         <!--Fim Content-->
