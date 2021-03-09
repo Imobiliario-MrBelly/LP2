@@ -55,6 +55,7 @@
                 </div>
 
             </div>
+<<<<<<< HEAD
             <div class="row">
                 <div class="col-sm-8">
                     <form action="ManterLocatario?acao=confirmarOperacao&operacao=${operacao}" method="post">
@@ -75,6 +76,29 @@
 
                         </div>
                     </form>
+=======
+                <div class="row">
+                    <div class="col-sm-8">
+                        <form action="ManterLogin?acao=confirmarOperacao&operacao=${operacao}" method="post">
+                        
+                            <div class="form-group">
+                                <label for="txtCodLogin">Código do Login</label>
+                                <input type="number" class="form-control" id="txtCodLogin" name="txtCodLogin" value="${login.id}" disabled="">
+                                                                                     
+                            </div>
+                            <div class="form-group">
+                                <label for="txtEmail">Email</label>
+                                <input type="text" class="form-control" id="txtEmail" name="txtEmail" value="${login.email}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                                                                                     
+                            </div>
+                            <div class="form-group">
+                                <label for="txtSenha">Código do Login</label>
+                                <input type="text" class="form-control" id="txtEmail" name="txtSenha" value="${login.senha}"<c:if test="${operacao=='Excluir'}">disabled=""</c:if> >
+                                                                                     
+                            </div>
+                        </form>
+                    </div>
+>>>>>>> f79f4a77c6610864b0733ff21e52c9da24f356ad
                 </div>
             </div>
         </div>

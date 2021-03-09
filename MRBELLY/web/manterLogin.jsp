@@ -66,12 +66,12 @@
                             </div>
                             <div class="form-group">
                                 <label for="txtEmail">Email</label>
-                                <input type="text" class="form-control" id="txtEmail" name="txtEmail" value="${login.email}" >
+                                <input type="text" class="form-control" id="txtEmail" name="txtEmail" value="${login.email}"<c:if test="${operacao=='Excluir'}">disabled=""</c:if> >
                                                                                      
                             </div>
                             <div class="form-group">
                                 <label for="txtSenha">Senha</label>
-                                <input type="text" class="form-control" id="txtSenha" name="txtSenha" value="${login.senha}" >
+                                <input type="text" class="form-control" id="txtSenha" name="txtSenha" value="${login.senha}"<c:if test="${operacao=='Excluir'}">disabled=""</c:if> >
                                                                                      
                             </div>
                         </form>
