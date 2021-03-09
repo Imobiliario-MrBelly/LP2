@@ -56,7 +56,7 @@
                 
             </div>
                 <div class="row">
-                    <div class="col-sm-8">
+                    <div class="col-sm-12">
                         <form action="ManterLogin?acao=confirmarOperacao&operacao=${operacao}" method="post">
                         
                             <div class="form-group">
