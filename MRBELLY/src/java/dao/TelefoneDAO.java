@@ -90,12 +90,18 @@ public class TelefoneDAO extends DAO {
             comando.setInt(1, id);
             ResultSet resultado = comando.executeQuery();
 
-            boolean first = resultado.first();
-            String numero = resultado.getString("numero");
-            String descricao = resultado.getString("descricao");
+            while (resultado.next()) {
 
+                String numero = resultado.getString("numero");
+                String ddd = resultado.getString("ddd");
+                String descricao = resultado.getString("descricao");
+                String pessoaId = resultado.getString("pessoa");
+
+                Pessoa p = PessoaDAO.getInstancia().obterPessoa(id);
+
+                t = new Telefone(id, ddd, numero, descricao, p);
+            }
             return t;
-
         } finally {
             fecharConexao(conexao, comando);
         }
@@ -122,9 +128,9 @@ public class TelefoneDAO extends DAO {
                 String ddd = resultado.getString("ddd");
                 String descricao = resultado.getString("descricao");
                 String pessoaId = resultado.getString("pessoa");
-                
+
                 Pessoa p = PessoaDAO.getInstancia().obterPessoa(id);
-                
+
                 t = new Telefone(id, ddd, numero, descricao, p);
                 pessoas.add(t);
 
