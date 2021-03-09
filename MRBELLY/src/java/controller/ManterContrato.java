@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import models.Contrato;
+import models.Imovel;
 import models.Locatario;
 
 public class ManterContrato extends HttpServlet {
@@ -42,6 +43,7 @@ public class ManterContrato extends HttpServlet {
             request.setAttribute("operacao", operacao);
             request.setAttribute("contratos", Contrato.obterContratos());
             request.setAttribute("locatarios", Locatario.obterLocatario());
+            request.setAttribute("imoveis", Imovel.obterImoveis());
             
             if (!operacao.equals("Incluir")) {
                 

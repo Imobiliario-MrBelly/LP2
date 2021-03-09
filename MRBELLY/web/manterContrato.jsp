@@ -65,28 +65,49 @@
 
                         </div>
                         <div class="form-group">
-                            <label for="txtImovel">Imóvel</label>
-                            <input type="text" class="form-control" id="txtImovel" name="txtImovel" value="${contrato.imovel.getId()}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                            <div class="form-group">
+                                <label for="txtImovel">Imovel:</label>
+                                <select name="txtImovel" id="txtLocatario">
 
-                        </div>
-                        <div class="form-group">
-                            <label for="txtLocatario">Locatário</label>
-                            <input type="text" class="form-control" id="txtLocatario" name="txtLocatario" value="${contrato.locatario.getId()}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                                    <c:forEach items="${imoveis}" var="imovel">
+                                        <c:if test="${imovel.locador.id==contrato.imovel.locador.id}">
+                                            <option value="${imovel.id}"
+                                                    <c:if test="${imovel.id==contrato.imovel.id}">selected=""</c:if>>
+                                                ${imovel.descricao}
+                                            </option>
+                                        </c:if>
+                                    </c:forEach>
+                                </select>
+                            </div>
 
+
+                          
+                            </div>
+                            <div class="form-group">
+                                <label for="txtLocatario">Locatario:</label>
+                                <select name="txtLocatario" id="txtLocatario">
+
+                                <c:forEach items="${locatarios}" var="locatario">
+                                    <option value="${locatario.id}"
+                                            <c:if test="${locatario.id==contrato.locatario.id}">selected=""</c:if>>
+                                        ${locatario.pessoa.nome} ${locatario.pessoa.sobrenome}
+                                    </option>
+                                </c:forEach>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="txtInicio">Data de Início</label>
                             <input type="text" class="form-control" id="txtInicio" name="txtInicio" value="${contrato.dataInicio}"<c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
 
-                        </div>
-                        <div class="form-group">
-                            <label for="txtFim">Data de Término</label>
-                            <input type="text" class="form-control" id="txtFim" name="txtFim" value="${contrato.dataFim}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtFim">Data de Término</label>
+                                <input type="text" class="form-control" id="txtFim" name="txtFim" value="${contrato.dataFim}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
 
-                        </div>
-                        <div class="form-group">
-                            <label for="txtValor">Valor</label>
-                            <input type="text" class="form-control" id="txtValor" name="txtValor" value="${contrato.valor}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtValor">Valor</label>
+                                <input type="text" class="form-control" id="txtValor" name="txtValor" value="${contrato.valor}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
 
                         </div>
                     </form>
