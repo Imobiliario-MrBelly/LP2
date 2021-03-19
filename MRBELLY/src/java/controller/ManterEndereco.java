@@ -24,7 +24,7 @@ import models.Endereco;
 public class ManterEndereco extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         String acao = request.getParameter("acao");
 
         if (acao.equals("confirmarOperacao")) {
@@ -36,8 +36,42 @@ public class ManterEndereco extends HttpServlet {
         }
     }
 
-    private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) {
+     private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException {
+        String operacao = request.getParameter("operacao");
+       String cep = request.getParameter("txtCep");
+       String rua = request.getParameter("txtRua");
+       String numero = request.getParameter("txtNumero");
+       String cidade = request.getParameter("txtCidade");
+       String uf = request.getParameter("txtUF");
+       Endereco endereco;
+       
+        try{
+            if (operacao.equals("Incluir")){
+                endereco = new Endereco(rua, numero, cep, cidade, uf);
+                endereco.gravar();
+            }else{
+                int codEndereco = Integer.parseUnsignedInt(request.getParameter("txtCodEndereco"));
+                endereco = new Endereco(codEndereco, rua, numero, cep, cidade, uf);
+                if (operacao.equals("Editar")){
+                    endereco.editar();
+                }else{if(operacao.equals("Excluir")){
+                    endereco.excluir();
+                }
+                }
+            }
+            RequestDispatcher view = request.getRequestDispatcher("pesquisaEndereco");
+            view.forward(request, response);
+        }catch(IOException e ){
+            throw new ServletException(e);
+        }catch(SQLException e){
+            throw new ServletException(e);
+        }catch(ClassNotFoundException e ){
+            throw  new ServletException(e);
+        }catch(ServletException e ){
+            throw  e;
+        }
     }
+
 
     private void prepararOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException {
         try {
@@ -84,7 +118,7 @@ public class ManterEndereco extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (SQLException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ManterEndereco.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
@@ -102,7 +136,7 @@ public class ManterEndereco extends HttpServlet {
             throws ServletException, IOException {
         try {
             processRequest(request, response);
-        } catch (SQLException ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ManterEndereco.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

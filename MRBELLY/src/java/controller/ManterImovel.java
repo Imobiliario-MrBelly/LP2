@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.Endereco;
 import models.Imovel;
 import models.Locador;
 
@@ -25,7 +26,7 @@ import models.Locador;
 public class ManterImovel extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         String acao = request.getParameter("acao");
 
         if (acao.equals("confirmarOperacao")) {
@@ -36,9 +37,42 @@ public class ManterImovel extends HttpServlet {
             prepararOperacao(request, response);
         }
     }
-
-    private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) {
+ 
+     private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException {
+        String operacao = request.getParameter("operacao");
+        
+       Endereco endereco = Endereco.obterEndereco(Integer.parseInt(request.getParameter("txtEndereco")));
+       double area = Double.parseDouble(request.getParameter("txtArea"));
+       String descricao = request.getParameter("txtDescricao");
+       double condomino = Double.parseDouble(request.getParameter("txtCondominio"));
+       double iptu = Double.parseDouble(request.getParameter("txtIptu"));
+       int garagem = Integer.parseInt(request.getParameter("txtGaragem"));
+       Locador locador = Locador.obterLocador(Integer.parseInt(request.getParameter("txtLocador")));
+       Imovel imovel = null ;
+        try{
+            if (operacao.equals("Incluir")){
+                imovel=new Imovel(endereco, area, descricao, condomino, iptu, garagem, locador);
+                imovel.gravar();
+            }else{
+                int codImovel = Integer.parseUnsignedInt(request.getParameter("txtCodImovel"));
+                imovel= new Imovel(codImovel, endereco, area, descricao, condomino, iptu, garagem, locador);
+                if (operacao.equals("Editar")){
+                    imovel.editar();
+                }else{
+                    if(operacao.equals("Excluir")){
+                    imovel.excluir();
+                }
+                }
+            }
+            RequestDispatcher view = request.getRequestDispatcher("pesquisaImovel");
+            view.forward(request, response);
+        }catch(IOException e ){
+            throw new ServletException(e);
+        }catch(ServletException e ){
+            throw  e;
+        }
     }
+
 
     private void prepararOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException {
         try {
@@ -87,6 +121,8 @@ public class ManterImovel extends HttpServlet {
             processRequest(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(ManterImovel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ManterImovel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -104,6 +140,8 @@ public class ManterImovel extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
+            Logger.getLogger(ManterImovel.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(ManterImovel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

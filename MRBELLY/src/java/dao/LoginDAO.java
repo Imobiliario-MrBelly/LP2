@@ -26,7 +26,7 @@ public class LoginDAO extends DAO {
         try {
             conexao = BD.getInstancia().getConexao();
 
-            comando = conexao.prepareStatement("INSERT INTO login (email,senha) VALUES (?,?);");
+            comando = conexao.prepareStatement("INSERT INTO login (email,senha,status) VALUES (?,?,0);");
             comando.setString(1, login.getEmail());
             comando.setString(2, login.getSenha());
             comando.executeUpdate();
@@ -59,7 +59,7 @@ public class LoginDAO extends DAO {
 
         try {
             conexao = BD.getInstancia().getConexao();
-            comando = conexao.prepareStatement("DELETE FROM lologin WHERE id=?;");
+            comando = conexao.prepareStatement("DELETE FROM login WHERE id=?;");
             comando.setInt(1, login.getId());
             return comando.executeUpdate() > 0;
         } finally {

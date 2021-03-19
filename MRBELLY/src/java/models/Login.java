@@ -56,4 +56,16 @@ public static List<Login> obterLogin() throws SQLException, ClassNotFoundExcepti
 public static Login obterLogin(int id) throws SQLException, ClassNotFoundException{
     return LoginDAO.getInstancia().obterLogin(id);
 }
+
+    public void gravar() throws SQLException, ClassNotFoundException {
+        LoginDAO.getInstancia().gravar(this);
+    }
+
+    public void editar() throws SQLException, ClassNotFoundException {
+        LoginDAO.getInstancia().alterar(this);
+    }
+
+    public void excluir() throws SQLException, ClassNotFoundException {
+       LoginDAO.getInstancia().excluir(this);
+    }
 }

@@ -60,7 +60,10 @@ public class EnderecoDAO extends DAO {
 
         try {
             conexao = BD.getInstancia().getConexao();
-            comando = conexao.prepareStatement("DELETE FROM endereco WHERE id=?;");
+            comando = conexao.prepareStatement("Delete From endereco Where id= ?");
+            comando.setInt(1, endereco.getId());
+            comando.execute();
+            comando = conexao.prepareStatement("Delete From imovel Where endereco= ?");
             comando.setInt(1, endereco.getId());
             return comando.executeUpdate() > 0;
         } finally {

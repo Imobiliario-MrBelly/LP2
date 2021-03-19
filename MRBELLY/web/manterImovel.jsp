@@ -61,7 +61,7 @@
                         
                            <div class="form-group">
                             <label for="txtCodImovel">Código do Imóvel</label>
-                            <input type="text" class="form-control" id="txtCodImovel" name="txtCodImovel" value="${imovel.id}" disabled="">
+                            <input type="text" class="form-control" id="txtCodImovel" name="txtCodImovel" value="${imovel.id}" readonly="">
 
                         </div>
                         <div class="form-group">

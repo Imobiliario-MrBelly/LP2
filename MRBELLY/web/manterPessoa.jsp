@@ -61,7 +61,7 @@
 
                         <div class="form-group">
                             <label for="txtCodPessoa">Código do Pessoa</label>
-                            <input type="text" class="form-control" id="txtCodPessoa" name="txtCodPessoa" value="${pessoa.id}" disabled="">
+                            <input type="text" class="form-control" id="txtCodPessoa" name="txtCodPessoa" value="${pessoa.id}" readonly="">
 
                         </div>
                         <div class="form-group">

@@ -61,7 +61,7 @@
 
                         <div class="form-group">
                             <label for="txtCodEndereco">Código do Endereço</label>
-                            <input type="text" class="form-control" id="txtCodEndereco" name="txtCodEndereco" value="${endereco.id}" disabled="">
+                            <input type="text" class="form-control" id="txtCodEndereco" name="txtCodEndereco" value="${endereco.id}" readonly="">
 
                         </div>
                         <div class="form-group">

@@ -4,7 +4,7 @@ import dao.ImovelDAO;
 import java.sql.SQLException;
 import java.util.List;
 
-public abstract class Imovel {
+public class Imovel {
 
    
     private int id ;
@@ -111,4 +111,14 @@ public abstract class Imovel {
       public static Imovel obterImovel(int id ) throws SQLException, ClassNotFoundException {
       return ImovelDAO.getInstancia().obterImovel(id);
     }
+
+    public void gravar() throws SQLException, ClassNotFoundException {
+       ImovelDAO.getInstancia().gravar(this);
+    }
+
+    public void editar() throws SQLException, ClassNotFoundException {
+        ImovelDAO.getInstancia().alterar(this);}
+
+    public void excluir() throws SQLException {
+    ImovelDAO.getInstancia().excluir(this); }
 }

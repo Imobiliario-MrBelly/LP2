@@ -23,9 +23,7 @@
             <a class="navbar-brand"><img src="../client/css/img/Logo home.png" alt=""></a>
 
             <div class="dropdown">
-                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Seu Barriga
-                </button>
+                
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="#">Sair</a>
                 </div>
@@ -61,7 +59,7 @@
                         
                             <div class="form-group">
                                 <label for="txtCodLogin">Código do Login</label>
-                                <input type="text" class="form-control" id="txtCodLogin" name="txtCodLogin" disabled="" value="${login.id}" >
+                                <input type="text" class="form-control" id="txtCodLogin" name="txtCodLogin" readonly="" value="${login.id}" >
                                                                                      
                             </div>
                             <div class="form-group">

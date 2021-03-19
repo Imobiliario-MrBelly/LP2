@@ -26,12 +26,12 @@ public class ContratoDAO extends DAO {
         try {
             conexao = BD.getInstancia().getConexao();
 
-            comando = conexao.prepareStatement("INSERT INTO contrato (imovel, locatario, dataInicio, dataFim, valor, ) VALUES (?,?,?,?,?);");
+            comando = conexao.prepareStatement("INSERT INTO contrato (imovel, locatario, dataInicio, dataFim, valor) VALUES (?,?,?,?,?);");
 
             comando.setInt(1, contrato.getImovel().getId());
             comando.setInt(2, contrato.getLocatario().getId());
-            comando.setDate(3, (Date) contrato.getDataInicio());
-            comando.setDate(4, (Date) contrato.getDataFim());
+            comando.setDate(3, new java.sql.Date(contrato.getDataInicio().getTime()));
+            comando.setDate(4, new java.sql.Date(contrato.getDataFim().getTime()));
             comando.setDouble(5, contrato.getValor());
             comando.executeUpdate();
         } finally {
@@ -45,12 +45,13 @@ public class ContratoDAO extends DAO {
 
         try {
             conexao = BD.getInstancia().getConexao();
-            comando = conexao.prepareStatement("UPDATE contrato SET imovel=?, locatario=?, dataInicio=?, dataFim=?, valor=? WHERE id=?;");
+            comando = conexao.prepareStatement("UPDATE contrato SET imovel=?, locatario=?,"
+                    + " dataInicio=?, dataFim=?, valor=? WHERE id=?;");
 
             comando.setInt(1, contrato.getImovel().getId());
             comando.setInt(2, contrato.getLocatario().getId());
-            comando.setDate(3, (Date) contrato.getDataInicio());
-            comando.setDate(4, (Date) contrato.getDataFim());
+            comando.setDate(3, new java.sql.Date(contrato.getDataInicio().getTime()));
+            comando.setDate(4, new java.sql.Date(contrato.getDataFim().getTime()));
             comando.setDouble(5, contrato.getValor());
             comando.setInt(6, contrato.getId());
             return comando.executeUpdate() > 0;
@@ -65,9 +66,9 @@ public class ContratoDAO extends DAO {
 
         try {
             conexao = BD.getInstancia().getConexao();
-            comando = conexao.prepareStatement("DELETE FROM contrato WHERE id=?;");
+            comando = conexao.prepareStatement("DELETE contrato  WHERE id=?;");
             comando.setInt(1, contrato.getId());
-            return comando.executeUpdate() > 0;
+            return comando.execute() ;
         } finally {
             fecharConexao(conexao, comando);
         }

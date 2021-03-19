@@ -20,7 +20,7 @@ import models.Login;
 public class ManterLogin extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         String acao = request.getParameter("acao");
 
         if (acao.equals("confirmarOperacao")) {
@@ -32,7 +32,37 @@ public class ManterLogin extends HttpServlet {
         }
     }
 
-    private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) {
+    private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException {
+        String operacao = request.getParameter("operacao");
+        
+        String email = request.getParameter("txtEmail");
+        String senha = request.getParameter("txtSenha");
+        Login login = null;
+        try{
+            if (operacao.equals("Incluir")){
+                login = new Login(email, senha);
+                login.gravar();
+            }else{
+                int codLogin = Integer.parseUnsignedInt(request.getParameter("txtCodLogin"));
+                login = new Login(codLogin, email, senha);
+                if (operacao.equals("Editar")){
+                    login.editar();
+                }else{if(operacao.equals("Excluir")){
+                    login.excluir();
+                }
+                }
+            }
+            RequestDispatcher view = request.getRequestDispatcher("pesquisaLoginController");
+            view.forward(request, response);
+        }catch(IOException e ){
+            throw new ServletException(e);
+        }catch(SQLException e){
+            throw new ServletException(e);
+        }catch(ClassNotFoundException e ){
+            throw  new ServletException(e);
+        }catch(ServletException e ){
+            throw  e;
+        }
     }
 
     private void prepararOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException {
@@ -82,6 +112,8 @@ public class ManterLogin extends HttpServlet {
             processRequest(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(ManterLogin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ManterLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -99,6 +131,8 @@ public class ManterLogin extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
+            Logger.getLogger(ManterLogin.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(ManterLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

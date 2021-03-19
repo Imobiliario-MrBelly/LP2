@@ -61,7 +61,7 @@
 
                         <div class="form-group">
                             <label for="txtCodTelefone">Código do Telefone</label>
-                            <input type="text" class="form-control" id="txtCodTelefone" name="txtCodTelefone" value="${telefone.id}" disabled="">
+                            <input type="text" class="form-control" id="txtCodTelefone" name="txtCodTelefone" value="${telefone.id}" readonly="">
 
                         </div>
                         <div class="form-group">

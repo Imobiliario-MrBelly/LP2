@@ -61,7 +61,7 @@
 
                         <div class="form-group">
                             <label for="txtCodContrato">Código do Contrato</label>
-                            <input type="text" class="form-control" id="txtCodContrato" name="txtCodContrato" value="${contrato.id}" disabled="">
+                            <input type="text" class="form-control" id="txtCodContrato" name="txtCodContrato" value="${contrato.id}" readonly>
 
                         </div>
                         <div class="form-group">
@@ -108,12 +108,12 @@
                         </div>
                         <div class="form-group">
                             <label for="txtInicio">Data de Início</label>
-                            <input type="text" class="form-control" id="txtInicio" name="txtInicio" value="${contrato.dataInicio}"<c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                            <input type="date" class="form-control" id="txtInicio" name="txtInicio" value="${contrato.dataInicio}"<c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
 
                             </div>
                             <div class="form-group">
                                 <label for="txtFim">Data de Término</label>
-                                <input type="text" class="form-control" id="txtFim" name="txtFim" value="${contrato.dataFim}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                                <input type="date" class="form-control" id="txtFim" name="txtFim" value="${contrato.dataFim}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
 
                             </div>
                             <div class="form-group">
