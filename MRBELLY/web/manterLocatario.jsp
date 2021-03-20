@@ -53,42 +53,129 @@
                 <div class="page-header">
                     <h1> Manter Locatário - ${operacao}</h1>
                 </div>
-
-            </div>
-            <div class="row">
-                <div class="col-sm-12">
-                    <form action="ManterLocatario?acao=confirmarOperacao&operacao=${operacao}" method="post">
-
-                        <div class="form-group">
-                            <label for="txtCodLocatario">Código do Locatário</label>
-                            <input type="text" id="txtCodLocatario"  name="txtCodLocatario"  class="form-control" value="${locatario.id}" readonly>
-
-                        </div>
-                        <div class="form-group">
-                            <label for="txtPessoa">Pessoa</label>
-                            <input type="text" class="form-control" id="txtPessoa" name="txtPessoa" value="${locatario.pessoa.getId()}" >
+                <div class="row"> 
+                    <div class="container">
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-4" >
+                                <button type="button" id="q1" onclick="q1()">Dados Pessoais</button>
+                            </div>
+                            <div class="col-sm-4">
+                                <button type="button" id="q2" onclick="q2()">Login</button>
+                            </div>
 
                         </div>
-                        <div class="form-group">
-                            <label for="txtLogin">Login</label>
-                            <input type="text" class="form-control" id="txtLogin" name="txtLogin" value="${locatario.login.getId()}" >
+                        <style>
+                            #q1, #q2, #q3{
+                                border: 1px solid black;
+                                width: 100%;
+                                height: 40px;
+                                border-radius: 5px;
+                            }
+                        </style>
+                        <br>
+                    </div>
 
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <form action="ManterLocatario?acao=confirmarOperacao&operacao=${operacao}" method="post">
+                                <div class="col-sm-12" id="quadro1">
+
+
+                                    <div class="form-group">
+                                        <label for="txtNome">Nome</label>
+                                        <input type="text" class="form-control" id="txtNome" name="txtNome" value="${locatario.pessoa.nome}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtSobrenome">Sobrenome</label>
+                                            <input type="text" class="form-control" id="txtSobrenome" name="txtSobrenome" value="${locatario.pessoa.sobrenome}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>                                                      
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtRg">RG</label>
+                                            <input type="text" class="form-control" id="txtRg" name="txtRg" value="${locatario.pessoa.rg}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtCpf">CPF</label>
+                                            <input type="text" class="form-control" id="txtCpf" name="txtCpf" value="${locatario.pessoa.cpf}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>                                                      
+                                        </div>
+                                        <div class="form-group">
+                                            <label  for="txtSexo">Sexo</label>
+
+                                            <select class="form-control" id="txtSexo" name="txtSexo" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+                                            <option value="M" <c:if test="${locatario.pessoa.sexo=='M'}">selected=""</c:if>>Masculino</option>
+                                            <option value="F" <c:if test="${locatario.pessoa.sexo=='F'}">selected=""</c:if>>Feminimo</option>
+                                            <option value="O" <c:if test="${locatario.pessoa.sexo=='O'}">selected=""</c:if>>Outros</option>
+                                            </select> 
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtCadastro">Data de Cadastro</label>
+                                            <input type="text" class="form-control" id="txtCadastro" name="txtCadastro" value="${locatario.pessoa.dataCadastro}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>                                                      
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-sm-12" id="quadro2">
+                                        <div class="form-group">
+                                            <label for="txtEmail">Email</label>
+                                            <input type="text" class="form-control" id="txtEmail" name="txtEmail" value="${locatario.login.email}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
+
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtSenha">Senha</label>
+                                            <input type="text" class="form-control" id="txtSenha" name="txtSenha" value="${locatario.login.senha}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <br>
+                                    <button type="submit" class="btn btn-success"> Confirmar</button> </div>   
+                            </form>
                         </div>
-                           <div class="form-group">
-                            <br>
-                            <button type="submit" class="btn btn-success"> Confirmar</button> </div>   
-                    </form>
+                    </div>
                 </div>
-            </div>
+
         </div>
+                <!--Fim Content-->
+                <script>
+                    window.onload = iniciarPagina;
+
+                    function iniciarPagina() {
+                        document.getElementById("quadro1").style.display = 'block';
+                        document.getElementById("quadro2").style.display = 'none';
 
 
-        <!--Fim Content-->
+                        document.getElementById("q1").style.backgroundColor = '#ced4da';
+                        document.getElementById("q2").style.backgroundColor = '#fdfffc';
 
-        <script src='./js/utilities/bootstrap.js'></script>
-        <script src='./js/utilities/jquery-3.5.1.js'></script>
-        <script src='./js/main.js'></script>
 
-    </body>
+                    }
+                    function q1() {
+                        document.getElementById("quadro1").style.display = 'block';
+                        document.getElementById("quadro2").style.display = 'none';
 
-</html>
+
+                        document.getElementById("q1").style.backgroundColor = '#ced4da';
+                        document.getElementById("q2").style.backgroundColor = '#fdfffc';
+
+                    }
+                    function q2() {
+                        document.getElementById("quadro1").style.display = 'none';
+                        document.getElementById("quadro2").style.display = 'block';
+
+
+                        document.getElementById("q1").style.backgroundColor = '#fdfffc';
+                        document.getElementById("q2").style.backgroundColor = '#ced4da';
+
+                    }
+
+                </script>
+                <script src='./js/utilities/bootstrap.js'></script>
+                <script src='./js/utilities/jquery-3.5.1.js'></script>
+                <script src='./js/main.js'></script>
+
+                </body>
+
+                </html>

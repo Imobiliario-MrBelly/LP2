@@ -79,9 +79,9 @@
                     </style>
                     <br>
                 </div>
+                <form action="ManterLocador?acao=confirmarOperacao&operacao=${operacao}" method="post">
+                    <div class="col-sm-12" id="quadro1">
 
-                <div class="col-sm-12" id="quadro1">
-                    <form action="ManterLocador?acao=confirmarOperacao&operacao=${operacao}" method="post">
 
                         <div class="form-group">
                             <label for="txtNome">Nome</label>
@@ -105,65 +105,65 @@
                                 <label  for="txtSexo">Sexo</label>
 
                                 <select class="form-control" id="txtSexo" name="txtSexo" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
-                                    <option value="M" <c:if test="${locador.pessoa.sexo=='M'}">selected=""</c:if>>Masculino</option>
-                                    <option value="F" <c:if test="${locador.pessoa.sexo=='F'}">selected=""</c:if>>Feminimo</option>
-                                    <option value="O" <c:if test="${locador.pessoa.sexo=='O'}">selected=""</c:if>>Outros</option>
+                                <option value="M" <c:if test="${locador.pessoa.sexo=='M'}">selected=""</c:if>>Masculino</option>
+                                <option value="F" <c:if test="${locador.pessoa.sexo=='F'}">selected=""</c:if>>Feminimo</option>
+                                <option value="O" <c:if test="${locador.pessoa.sexo=='O'}">selected=""</c:if>>Outros</option>
                                 </select> 
                             </div>
                             <div class="form-group">
                                 <label for="txtCadastro">Data de Cadastro</label>
                                 <input type="text" class="form-control" id="txtCadastro" name="txtCadastro" value="${locador.pessoa.dataCadastro}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>                                                      
+                            </div>
+
                         </div>
 
-                    </div>
+                        <div class="col-sm-12" id="quadro2">
+                            <div class="form-group">
+                                <label for="txtCodEndereco">Código do Endereço</label>
+                                <input type="text" class="form-control" id="txtCodEndereco" name="txtCodEndereco" value="${locador.endereco.id}" readonly="">
 
-                    <div class="col-sm-12" id="quadro2">
+                        </div>
                         <div class="form-group">
-                            <label for="txtCodEndereco">Código do Endereço</label>
-                            <input type="text" class="form-control" id="txtCodEndereco" name="txtCodEndereco" value="${locador.endereco.id}" readonly="">
+                            <label for="txtCep">Cep</label>
+                            <input type="text" class="form-control" id="txtCep" name="txtCep" value="${locador.endereco.cep}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
 
-                    </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtRua">Rua</label>
+                                <input type="text" class="form-control" id="txtRua" name="txtRua" value="${locador.endereco.rua}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="txtNumero">Número</label>
+                                <input type="text" class="form-control" id="txtNumero" name="txtNumero" value="${locador.endereco.numero}"<c:if test="${operacao=='Excluir'}">readonly</c:if>>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="txtCidade">Cidade</label>
+                                <input type="text" class="form-control" id="txtCidade" name="txtCidade" value="${locador.endereco.cidade}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="txtUF">UF</label>
+                                <input type="text" class="form-control" id="txtUF" name="txtUF" value="${locador.endereco.uf}" <c:if test="${operacao=='Excluir'}">readonly</c:if> >
+
+                            </div>
+                        </div>
+                        <div class="col-sm-12" id="quadro3"><div class="form-group">
+                                <label for="txtEmail">Email</label>
+                                <input type="text" class="form-control" id="txtEmail" name="txtEmail" value="${locador.login.email}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
+
+                            </div>
+                            <div class="form-group">
+                                <label for="txtSenha">Senha</label>
+                                <input type="text" class="form-control" id="txtSenha" name="txtSenha" value="${locador.login.senha}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
+
+                        </div></div>
+
                     <div class="form-group">
-                        <label for="txtCep">Cep</label>
-                        <input type="text" class="form-control" id="txtCep" name="txtCep" value="${locador.endereco.cep}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
-
-                        </div>
-                        <div class="form-group">
-                            <label for="txtRua">Rua</label>
-                            <input type="text" class="form-control" id="txtRua" name="txtRua" value="${locador.endereco.rua}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
-
-                        </div>
-                        <div class="form-group">
-                            <label for="txtNumero">Número</label>
-                            <input type="text" class="form-control" id="txtNumero" name="txtNumero" value="${locador.endereco.numero}"<c:if test="${operacao=='Excluir'}">readonly</c:if>>
-
-                        </div>
-                        <div class="form-group">
-                            <label for="txtCidade">Cidade</label>
-                            <input type="text" class="form-control" id="txtCidade" name="txtCidade" value="${locador.endereco.cidade}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
-
-                        </div>
-                        <div class="form-group">
-                            <label for="txtUF">UF</label>
-                            <input type="text" class="form-control" id="txtUF" name="txtUF" value="${locador.endereco.uf}" <c:if test="${operacao=='Excluir'}">readonly</c:if> >
-
-                        </div>
-                    </div>
-                    <div class="col-sm-12" id="quadro3"><div class="form-group">
-                            <label for="txtEmail">Email</label>
-                            <input type="text" class="form-control" id="txtEmail" name="txtEmail" value="${locador.login.email}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
-
-                        </div>
-                        <div class="form-group">
-                            <label for="txtSenha">Senha</label>
-                            <input type="text" class="form-control" id="txtSenha" name="txtSenha" value="${locador.login.senha}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
-
-                    </div></div>
-
-                <div class="form-group">
-                    <br>
-                    <button type="submit" class="btn btn-success"> Confirmar</button>
-                </div>   
+                        <br>
+                        <button type="submit" class="btn btn-success"> Confirmar</button>
+                    </div>   
                 </form>
 
             </div>
