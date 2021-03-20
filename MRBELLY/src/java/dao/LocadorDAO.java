@@ -62,6 +62,9 @@ public class LocadorDAO extends DAO {
         PreparedStatement comando = null;
 
         try {
+            PessoaDAO.getInstancia().excluir(locador.getPessoa());
+            LoginDAO.getInstancia().excluir(locador.getLogin());
+            EnderecoDAO.getInstancia().excluir(locador.getEndereco());
             conexao = BD.getInstancia().getConexao();
             comando = conexao.prepareStatement("DELETE FROM locador WHERE id=?;");
             comando.setInt(1, locador.getId());

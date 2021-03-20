@@ -68,6 +68,7 @@ public class ImovelDAO extends DAO {
 
         try {
             conexao = BD.getInstancia().getConexao();
+            EnderecoDAO.getInstancia().excluir(imovel.getEndereco());
             comando = conexao.prepareStatement("DELETE FROM imovel WHERE id=?;");
             comando.setInt(1, imovel.getId());
             return comando.executeUpdate() > 0;
