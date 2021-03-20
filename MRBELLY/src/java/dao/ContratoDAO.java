@@ -66,9 +66,9 @@ public class ContratoDAO extends DAO {
 
         try {
             conexao = BD.getInstancia().getConexao();
-            comando = conexao.prepareStatement("DELETE contrato  WHERE id=?;");
+            comando = conexao.prepareStatement("DELETE FROM contrato WHERE id=?;");
             comando.setInt(1, contrato.getId());
-            return comando.execute() ;
+            return comando.execute();
         } finally {
             fecharConexao(conexao, comando);
         }
