@@ -66,38 +66,38 @@
                         </div>
                         <div class="form-group">
                             <label for="txtEndereco">Endereço</label>
-                            <input type="text" class="form-control" id="txtEndereco" name="txtEndereco" value="${imovel.endereco.getId()}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                            <input type="text" class="form-control" id="txtEndereco" name="txtEndereco" value="${imovel.endereco.getId()}" <c:if test="${operacao=='Excluir'}"> readonly=""</c:if>>
 
                         </div>
                         <div class="form-group">
                             <label for="txtArea">Área</label>
-                            <input type="text" class="form-control" id="txtArea" name="txtArea" value="${imovel.area}"<c:if test="${operacao=='Excluir'}">disabled=""</c:if> >
+                            <input type="text" class="form-control" id="txtArea" name="txtArea" value="${imovel.area}"<c:if test="${operacao=='Excluir'}">readonly=""</c:if> >
 
                         </div>
                         <div class="form-group">
                             <label for="txtDescricao">Descrição</label>
-                            <input type="text" class="form-control" id="txtDescricao" name="txtDescricao" value="${imovel.descricao}"<c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                            <input type="text" class="form-control" id="txtDescricao" name="txtDescricao" value="${imovel.descricao}"<c:if test="${operacao=='Excluir'}">readonly=""</c:if>>
 
                         </div>
                         <div class="form-group">
                             <label for="txtCondominio">Valor do Condomínio</label>
-                            <input type="text" class="form-control" id="txtCondominio" name="txtCondominio" value="${imovel.condominio}"<c:if test="${operacao=='Excluir'}">disabled=""</c:if> >
+                            <input type="text" class="form-control" id="txtCondominio" name="txtCondominio" value="${imovel.condominio}"<c:if test="${operacao=='Excluir'}">readonly=""</c:if> >
 
                         </div>
                         <div class="form-group">
                             <label for="txtIptu">Valor do IPTU</label>
-                            <input type="text" class="form-control" id="txtIptu" name="txtIptu" value="${imovel.iptu}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                            <input type="text" class="form-control" id="txtIptu" name="txtIptu" value="${imovel.iptu}" <c:if test="${operacao=='Excluir'}">readonly=""</c:if>>
 
                         </div>
                             <div class="form-group">
                             <label for="txtGaragem">Quantidade de Garagens</label>
-                            <input type="text" class="form-control" id="txtGaragem" name="txtGaragem" value="${imovel.garagem}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                            <input type="text" class="form-control" id="txtGaragem" name="txtGaragem" value="${imovel.garagem}" <c:if test="${operacao=='Excluir'}">readonly=""</c:if>>
 
                         </div>
                         <div class="form-group">
                             <label for="txtLocador">Locador</label>
                             
-                            <select name="txtLocador" id="txtLocador">
+                            <select name="txtLocador" id="txtLocador" <c:if test="${operacao=='Excluir'}">readonly=""</c:if> >
 
                                 <c:forEach items="${locadores}" var="locador">
                                     <option value="${locador.id}"
