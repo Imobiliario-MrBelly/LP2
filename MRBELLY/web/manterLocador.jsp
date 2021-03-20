@@ -48,48 +48,120 @@
         <!--Fim Menus-->
 
         <!--Content-->
- <div class="container conteudo">
+        <div class="container conteudo">
             <div class="row">
                 <div class="page-header">
                     <h1> Manter Locador - ${operacao}</h1>
                 </div>
-                
             </div>
-                <div class="row">
-                    <div class="col-sm-12">
-                        <form action="ManterLocador?acao=confirmarOperacao&operacao=${operacao}" method="post">
-                        
-                            <div class="form-group">
-                                <label for="txtCodLocador">Código do Locador</label>
-                                <input type="text" class="form-control" id="txtCodLocador" name="txtCodLocador" value="${locador.id}" readonly="">
-                                                                                     
-                            </div>
-                            <div class="form-group">
-                                <label for="txtPessoa">Pessoa</label>
-                                <input type="text" class="form-control" id="txtPessoa" name="txtPessoa" value="${locador.pessoa.getId()}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
-                                                                                     
+
+            <div class="row"> 
+                <div class="container">
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-4" >
+                            <button type="button" id="q1" onclick="q1()">Dados Pessoais</button>
+                        </div>
+                        <div class="col-sm-4">
+                            <button type="button" id="q2" onclick="q2()">Endereço</button>
+                        </div>
+                        <div class="col-sm-4">
+                            <button type="button" id="q3" onclick="q3()">Login</button>
+                        </div>
+                    </div>
+                    <style>
+                        #q1, #q2, #q3{
+                            border: 1px solid black;
+                            width: 100%;
+                            height: 40px;
+                            border-radius: 5px;
+                        }
+                    </style>
+                    <br>
+                </div>
+
+                <div class="col-sm-12" id="quadro1">
+                    <form action="ManterLocador?acao=confirmarOperacao&operacao=${operacao}" method="post">
+
+                        <div class="form-group">
+                            <label for="txtCodLocador">Código do Locador</label>
+                            <input type="text" class="form-control" id="txtCodLocador" name="txtCodLocador" value="${locador.id}" readonly="">
+
+                        </div>
+                        <div class="form-group">
+                            <label for="txtPessoa">Pessoa</label>
+                            <input type="text" class="form-control" id="txtPessoa" name="txtPessoa" value="${locador.pessoa.getId()}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+
                             </div>
                             <div class="form-group">
                                 <label for="txtEndereco">Endereço</label>
                                 <input type="text" class="form-control" id="txtEndereco" name="txtEndereco" value="${locador.endereco.getId()}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
-                                                                                     
+
                             </div>
-                                <div class="form-group">
+                            <div class="form-group">
                                 <label for="txtLogin">Login</label>
                                 <input type="text" class="form-control" id="txtLogin" name="txtLogin" value="${locador.login.getId()}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
-                                                                                     
-                            </div>
-                               <div class="form-group">
-                            <br>
-                            <button type="submit" class="btn btn-success"> Confirmar</button> </div>   
-                        </form>
-                    </div>
+
+                        </div>
+
                 </div>
- </div>
+
+                <div class="col-sm-12" id="quadro2">esta é a 2</div>
+                <div class="col-sm-12" id="quadro3">esta é a 3</div>
+                
+                <div class="form-group">
+                    <br>
+                    <button type="submit" class="btn btn-success"> Confirmar</button>
+                </div>   
+                </form>
+
+            </div>
+        </div>
 
 
         <!--Fim Content-->
 
+        <script>
+            window.onload = iniciarPagina;
+
+            function iniciarPagina() {
+                document.getElementById("quadro1").style.display = 'block';
+                document.getElementById("quadro2").style.display = 'none';
+                document.getElementById("quadro3").style.display = 'none';
+
+                document.getElementById("q1").style.backgroundColor = '#ced4da';
+                document.getElementById("q2").style.backgroundColor = '#fdfffc';
+                document.getElementById("q3").style.backgroundColor = '#fdfffc';
+
+            }
+            function q1() {
+                document.getElementById("quadro1").style.display = 'block';
+                document.getElementById("quadro2").style.display = 'none';
+                document.getElementById("quadro3").style.display = 'none';
+
+                document.getElementById("q1").style.backgroundColor = '#ced4da';
+                document.getElementById("q2").style.backgroundColor = '#fdfffc';
+                document.getElementById("q3").style.backgroundColor = '#fdfffc';
+            }
+            function q2() {
+                document.getElementById("quadro1").style.display = 'none';
+                document.getElementById("quadro2").style.display = 'block';
+                document.getElementById("quadro3").style.display = 'none';
+
+                document.getElementById("q1").style.backgroundColor = '#fdfffc';
+                document.getElementById("q2").style.backgroundColor = '#ced4da';
+                document.getElementById("q3").style.backgroundColor = '#fdfffc';
+            }
+            function q3() {
+                document.getElementById("quadro1").style.display = 'none';
+                document.getElementById("quadro2").style.display = 'none';
+                document.getElementById("quadro3").style.display = 'block';
+
+                document.getElementById("q1").style.backgroundColor = '#fdfffc';
+                document.getElementById("q2").style.backgroundColor = '#fdfffc';
+                document.getElementById("q3").style.backgroundColor = '#ced4da';
+            }
+        </script>
         <script src='./js/utilities/bootstrap.js'></script>
         <script src='./js/utilities/jquery-3.5.1.js'></script>
         <script src='./js/main.js'></script>
