@@ -66,17 +66,17 @@
                             </div>
                             <div class="form-group">
                                 <label for="txtPessoa">Pessoa</label>
-                                <input type="text" class="form-control" id="txtPessoa" name="txtPessoa" value="${locador.pessoa.getId()}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                                <input type="text" class="form-control" id="txtPessoa" name="txtPessoa" value="${locador.pessoa.getId()}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
                                                                                      
                             </div>
                             <div class="form-group">
                                 <label for="txtEndereco">Endereço</label>
-                                <input type="text" class="form-control" id="txtEndereco" name="txtEndereco" value="${locador.endereco.getId()}"<c:if test="${operacao=='Excluir'}">disabled=""</c:if> >
+                                <input type="text" class="form-control" id="txtEndereco" name="txtEndereco" value="${locador.endereco.getId()}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
                                                                                      
                             </div>
                                 <div class="form-group">
                                 <label for="txtLogin">Login</label>
-                                <input type="text" class="form-control" id="txtLogin" name="txtLogin" value="${locador.login.getId()}"<c:if test="${operacao=='Excluir'}">disabled=""</c:if> >
+                                <input type="text" class="form-control" id="txtLogin" name="txtLogin" value="${locador.login.getId()}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
                                                                                      
                             </div>
                                <div class="form-group">

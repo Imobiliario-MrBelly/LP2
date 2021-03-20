@@ -61,7 +61,7 @@
 
                         <div class="form-group">
                             <label for="txtCodLocatario">Código do Locatário</label>
-                            <input type="text" id="txtCodLocatario"  name="txtCodLocatario"  class="form-control" value="${locatario.id}" readonly="">
+                            <input type="text" id="txtCodLocatario"  name="txtCodLocatario"  class="form-control" value="${locatario.id}" readonly>
 
                         </div>
                         <div class="form-group">

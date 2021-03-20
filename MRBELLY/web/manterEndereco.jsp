@@ -66,27 +66,27 @@
                         </div>
                         <div class="form-group">
                             <label for="txtCep">Cep</label>
-                            <input type="text" class="form-control" id="txtCep" name="txtCep" value="${endereco.cep}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                            <input type="text" class="form-control" id="txtCep" name="txtCep" value="${endereco.cep}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
 
                         </div>
                         <div class="form-group">
                             <label for="txtRua">Rua</label>
-                            <input type="text" class="form-control" id="txtRua" name="txtRua" value="${endereco.rua}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                            <input type="text" class="form-control" id="txtRua" name="txtRua" value="${endereco.rua}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
 
                         </div>
                         <div class="form-group">
                             <label for="txtNumero">Número</label>
-                            <input type="text" class="form-control" id="txtNumero" name="txtNumero" value="${endereco.numero}"<c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                            <input type="text" class="form-control" id="txtNumero" name="txtNumero" value="${endereco.numero}"<c:if test="${operacao=='Excluir'}">readonly</c:if>>
 
                         </div>
                         <div class="form-group">
                             <label for="txtCidade">Cidade</label>
-                            <input type="text" class="form-control" id="txtCidade" name="txtCidade" value="${endereco.cidade}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                            <input type="text" class="form-control" id="txtCidade" name="txtCidade" value="${endereco.cidade}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
 
                         </div>
                         <div class="form-group">
                             <label for="txtUF">UF</label>
-                            <input type="text" class="form-control" id="txtUF" name="txtUF" value="${endereco.uf}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if> >
+                            <input type="text" class="form-control" id="txtUF" name="txtUF" value="${endereco.uf}" <c:if test="${operacao=='Excluir'}">readonly</c:if> >
 
                         </div>
                            <div class="form-group">

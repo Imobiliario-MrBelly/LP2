@@ -67,12 +67,12 @@
                         <div class="form-group">
                             <div class="form-group">
                                 <label for="txtImovel">Imovel:</label>
+                                
                                 <select name="txtImovel" id="txtImovel">
                                     <c:if test = "${operacao=='Incluir'}">
                                         <c:forEach items="${imoveis}" var="imovel">
 
-                                            <option value="${imovel.id}"
-                                                    <c:if test="${imovel.id==contrato.imovel.id}">selected=""</c:if>>
+                                            <option value="${imovel.id}"<c:if test="${imovel.id==contrato.imovel.id}">selected=""</c:if>>
                                                 ${imovel.descricao}
                                             </option>
 
@@ -108,17 +108,17 @@
                         </div>
                         <div class="form-group">
                             <label for="txtInicio">Data de Início</label>
-                            <input type="date" class="form-control" id="txtInicio" name="txtInicio" value="${contrato.dataInicio}"<c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                            <input type="date" class="form-control" id="txtInicio" name="txtInicio" value="${contrato.dataInicio}"<c:if test="${operacao=='Excluir'}">readonly</c:if>>
 
                             </div>
                             <div class="form-group">
                                 <label for="txtFim">Data de Término</label>
-                                <input type="date" class="form-control" id="txtFim" name="txtFim" value="${contrato.dataFim}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                                <input type="date" class="form-control" id="txtFim" name="txtFim" value="${contrato.dataFim}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
 
                             </div>
                             <div class="form-group">
                                 <label for="txtValor">Valor</label>
-                                <input type="text" class="form-control" id="txtValor" name="txtValor" value="${contrato.valor}" <c:if test="${operacao=='Excluir'}">disabled=""</c:if>>
+                                <input type="text" class="form-control" id="txtValor" name="txtValor" value="${contrato.valor}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
 
                         </div>
                         <div class="form-group">
