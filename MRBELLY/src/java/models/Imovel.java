@@ -119,6 +119,6 @@ public class Imovel {
     public void editar() throws SQLException, ClassNotFoundException {
         ImovelDAO.getInstancia().alterar(this);}
 
-    public void excluir() throws SQLException {
+    public void excluir() throws SQLException, ClassNotFoundException {
     ImovelDAO.getInstancia().excluir(this); }
 }

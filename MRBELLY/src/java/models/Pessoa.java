@@ -14,8 +14,9 @@ public class Pessoa {
     private String cpf;
     private String sexo;
     private Date dataCadastro;
+    private String telefone;
 
-    public Pessoa(int id, String nome, String sobrenome, String rg, String cpf, String sexo, Date dataCadastro) {
+    public Pessoa(int id, String nome, String sobrenome, String rg, String cpf, String sexo, Date dataCadastro, String telefone) {
         this.id = id;
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -23,6 +24,7 @@ public class Pessoa {
         this.cpf = cpf;
         this.sexo = sexo;
         this.dataCadastro = dataCadastro;
+        this.telefone = telefone;
     }
 
     public int getId() {
@@ -79,6 +81,14 @@ public class Pessoa {
 
     public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 
     public static List<Pessoa> obterPessoas() throws SQLException, ClassNotFoundException {
