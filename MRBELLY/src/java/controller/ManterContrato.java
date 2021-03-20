@@ -54,7 +54,7 @@ public class ManterContrato extends HttpServlet {
                 contrato.gravar();
             }else{
                 int codContrato = Integer.parseInt(request.getParameter("txtCodContrato"));
-                contrato = new Contrato(codContrato, imovel, locatario, dataInicio, dataInicio, valor);
+                contrato = new Contrato(codContrato, imovel, locatario, dataInicio, dataTermino, valor);
                 if (operacao.equals("Editar")){
                     contrato.editar();
                 }else{
