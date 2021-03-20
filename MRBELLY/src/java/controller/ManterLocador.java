@@ -117,6 +117,8 @@ public class ManterLocador extends HttpServlet {
             processRequest(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(ManterLocador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ManterLocador.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -134,6 +136,8 @@ public class ManterLocador extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
+            Logger.getLogger(ManterLocador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(ManterLocador.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
