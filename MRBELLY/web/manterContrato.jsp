@@ -67,7 +67,7 @@
                         <div class="form-group">
                             <div class="form-group">
                                 <label for="txtImovel">Imovel:</label>
-                                <select name="txtImovel" id="txtLocatario">
+                                <select name="txtImovel" id="txtImovel">
                                     <c:if test = "${operacao=='Incluir'}">
                                         <c:forEach items="${imoveis}" var="imovel">
 
