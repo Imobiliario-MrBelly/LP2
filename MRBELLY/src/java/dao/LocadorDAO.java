@@ -28,9 +28,9 @@ public class LocadorDAO extends DAO {
         try {
             conexao = BD.getInstancia().getConexao();
 
-            comando = conexao.prepareStatement("INSERT INTO locador (login,pessoa,endereco) VALUES (?,?,?);");
-            comando.setInt(1, locador.getLogin().getId());
-            comando.setInt(2, locador.getPessoa().getId());
+            comando = conexao.prepareStatement("INSERT INTO locador (pessoa,login,endereco) VALUES (?,?,?);");
+            comando.setInt(1, locador.getPessoa().getId());
+            comando.setInt(2, locador.getLogin().getId());
             comando.setInt(3, locador.getEndereco().getId());
             comando.executeUpdate();
 

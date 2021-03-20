@@ -1,4 +1,3 @@
-
 package models;
 
 import dao.LocadorDAO;
@@ -6,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class Locador {
+
     private int id;
     private Pessoa pessoa;
     private Endereco endereco;
@@ -55,10 +55,24 @@ public class Locador {
     public void setEndereco(Endereco endereco) {
         this.endereco = endereco;
     }
-public static List<Locador> obterLocadores() throws SQLException, ClassNotFoundException{
-    return LocadorDAO.getInstancia().obterLocadores();
-}
-public static Locador obterLocador(int id) throws SQLException, ClassNotFoundException{
-    return LocadorDAO.getInstancia().obterLocador(id);
-}
+
+    public static List<Locador> obterLocadores() throws SQLException, ClassNotFoundException {
+        return LocadorDAO.getInstancia().obterLocadores();
+    }
+
+    public static Locador obterLocador(int id) throws SQLException, ClassNotFoundException {
+        return LocadorDAO.getInstancia().obterLocador(id);
+    }
+
+    public void gravar() throws SQLException, ClassNotFoundException {
+        LocadorDAO.getInstancia().gravar(this);
+    }
+
+    public void editar() throws SQLException, ClassNotFoundException {
+        LocadorDAO.getInstancia().alterar(this);
+    }
+
+    public void excluir() throws SQLException, ClassNotFoundException {
+        LocadorDAO.getInstancia().excluir(this);
+    }
 }

@@ -1,4 +1,3 @@
-
 package models;
 
 import dao.LoginDAO;
@@ -6,34 +5,31 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class Login {
+
     private int id;
     private String email;
     private String senha;
-    
 
     public Login(int id, String email, String senha) {
         this.id = id;
         this.email = email;
         this.senha = senha;
-       
+
     }
 
     public Login(String email, String senha) {
         this.email = email;
         this.senha = senha;
-        
+
     }
 
-   
-
-    public int getId(){
+    public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
     }
-
 
     public String getEmail() {
         return email;
@@ -50,15 +46,17 @@ public class Login {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-public static List<Login> obterLogin() throws SQLException, ClassNotFoundException{
-    return LoginDAO.getInstancia().obterLogins();
-}
-public static Login obterLogin(int id) throws SQLException, ClassNotFoundException{
-    return LoginDAO.getInstancia().obterLogin(id);
-}
 
-    public void gravar() throws SQLException, ClassNotFoundException {
-        LoginDAO.getInstancia().gravar(this);
+    public static List<Login> obterLogin() throws SQLException, ClassNotFoundException {
+        return LoginDAO.getInstancia().obterLogins();
+    }
+
+    public static Login obterLogin(int id) throws SQLException, ClassNotFoundException {
+        return LoginDAO.getInstancia().obterLogin(id);
+    }
+
+    public int gravar() throws SQLException, ClassNotFoundException {
+        return LoginDAO.getInstancia().gravar(this);
     }
 
     public void editar() throws SQLException, ClassNotFoundException {
@@ -66,6 +64,6 @@ public static Login obterLogin(int id) throws SQLException, ClassNotFoundExcepti
     }
 
     public void excluir() throws SQLException, ClassNotFoundException {
-       LoginDAO.getInstancia().excluir(this);
+        LoginDAO.getInstancia().excluir(this);
     }
 }

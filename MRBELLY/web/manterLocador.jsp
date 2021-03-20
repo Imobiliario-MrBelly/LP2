@@ -84,6 +84,11 @@
 
 
                         <div class="form-group">
+                            <label for="txtCodPessoa">Código Pessoa</label>
+                            <input type="text" class="form-control" id="txtCodPessoa" name="txtCodPessoa" value="${locador.pessoa.id}" readonly>
+
+                            </div>
+                        <div class="form-group">
                             <label for="txtNome">Nome</label>
                             <input type="text" class="form-control" id="txtNome" name="txtNome" value="${locador.pessoa.nome}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
 
@@ -114,13 +119,17 @@
                                 <label for="txtCadastro">Data de Cadastro</label>
                                 <input type="text" class="form-control" id="txtCadastro" name="txtCadastro" value="${locador.pessoa.dataCadastro}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>                                                      
                             </div>
+                            <div class="form-group">
+                                <label for="txtTelefone">Telefone</label>
+                                <input type="text" class="form-control" id="txtTelefone" name="txtTelefone" value="${locador.pessoa.telefone}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>                                                      
+                            </div>
 
                         </div>
 
                         <div class="col-sm-12" id="quadro2">
                             <div class="form-group">
                                 <label for="txtCodEndereco">Código do Endereço</label>
-                                <input type="text" class="form-control" id="txtCodEndereco" name="txtCodEndereco" value="${locador.endereco.id}" readonly="">
+                                <input type="text" class="form-control" id="txtCodEndereco" name="txtCodEndereco" value="${locador.endereco.id}" readonly>
 
                         </div>
                         <div class="form-group">
@@ -149,10 +158,14 @@
 
                             </div>
                         </div>
-                        <div class="col-sm-12" id="quadro3"><div class="form-group">
+                        <div class="col-sm-12" id="quadro3">
+                            <div class="form-group">
+                                <label for="txtCodLogin">Código do Login</label>
+                                <input type="text" class="form-control" id="txtCodLogin" name="txtCodLogin" value="${locador.login.id}" readonly>
+                            </div>
+                            <div class="form-group">
                                 <label for="txtEmail">Email</label>
                                 <input type="text" class="form-control" id="txtEmail" name="txtEmail" value="${locador.login.email}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
-
                             </div>
                             <div class="form-group">
                                 <label for="txtSenha">Senha</label>

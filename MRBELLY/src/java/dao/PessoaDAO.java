@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,24 +19,35 @@ public class PessoaDAO extends DAO {
         return instancia;
     }
 
-    public void gravar(Pessoa p) throws SQLException, ClassNotFoundException,
+    public int gravar(Pessoa p) throws SQLException, ClassNotFoundException,
             CloneNotSupportedException {
         Connection conexao = null;
         PreparedStatement comando = null;
 
         try {
             conexao = BD.getInstancia().getConexao();
+            conexao.setAutoCommit(false);
 
-            comando = conexao.prepareStatement("INSERT INTO PESSOA(nome, sobrenome, "
-                    + "rg, cpf, nascimento, sexo, dataCadastro) VALUES (?,?,?,?,?);");
+            comando = conexao.prepareStatement("INSERT INTO pessoa (nome, cpf, rg, sobrenome,"
+                    + " sexo, cadastro, telefone) VALUES (?,?,?,?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
 
             comando.setString(1, p.getNome());
-            comando.setString(2, p.getSobrenome());
+            comando.setString(2, p.getCpf());
             comando.setString(3, p.getRg());
-            comando.setString(4, p.getCpf());
-            comando.setDate(8, (Date) p.getDataCadastro());
+            comando.setString(4, p.getSobrenome());
+            comando.setString(5, p.getSexo());
+            comando.setDate(6, new java.sql.Date(p.getDataCadastro().getTime()));
+            comando.setString(7, p.getTelefone());
+
             comando.executeUpdate();
 
+            ResultSet rs = comando.getGeneratedKeys();
+            int id = 0;
+            while (rs.next()) {
+                id = rs.getInt(1);
+            }
+
+            return id;
         } finally {
             fecharConexao(conexao, comando);
         }
@@ -54,8 +66,9 @@ public class PessoaDAO extends DAO {
             comando.setString(2, p.getSobrenome());
             comando.setString(3, p.getRg());
             comando.setString(4, p.getCpf());
-            comando.setDate(8, (Date) p.getDataCadastro());
-            comando.setString(9, p.getTelefone());
+            comando.setString(4, p.getSexo());
+            comando.setDate(5, new java.sql.Date(p.getDataCadastro().getTime()));
+            comando.setString(6, p.getTelefone());
 
             return comando.executeUpdate() > 0;
 

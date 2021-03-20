@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import models.Endereco;
@@ -19,17 +20,26 @@ public class LoginDAO extends DAO {
         return instancia;
     }
 
-    public void gravar(Login login) throws SQLException, ClassNotFoundException {
+    public int gravar(Login login) throws SQLException, ClassNotFoundException {
         Connection conexao = null;
         PreparedStatement comando = null;
 
         try {
             conexao = BD.getInstancia().getConexao();
-
-            comando = conexao.prepareStatement("INSERT INTO login (email,senha,status) VALUES (?,?,0);");
-            comando.setString(1, login.getEmail());
-            comando.setString(2, login.getSenha());
+            conexao.setAutoCommit(false);
+            
+            comando = conexao.prepareStatement("INSERT INTO login (senha, email, status) VALUES (?,?,0);", Statement.RETURN_GENERATED_KEYS);
+            comando.setString(1, login.getSenha());
+            comando.setString(2, login.getEmail());
             comando.executeUpdate();
+            
+            ResultSet rs = comando.getGeneratedKeys();
+            int id = 0;
+            while (rs.next()) {
+                id = rs.getInt(1);
+            }
+
+            return id;
 
         } finally {
             fecharConexao(conexao, comando);

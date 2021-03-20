@@ -16,6 +16,15 @@ public class Pessoa {
     private Date dataCadastro;
     private String telefone;
 
+    public Pessoa(String nome, String sobrenome, String rg, String cpf, String sexo, Date dataCadastro, String telefone) {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.rg = rg;
+        this.cpf = cpf;
+        this.sexo = sexo;
+        this.dataCadastro = dataCadastro;
+        this.telefone = telefone;
+    }
     public Pessoa(int id, String nome, String sobrenome, String rg, String cpf, String sexo, Date dataCadastro, String telefone) {
         this.id = id;
         this.nome = nome;
@@ -94,8 +103,20 @@ public class Pessoa {
     public static List<Pessoa> obterPessoas() throws SQLException, ClassNotFoundException {
         return PessoaDAO.getInstancia().obterPessoas();
     }
+
     public static Pessoa obterPessoa(int id) throws SQLException, ClassNotFoundException {
         return PessoaDAO.getInstancia().obterPessoa(id);
     }
 
+    public int gravar() throws SQLException, ClassNotFoundException, CloneNotSupportedException {
+        return PessoaDAO.getInstancia().gravar(this);
+    }
+
+    public void excluir() throws SQLException, ClassNotFoundException {
+        PessoaDAO.getInstancia().excluir(this);
+    }
+
+    public void editar() throws SQLException, ClassNotFoundException {
+        PessoaDAO.getInstancia().alterar(this);
+    }
 }

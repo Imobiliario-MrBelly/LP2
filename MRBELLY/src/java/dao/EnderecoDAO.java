@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import models.Endereco;
@@ -16,19 +17,29 @@ public class EnderecoDAO extends DAO {
         return instancia;
     }
 
-    public void gravar(Endereco endereco) throws SQLException, ClassNotFoundException {
+    public int gravar(Endereco endereco) throws SQLException, ClassNotFoundException {
         Connection conexao = null;
         PreparedStatement comando = null;
 
         try {
             conexao = BD.getInstancia().getConexao();
-            comando = conexao.prepareStatement("INSERT INTO endereco (rua, numero, cep, cidade, uf) VALUES (?,?,?,?,?);");
+            conexao.setAutoCommit(false);
+            
+            comando = conexao.prepareStatement("INSERT INTO endereco (rua, numero, cep, cidade, uf) VALUES (?,?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
             comando.setString(1, endereco.getRua());
             comando.setString(2, endereco.getNumero());
             comando.setString(3, endereco.getCep());
             comando.setString(4, endereco.getCidade());
             comando.setString(5, endereco.getUf());
             comando.executeUpdate();
+            
+            ResultSet rs = comando.getGeneratedKeys();
+            int id = 0;
+            while (rs.next()) {
+                id = rs.getInt(1);
+            }
+
+            return id;
         } finally {
             fecharConexao(conexao, comando);
         }
