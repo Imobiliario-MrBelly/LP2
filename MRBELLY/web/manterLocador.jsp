@@ -116,10 +116,6 @@
                                 </select> 
                             </div>
                             <div class="form-group">
-                                <label for="txtCadastro">Data de Cadastro</label>
-                                <input type="text" class="form-control" id="txtCadastro" name="txtCadastro" value="${locador.pessoa.dataCadastro}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>                                                      
-                            </div>
-                            <div class="form-group">
                                 <label for="txtTelefone">Telefone</label>
                                 <input type="text" class="form-control" id="txtTelefone" name="txtTelefone" value="${locador.pessoa.telefone}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>                                                      
                             </div>

@@ -45,7 +45,6 @@ public class ManterLocador extends HttpServlet {
     private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException, ParseException, CloneNotSupportedException {
         String operacao = request.getParameter("operacao");
 
-        SimpleDateFormat formato = new SimpleDateFormat("yyyy-MM-dd");
 
         //int idPessoa = Integer.parseInt(request.getParameter("txtCodPessoa"));
         String nome = request.getParameter("txtNome");
@@ -53,7 +52,6 @@ public class ManterLocador extends HttpServlet {
         String rg = request.getParameter("txtRg");
         String cpf = request.getParameter("txtCpf");
         String sexo = request.getParameter("txtSexo");
-        Date dataCadastro = formato.parse(request.getParameter("txtCadastro"));
         String telefone = request.getParameter("txtTelefone");
 
         //int idEndereco = Integer.parseInt(request.getParameter("txtCodEndereco"));
@@ -62,7 +60,7 @@ public class ManterLocador extends HttpServlet {
         String numero = request.getParameter("txtNumero");
         String cidade = request.getParameter("txtCidade");
         String uf = request.getParameter("txtUF");
-
+        Date dataCadastro = new Date();
         //int idLogin = Integer.parseInt(request.getParameter("txtCodLogin"));
         String email = request.getParameter("txtEmail");
         String senha = request.getParameter("txtSenha");
@@ -74,6 +72,7 @@ public class ManterLocador extends HttpServlet {
             Login login = new Login(email, senha);
 
             if (operacao.equals("Incluir")) {
+                
                 int idCadastradoPessoa = pessoa.gravar();
                 int idCadastradoEndereco = endereco.gravar();
                 int idCadastradoLogin = login.gravar();

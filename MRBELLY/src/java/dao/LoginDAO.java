@@ -38,7 +38,7 @@ public class LoginDAO extends DAO {
             while (rs.next()) {
                 id = rs.getInt(1);
             }
-
+            conexao.commit();
             return id;
 
         } finally {

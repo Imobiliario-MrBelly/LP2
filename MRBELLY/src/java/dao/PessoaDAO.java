@@ -29,15 +29,14 @@ public class PessoaDAO extends DAO {
             conexao.setAutoCommit(false);
 
             comando = conexao.prepareStatement("INSERT INTO pessoa (nome, cpf, rg, sobrenome,"
-                    + " sexo, cadastro, telefone) VALUES (?,?,?,?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
+                    + " sexo, cadastro, telefone) VALUES (?,?,?,?,?,curdate(),?);", Statement.RETURN_GENERATED_KEYS);
 
             comando.setString(1, p.getNome());
             comando.setString(2, p.getCpf());
             comando.setString(3, p.getRg());
             comando.setString(4, p.getSobrenome());
             comando.setString(5, p.getSexo());
-            comando.setDate(6, new java.sql.Date(p.getDataCadastro().getTime()));
-            comando.setString(7, p.getTelefone());
+            comando.setString(6, p.getTelefone());
 
             comando.executeUpdate();
 
@@ -46,7 +45,7 @@ public class PessoaDAO extends DAO {
             while (rs.next()) {
                 id = rs.getInt(1);
             }
-
+            conexao.commit();
             return id;
         } finally {
             fecharConexao(conexao, comando);
