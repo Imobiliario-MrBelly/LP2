@@ -117,12 +117,12 @@ public class ManterLocador extends HttpServlet {
                             try {
                                 login.editar();
                             } catch (Exception e) {
-                                enderecoAntigo.editar();
-                                throw new Exception(e);
+//                                enderecoAntigo.editar();
+//                                throw new Exception(e);
                             }
                         } catch (Exception e) {
-                            pessoaAntiga.editar();
-                            throw new Exception(e);
+//                            pessoaAntiga.editar();
+//                            throw new Exception(e);
                         }
                     } catch (Exception e) {
 
@@ -134,10 +134,10 @@ public class ManterLocador extends HttpServlet {
                         login.excluir();
                         locador.excluir();
                     }
-                }
+                }}
                 RequestDispatcher view = request.getRequestDispatcher("pesquisaLocador");
                 view.forward(request, response);
-            }
+            
         } catch (IOException e) {
             throw new ServletException(e);
         } catch (ServletException e) {
