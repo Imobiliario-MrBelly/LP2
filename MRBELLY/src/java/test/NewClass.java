@@ -6,14 +6,14 @@
 package test;
 
 import dao.LoginDAO;
-import dao.TelefoneDAO;
+
 import java.sql.SQLException;
 import models.Contrato;
 import models.Locador;
 import models.Locatario;
 import models.Login;
 import models.Pessoa;
-import models.Telefone;
+
 
 /**
  *
@@ -21,8 +21,8 @@ import models.Telefone;
  */
 public class NewClass {
    public static void main(String[] args) throws SQLException, ClassNotFoundException{
-//       Login log1=new Login("rennandamiao@gmail.com", "1234", true);
-//       LoginDAO.getInstancia().gravar(log1);
+       Login log1=new Login("opa", "aiiie");
+       System.out.println(LoginDAO.getInstancia().gravar(log1));
 //       
        /*for(Pessoa ref : Pessoa.obterPessoas()){
            System.out.println(ref.getNome());
@@ -35,8 +35,6 @@ public class NewClass {
            }
        }*/
        
-       for(Contrato c : Contrato.obterContratos()){
-           System.out.println(c.getId());
-       }
+       
    }
 }
