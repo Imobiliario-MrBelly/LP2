@@ -59,15 +59,16 @@ public class PessoaDAO extends DAO {
         try {
             conexao = BD.getInstancia().getConexao();
 
-            comando = conexao.prepareStatement("UPDATE PESSOA SET nome=?, sobrenome=?,  rg=?, cpf=?, nascimento=?, sexo=?, dataCadastro=?, telefone=? WHERE id=?;");
+            comando = conexao.prepareStatement("UPDATE pessoa SET nome=?, sobrenome=?,  rg=?, cpf=?, sexo=?, telefone=? WHERE id=?;");
 
             comando.setString(1, p.getNome());
             comando.setString(2, p.getSobrenome());
             comando.setString(3, p.getRg());
             comando.setString(4, p.getCpf());
-            comando.setString(4, p.getSexo());
-            comando.setDate(5, new java.sql.Date(p.getDataCadastro().getTime()));
+            comando.setString(5, p.getSexo());
+
             comando.setString(6, p.getTelefone());
+            comando.setInt(7, p.getId());
 
             return comando.executeUpdate() > 0;
 
