@@ -24,7 +24,7 @@ public class LocadorDAO extends DAO {
     public void gravar(Locador locador) throws SQLException, ClassNotFoundException {
         Connection conexao = null;
         PreparedStatement comando = null;
-
+        //ola mundo
         try {
             conexao = BD.getInstancia().getConexao();
 
