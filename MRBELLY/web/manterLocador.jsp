@@ -82,12 +82,14 @@
                 <form action="ManterLocador?acao=confirmarOperacao&operacao=${operacao}" method="post">
                     <div class="col-sm-12" id="quadro1">
 
-
+                        <div class="form-group"> 
+                            <input type="text" class="form-control" id="txtCodLocador" name="txtCodLocador" value="${locador.id}" readonly style="display:none">
+                        </div>
                         <div class="form-group">
                             <label for="txtCodPessoa">Código Pessoa</label>
                             <input type="text" class="form-control" id="txtCodPessoa" name="txtCodPessoa" value="${locador.pessoa.id}" readonly>
 
-                            </div>
+                        </div>
                         <div class="form-group">
                             <label for="txtNome">Nome</label>
                             <input type="text" class="form-control" id="txtNome" name="txtNome" value="${locador.pessoa.nome}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
@@ -158,10 +160,10 @@
                             <div class="form-group">
                                 <label for="txtCodLogin">Código do Login</label>
                                 <input type="text" class="form-control" id="txtCodLogin" name="txtCodLogin" value="${locador.login.id}" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="txtEmail">Email</label>
-                                <input type="text" class="form-control" id="txtEmail" name="txtEmail" value="${locador.login.email}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEmail">Email</label>
+                            <input type="text" class="form-control" id="txtEmail" name="txtEmail" value="${locador.login.email}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
                             </div>
                             <div class="form-group">
                                 <label for="txtSenha">Senha</label>

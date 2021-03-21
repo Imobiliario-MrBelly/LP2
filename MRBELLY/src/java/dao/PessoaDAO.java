@@ -83,7 +83,7 @@ public class PessoaDAO extends DAO {
         try {
             conexao = BD.getInstancia().getConexao();
 
-            comando = conexao.prepareStatement("DELETE FROM PESSOA WHERE id=?;");
+            comando = conexao.prepareStatement("DELETE FROM pessoa WHERE id=?;");
 
             comando.setInt(1, p.getId());
             return comando.executeUpdate() > 0;

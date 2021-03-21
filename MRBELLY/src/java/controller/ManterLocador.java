@@ -45,7 +45,6 @@ public class ManterLocador extends HttpServlet {
     private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException, ParseException, CloneNotSupportedException, Exception {
         String operacao = request.getParameter("operacao");
 
-        //int idPessoa = Integer.parseInt(request.getParameter("txtCodPessoa"));
         String nome = request.getParameter("txtNome");
         String sobrenome = request.getParameter("txtSobrenome");
         String rg = request.getParameter("txtRg");
@@ -53,24 +52,27 @@ public class ManterLocador extends HttpServlet {
         String sexo = request.getParameter("txtSexo");
         String telefone = request.getParameter("txtTelefone");
 
-        //int idEndereco = Integer.parseInt(request.getParameter("txtCodEndereco"));
         String cep = request.getParameter("txtCep");
         String rua = request.getParameter("txtRua");
         String numero = request.getParameter("txtNumero");
         String cidade = request.getParameter("txtCidade");
         String uf = request.getParameter("txtUF");
         Date dataCadastro = new Date();
-        //int idLogin = Integer.parseInt(request.getParameter("txtCodLogin"));
+
         String email = request.getParameter("txtEmail");
         String senha = request.getParameter("txtSenha");
 
+        Pessoa pessoa = null;
+        Endereco endereco = null;
+        Login login = null;
+        Locador locador = null;
+
         try {
 
-            Pessoa pessoa = new Pessoa(nome, sobrenome, rg, cpf, sexo, dataCadastro, telefone);
-            Endereco endereco = new Endereco(rua, numero, cep, cidade, uf);
-            Login login = new Login(email, senha);
-
             if (operacao.equals("Incluir")) {
+                pessoa = new Pessoa(nome, sobrenome, rg, cpf, sexo, dataCadastro, telefone);
+                endereco = new Endereco(rua, numero, cep, cidade, uf);
+                login = new Login(email, senha);
                 try {
                     pessoa.setId(pessoa.gravar());
                     try {
@@ -78,7 +80,7 @@ public class ManterLocador extends HttpServlet {
                         try {
                             login.setId(login.gravar());
                             try {
-                                Locador locador = new Locador(pessoa, endereco, login);
+                                locador = new Locador(pessoa, endereco, login);
                                 locador.gravar();
                             } catch (Exception e) {
                                 login.excluir();
@@ -92,31 +94,50 @@ public class ManterLocador extends HttpServlet {
                         pessoa.excluir();
                         throw new Exception(e);
                     }
-                } 
-                catch (Exception e) {
-throw new Exception(e);
+                } catch (Exception e) {
+
                 }
-//                int idCadastradoPessoa = pessoa.gravar();
-//                int idCadastradoEndereco = endereco.gravar();
-//                int idCadastradoLogin = login.gravar();
-//
-//                pessoa.setId(idCadastradoPessoa);
-//                endereco.setId(idCadastradoEndereco);
-//                login.setId(idCadastradoLogin);
 
             } else {
-                int codLogin = Integer.parseUnsignedInt(request.getParameter("txtCodLogin"));
-
+                int codLocador = Integer.parseInt(request.getParameter("txtCodLocador"));
+                int idPessoa = Integer.parseInt(request.getParameter("txtCodPessoa"));
+                int idEndereco = Integer.parseInt(request.getParameter("txtCodEndereco"));
+                int idLogin = Integer.parseInt(request.getParameter("txtCodLogin"));
+                pessoa = new Pessoa(idPessoa, nome, sobrenome, rg, cpf, sexo, dataCadastro, telefone);
+                endereco = new Endereco(idEndereco, rua, numero, cep, cidade, uf);
+                login = new Login(idLogin, email, senha);
+                locador = new Locador(codLocador, pessoa, endereco, login);
                 if (operacao.equals("Editar")) {
-
-                } else {
-                    if (operacao.equals("Excluir")) {
+                    try {
+                        Pessoa pessoaAntiga = Pessoa.obterPessoa(pessoa.getId());
+                        pessoa.editar();
+                        try {
+                            Endereco enderecoAntigo = Endereco.obterEndereco(endereco.getId());
+                            endereco.editar();
+                            try {
+                                login.editar();
+                            } catch (Exception e) {
+                                enderecoAntigo.editar();
+                                throw new Exception(e);
+                            }
+                        } catch (Exception e) {
+                            pessoaAntiga.editar();
+                            throw new Exception(e);
+                        }
+                    } catch (Exception e) {
 
                     }
+                } else {
+                    if (operacao.equals("Excluir")) {
+                        pessoa.excluir();
+                        endereco.excluir();
+                        login.excluir();
+                        locador.excluir();
+                    }
                 }
+                RequestDispatcher view = request.getRequestDispatcher("pesquisaLocador");
+                view.forward(request, response);
             }
-            RequestDispatcher view = request.getRequestDispatcher("pesquisaLocador");
-            view.forward(request, response);
         } catch (IOException e) {
             throw new ServletException(e);
         } catch (ServletException e) {
