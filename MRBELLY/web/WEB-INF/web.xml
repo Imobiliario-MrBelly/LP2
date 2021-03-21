@@ -45,10 +45,6 @@
         <servlet-class>controller.ManterImovel</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ManterLocador</servlet-name>
-        <servlet-class>controller.ManterLocador</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ManterLocatario</servlet-name>
         <servlet-class>controller.ManterLocatario</servlet-class>
     </servlet>
@@ -63,6 +59,10 @@
     <servlet>
         <servlet-name>ManterTelefone</servlet-name>
         <servlet-class>controller.ManterTelefone</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ManterLocador</servlet-name>
+        <servlet-class>controller.ManterLocador</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>pesquisaImovel</servlet-name>
@@ -109,10 +109,6 @@
         <url-pattern>/ManterImovel</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ManterLocador</servlet-name>
-        <url-pattern>/ManterLocador</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ManterLocatario</servlet-name>
         <url-pattern>/ManterLocatario</url-pattern>
     </servlet-mapping>
@@ -127,6 +123,10 @@
     <servlet-mapping>
         <servlet-name>ManterTelefone</servlet-name>
         <url-pattern>/ManterTelefone</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ManterLocador</servlet-name>
+        <url-pattern>/ManterLocador</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

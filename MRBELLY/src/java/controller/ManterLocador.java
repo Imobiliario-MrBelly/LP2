@@ -30,7 +30,7 @@ import models.Pessoa;
 public class ManterLocador extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException, ClassNotFoundException, ParseException, CloneNotSupportedException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException, ParseException, CloneNotSupportedException, Exception {
         String acao = request.getParameter("acao");
 
         if (acao.equals("confirmarOperacao")) {
@@ -42,9 +42,8 @@ public class ManterLocador extends HttpServlet {
         }
     }
 
-    private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException, ParseException, CloneNotSupportedException {
+    private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException, ParseException, CloneNotSupportedException, Exception {
         String operacao = request.getParameter("operacao");
-
 
         //int idPessoa = Integer.parseInt(request.getParameter("txtCodPessoa"));
         String nome = request.getParameter("txtNome");
@@ -72,18 +71,39 @@ public class ManterLocador extends HttpServlet {
             Login login = new Login(email, senha);
 
             if (operacao.equals("Incluir")) {
-                
-                int idCadastradoPessoa = pessoa.gravar();
-                int idCadastradoEndereco = endereco.gravar();
-                int idCadastradoLogin = login.gravar();
-                
-                pessoa.setId(idCadastradoPessoa);
-                endereco.setId(idCadastradoEndereco);
-                login.setId(idCadastradoLogin);
-                
-                Locador locador = new Locador(pessoa, endereco, login);
-                locador.gravar();
-                
+                try {
+                    pessoa.setId(pessoa.gravar());
+                    try {
+                        endereco.setId(endereco.gravar());
+                        try {
+                            login.setId(login.gravar());
+                            try {
+                                Locador locador = new Locador(pessoa, endereco, login);
+                                locador.gravar();
+                            } catch (Exception e) {
+                                login.excluir();
+                                throw new Exception(e);
+                            }
+                        } catch (Exception e) {
+                            endereco.excluir();
+                            throw new Exception(e);
+                        }
+                    } catch (Exception e) {
+                        pessoa.excluir();
+                        throw new Exception(e);
+                    }
+                } 
+                catch (Exception e) {
+throw new Exception(e);
+                }
+//                int idCadastradoPessoa = pessoa.gravar();
+//                int idCadastradoEndereco = endereco.gravar();
+//                int idCadastradoLogin = login.gravar();
+//
+//                pessoa.setId(idCadastradoPessoa);
+//                endereco.setId(idCadastradoEndereco);
+//                login.setId(idCadastradoLogin);
+
             } else {
                 int codLogin = Integer.parseUnsignedInt(request.getParameter("txtCodLogin"));
 
@@ -98,10 +118,6 @@ public class ManterLocador extends HttpServlet {
             RequestDispatcher view = request.getRequestDispatcher("pesquisaLocador");
             view.forward(request, response);
         } catch (IOException e) {
-            throw new ServletException(e);
-        } catch (SQLException e) {
-            throw new ServletException(e);
-        } catch (ClassNotFoundException e) {
             throw new ServletException(e);
         } catch (ServletException e) {
             throw e;
@@ -161,6 +177,8 @@ public class ManterLocador extends HttpServlet {
             Logger.getLogger(ManterLocador.class.getName()).log(Level.SEVERE, null, ex);
         } catch (CloneNotSupportedException ex) {
             Logger.getLogger(ManterLocador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            Logger.getLogger(ManterLocador.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -184,6 +202,8 @@ public class ManterLocador extends HttpServlet {
         } catch (ParseException ex) {
             Logger.getLogger(ManterLocador.class.getName()).log(Level.SEVERE, null, ex);
         } catch (CloneNotSupportedException ex) {
+            Logger.getLogger(ManterLocador.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
             Logger.getLogger(ManterLocador.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
