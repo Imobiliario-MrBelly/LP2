@@ -6,8 +6,8 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import models.Locatario;
+import models.Login;
+import models.Pessoa;
 
 /**
  *
@@ -24,7 +26,7 @@ import models.Locatario;
 public class ManterLocatario extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException {
+            throws ServletException, IOException, SQLException, ClassNotFoundException {
         String acao = request.getParameter("acao");
 
         if (acao.equals("confirmarOperacao")) {
@@ -36,46 +38,95 @@ public class ManterLocatario extends HttpServlet {
         }
     }
 
-     private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException {
+    private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException {
         String operacao = request.getParameter("operacao");
-        
+
+        String nome = request.getParameter("txtNome");
+        String sobrenome = request.getParameter("txtSobrenome");
+        String rg = request.getParameter("txtRg");
+        String cpf = request.getParameter("txtCpf");
+        String sexo = request.getParameter("txtSexo");
+        String telefone = request.getParameter("txtTelefone");
+        Date dataCadastro = new Date();
+
         String email = request.getParameter("txtEmail");
         String senha = request.getParameter("txtSenha");
+
+        Pessoa pessoa = null;
         Login login = null;
-        try{
-            if (operacao.equals("Incluir")){
+        Locatario locatario = null;
+
+        try {
+
+            if (operacao.equals("Incluir")) {
+                pessoa = new Pessoa(nome, sobrenome, rg, cpf, sexo, dataCadastro, telefone);
                 login = new Login(email, senha);
-                login.gravar();
-            }else{
-                int codLogin = Integer.parseUnsignedInt(request.getParameter("txtCodLogin"));
-                login = new Login(codLogin, email, senha);
-                if (operacao.equals("Editar")){
-                    login.editar();
-                }else{if(operacao.equals("Excluir")){
-                    login.excluir();
+                try {
+                    pessoa.setId(pessoa.gravar());
+                    try {
+                        login.setId(login.gravar());
+                        try {
+                            locatario = new Locatario(pessoa, login);
+                            locatario.gravar();
+                        } catch (Exception e) {
+                            login.excluir();
+                            throw new Exception(e);
+                        }
+                    } catch (Exception e) {
+                        pessoa.excluir();
+                        throw new Exception(e);
+                    }
+                } catch (Exception e) {
+
                 }
+
+            } else {
+                int codLocatario = Integer.parseInt(request.getParameter("txtCodLocatario"));
+                int idPessoa = Integer.parseInt(request.getParameter("txtCodPessoa"));
+                int idLogin = Integer.parseInt(request.getParameter("txtCodLogin"));
+                pessoa = new Pessoa(idPessoa, nome, sobrenome, rg, cpf, sexo, dataCadastro, telefone);
+                login = new Login(idLogin, email, senha);
+                locatario = new Locatario(codLocatario, pessoa, login);
+
+                if (operacao.equals("Editar")) {
+                    try {
+                        Pessoa pessoaAntiga = Pessoa.obterPessoa(pessoa.getId());
+                        pessoa.editar();
+
+                        try {
+                            login.editar();
+
+                        } catch (Exception e) {
+                            pessoaAntiga.editar();
+                            throw new Exception(e);
+                        }
+                    } catch (Exception e) {
+
+                    }
+                } else {
+                    if (operacao.equals("Excluir")) {
+                        pessoa.excluir();
+                        login.excluir();
+                        locatario.excluir();
+                    }
                 }
             }
-            RequestDispatcher view = request.getRequestDispatcher("pesquisaLoginController");
+            RequestDispatcher view = request.getRequestDispatcher("pesquisaLocatario");
             view.forward(request, response);
-        }catch(IOException e ){
+
+        } catch (IOException e) {
             throw new ServletException(e);
-        }catch(SQLException e){
-            throw new ServletException(e);
-        }catch(ClassNotFoundException e ){
-            throw  new ServletException(e);
-        }catch(ServletException e ){
-            throw  e;
+        } catch (ServletException e) {
+            throw e;
         }
     }
-
 
     private void prepararOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException {
         try {
             String operacao = request.getParameter("operacao");
 
             request.setAttribute("operacao", operacao);
-            request.setAttribute("locatario", Locatario.obterLocatario());
+            request.setAttribute("locatarios", Locatario.obterLocatario());
 
             if (!operacao.equals("Incluir")) {
 
@@ -117,6 +168,8 @@ public class ManterLocatario extends HttpServlet {
             processRequest(request, response);
         } catch (SQLException ex) {
             Logger.getLogger(ManterLocatario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ManterLocatario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -134,6 +187,8 @@ public class ManterLocatario extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (SQLException ex) {
+            Logger.getLogger(ManterLocatario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
             Logger.getLogger(ManterLocatario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

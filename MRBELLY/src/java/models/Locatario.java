@@ -44,10 +44,24 @@ public class Locatario {
     public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
     }
-public static List<Locatario> obterLocatario() throws SQLException, ClassNotFoundException{
-    return LocatarioDAO.getInstancia().obterLocatarios();
-} 
-public static Locatario obterLocatario(int id) throws SQLException, ClassNotFoundException{
-    return LocatarioDAO.getInstancia().obterLocatario(id);
-} 
+
+    public static List<Locatario> obterLocatario() throws SQLException, ClassNotFoundException {
+        return LocatarioDAO.getInstancia().obterLocatarios();
+    }
+
+    public static Locatario obterLocatario(int id) throws SQLException, ClassNotFoundException {
+        return LocatarioDAO.getInstancia().obterLocatario(id);
+    }
+
+    public void gravar() throws SQLException, ClassNotFoundException {
+        LocatarioDAO.getInstancia().gravar(this);
+    }
+
+    public void editar() throws SQLException, ClassNotFoundException {
+        LocatarioDAO.getInstancia().alterar(this);
+    }
+
+    public void excluir() throws SQLException, ClassNotFoundException {
+        LocatarioDAO.getInstancia().excluir(this);
+    }
 }

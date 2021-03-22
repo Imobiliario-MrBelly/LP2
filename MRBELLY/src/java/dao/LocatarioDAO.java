@@ -23,7 +23,7 @@ public class LocatarioDAO extends DAO {
         PreparedStatement comando = null;
         try {
             conexao = BD.getInstancia().getConexao();
-            comando = conexao.prepareStatement("insert into locatario pessoa,login values(?,?)");
+            comando = conexao.prepareStatement("insert into locatario (pessoa,login) values(?,?)");
             comando.setInt(1, locatario.getPessoa().getId());
             comando.setInt(2, locatario.getLogin().getId());
             comando.executeUpdate();
@@ -38,7 +38,7 @@ public class LocatarioDAO extends DAO {
         PreparedStatement comando = null;
         try {
             conexao = BD.getInstancia().getConexao();
-            comando = conexao.prepareStatement("update locatario set login=?,pessoa=? where id == ?");
+            comando = conexao.prepareStatement("update locatario set login=?,pessoa=? where id = ?");
             comando.setInt(2, locatario.getPessoa().getId());
             comando.setInt(1, locatario.getLogin().getId());
             comando.setInt(3, locatario.getId());
@@ -49,7 +49,7 @@ public class LocatarioDAO extends DAO {
         }
     }
 
-    public void excluit(Locatario locatario) throws SQLException, ClassNotFoundException {
+    public void excluir(Locatario locatario) throws SQLException, ClassNotFoundException {
         Connection conexao = null;
         PreparedStatement comando = null;
         try {
