@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import static jdk.nashorn.internal.runtime.Debug.id;
@@ -27,12 +28,60 @@ public class LocadorDAO extends DAO {
         //ola mundo
         try {
             conexao = BD.getInstancia().getConexao();
+conexao.setAutoCommit(false);
+ comando = conexao.prepareStatement("INSERT INTO pessoa (nome, cpf, rg, sobrenome,"
+                    + " sexo, cadastro, telefone) VALUES (?,?,?,?,?,curdate(),?);", Statement.RETURN_GENERATED_KEYS);
 
+            comando.setString(1, locador.getPessoa().getNome());
+            comando.setString(2, locador.getPessoa().getCpf());
+            comando.setString(3, locador.getPessoa().getRg());
+            comando.setString(4, locador.getPessoa().getSobrenome());
+            comando.setString(5, locador.getPessoa().getSexo());
+            comando.setString(6, locador.getPessoa().getTelefone());
+
+            comando.executeUpdate();
+            ResultSet rs = comando.getGeneratedKeys();
+            int id = 0;
+            while (rs.next()) {
+                id = rs.getInt(1);
+            }
+            locador.getPessoa().setId(id);
+            id=0;
+            
+             comando = conexao.prepareStatement("INSERT INTO login (senha, email, status) VALUES (?,?,0);", Statement.RETURN_GENERATED_KEYS);
+            comando.setString(1, locador.getLogin().getSenha());
+            comando.setString(2, locador.getLogin().getEmail());
+            comando.executeUpdate();
+            
+            rs = comando.getGeneratedKeys();
+           
+            while (rs.next()) {
+                id = rs.getInt(1);
+            }
+            locador.getLogin().setId(id);
+            
+            
+             comando = conexao.prepareStatement("INSERT INTO endereco (rua, numero, cep, cidade, uf) VALUES (?,?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
+            comando.setString(1, locador.getEndereco().getRua());
+            comando.setString(2, locador.getEndereco().getNumero());
+            comando.setString(3, locador.getEndereco().getCep());
+            comando.setString(4, locador.getEndereco().getCidade());
+            comando.setString(5, locador.getEndereco().getUf());
+            comando.executeUpdate();
+            
+           rs = comando.getGeneratedKeys();
+            id = 0;
+            while (rs.next()) {
+                id = rs.getInt(1);
+            }
+            locador.getEndereco().setId(id);
+            
             comando = conexao.prepareStatement("INSERT INTO locador (pessoa,login,endereco) VALUES (?,?,?);");
             comando.setInt(1, locador.getPessoa().getId());
             comando.setInt(2, locador.getLogin().getId());
             comando.setInt(3, locador.getEndereco().getId());
             comando.executeUpdate();
+            conexao.commit();
 
         } finally {
             fecharConexao(conexao, comando);
