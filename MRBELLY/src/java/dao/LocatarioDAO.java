@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import models.Locatario;
@@ -23,10 +24,43 @@ public class LocatarioDAO extends DAO {
         PreparedStatement comando = null;
         try {
             conexao = BD.getInstancia().getConexao();
+            conexao.setAutoCommit(false);
+            comando = conexao.prepareStatement("INSERT INTO pessoa (nome, cpf, rg, sobrenome,"
+                    + " sexo, cadastro, telefone) VALUES (?,?,?,?,?,curdate(),?);", Statement.RETURN_GENERATED_KEYS);
+
+            comando.setString(1, locatario.getPessoa().getNome());
+            comando.setString(2, locatario.getPessoa().getCpf());
+            comando.setString(3, locatario.getPessoa().getRg());
+            comando.setString(4, locatario.getPessoa().getSobrenome());
+            comando.setString(5, locatario.getPessoa().getSexo());
+            comando.setString(6, locatario.getPessoa().getTelefone());
+
+            comando.executeUpdate();
+            ResultSet rs = comando.getGeneratedKeys();
+            int id = 0;
+            while (rs.next()) {
+                id = rs.getInt(1);
+            }
+            locatario.getPessoa().setId(id);
+
+            comando = conexao.prepareStatement("INSERT INTO login (senha, email, status) VALUES (?,?,0);", Statement.RETURN_GENERATED_KEYS);
+            comando.setString(1, locatario.getLogin().getSenha());
+            comando.setString(2, locatario.getLogin().getEmail());
+            comando.executeUpdate();
+
+            rs = comando.getGeneratedKeys();
+            id = 0;
+            while (rs.next()) {
+                id = rs.getInt(1);
+            }
+            locatario.getLogin().setId(id);
+
+            
             comando = conexao.prepareStatement("insert into locatario (pessoa,login) values(?,?)");
             comando.setInt(1, locatario.getPessoa().getId());
             comando.setInt(2, locatario.getLogin().getId());
             comando.executeUpdate();
+            conexao.commit();
 
         } finally {
             fecharConexao(conexao, comando);
@@ -73,8 +107,8 @@ public class LocatarioDAO extends DAO {
             comando = conexao.prepareStatement("select * from locatario where id = ?");
             comando.setInt(1, id);
             ResultSet resultado = comando.executeQuery();
-            
-            while(resultado.next()){
+
+            while (resultado.next()) {
                 locatario = instanciaLocatario(resultado);
             }
 

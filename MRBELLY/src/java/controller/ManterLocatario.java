@@ -61,24 +61,8 @@ public class ManterLocatario extends HttpServlet {
             if (operacao.equals("Incluir")) {
                 pessoa = new Pessoa(nome, sobrenome, rg, cpf, sexo, dataCadastro, telefone);
                 login = new Login(email, senha);
-                try {
-                    pessoa.setId(pessoa.gravar());
-                    try {
-                        login.setId(login.gravar());
-                        try {
-                            locatario = new Locatario(pessoa, login);
-                            locatario.gravar();
-                        } catch (Exception e) {
-                            login.excluir();
-                            throw new Exception(e);
-                        }
-                    } catch (Exception e) {
-                        pessoa.excluir();
-                        throw new Exception(e);
-                    }
-                } catch (Exception e) {
-
-                }
+                locatario=new Locatario(pessoa, login);
+                locatario.gravar();
 
             } else {
                 int codLocatario = Integer.parseInt(request.getParameter("txtCodLocatario"));
