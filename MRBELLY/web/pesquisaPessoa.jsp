@@ -66,8 +66,8 @@
                                 <td><c:out value="${pessoa.nome}"/></td>
                                 <td><c:out value="${pessoa.sobrenome}"/></td>
                                 <td><c:out value="${pessoa.cpf}"/></td>
-                                <td><a class="btn btn-sm btn-primary" href="ManterPessoa?acao=prepararOperacao&operacao=Editar&id=<c:out value="${pessoa.id}"/>">Editar</a></td>
-                                <td><a class="btn btn-sm btn-danger" href="ManterPessoa?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${pessoa.id}"/>">Excluir</a></td> 
+                                <td><a class="btn btn-sm btn-primary" href="ManterPessoa?acao=prepararOperacao&operacao=Ler&id=<c:out value="${pessoa.id}"/>">Ler</a></td>
+                                
                             </tr>
                         </c:forEach>
                     </tbody>

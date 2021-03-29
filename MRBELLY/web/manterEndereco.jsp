@@ -57,7 +57,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <form action="ManterEndereco?acao=confirmarOperacao&operacao=${operacao}" method="post">
+                    <form  method="post">
 
                         <div class="form-group">
                             <label for="txtCodEndereco">Código do Endereço</label>
@@ -66,32 +66,30 @@
                         </div>
                         <div class="form-group">
                             <label for="txtCep">Cep</label>
-                            <input type="text" class="form-control" id="txtCep" name="txtCep" value="${endereco.cep}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+                            <input type="text" class="form-control" id="txtCep" name="txtCep" value="${endereco.cep}" readonly>
 
                         </div>
                         <div class="form-group">
                             <label for="txtRua">Rua</label>
-                            <input type="text" class="form-control" id="txtRua" name="txtRua" value="${endereco.rua}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+                            <input type="text" class="form-control" id="txtRua" name="txtRua" value="${endereco.rua}" readonly>
 
                         </div>
                         <div class="form-group">
                             <label for="txtNumero">Número</label>
-                            <input type="text" class="form-control" id="txtNumero" name="txtNumero" value="${endereco.numero}"<c:if test="${operacao=='Excluir'}">readonly</c:if>>
+                            <input type="text" class="form-control" id="txtNumero" name="txtNumero" value="${endereco.numero}"readonly>
 
                         </div>
                         <div class="form-group">
                             <label for="txtCidade">Cidade</label>
-                            <input type="text" class="form-control" id="txtCidade" name="txtCidade" value="${endereco.cidade}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+                            <input type="text" class="form-control" id="txtCidade" name="txtCidade" value="${endereco.cidade}" readonly>
 
                         </div>
                         <div class="form-group">
                             <label for="txtUF">UF</label>
-                            <input type="text" class="form-control" id="txtUF" name="txtUF" value="${endereco.uf}" <c:if test="${operacao=='Excluir'}">readonly</c:if> >
+                            <input type="text" class="form-control" id="txtUF" name="txtUF" value="${endereco.uf}" readonly >
 
                         </div>
-                           <div class="form-group">
-                            <br>
-                            <button type="submit" class="btn btn-success"> Confirmar</button> </div>   
+                           
                     </form>
                 </div>
             </div>

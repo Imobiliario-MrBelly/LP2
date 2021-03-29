@@ -72,8 +72,8 @@
                             <th scope="row"><c:out value="${login.id}"/></th>
                             <td><c:out value="${login.email}"/></td>
                             <td><c:out value="${login.senha}"/></td>
-                            <td><a class="btn btn-sm btn-primary" href="ManterLogin?acao=prepararOperacao&operacao=Editar&id=<c:out value="${login.id}"/>">Editar</a></td>
-                            <td><a class="btn btn-sm btn-danger" href="ManterLogin?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${login.id}"/>">Excluir</a></td>
+                            <td><a class="btn btn-sm btn-primary" href="ManterLogin?acao=prepararOperacao&operacao=Ler&id=<c:out value="${login.id}"/>">Ler</a></td>
+                            
                         </tr>
                     </c:forEach>
                     </tbody>

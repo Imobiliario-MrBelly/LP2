@@ -69,8 +69,8 @@
                                 <td><c:out value="${endereco.cep}"/></td>
                                 <td><c:out value="${endereco.cidade}"/></td>
                                 <td><c:out value="${endereco.uf}"/></td>
-                                <td><a class="btn btn-sm btn-primary" href="ManterEndereco?acao=prepararOperacao&operacao=Editar&id=<c:out value="${endereco.id}"/>">Editar</a></td>
-                                <td><a class="btn btn-sm btn-danger" href="ManterEndereco?acao=prepararOperacao&operacao=Excluir&id=<c:out value="${endereco.id}"/>">Excluir</a></td>
+                                <td><a class="btn btn-sm btn-primary" href="ManterEndereco?acao=prepararOperacao&operacao=Ler&id=<c:out value="${endereco.id}"/>">Ler</a></td>
+                                
                             </tr>
                             </c:forEach>
                     </tbody>

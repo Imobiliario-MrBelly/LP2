@@ -55,7 +55,7 @@
             </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <form action="ManterLogin?acao=confirmarOperacao&operacao=${operacao}" method="post">
+                        <form >
                         
                             <div class="form-group">
                                 <label for="txtCodLogin">Código do Login</label>
@@ -64,17 +64,17 @@
                             </div>
                             <div class="form-group">
                                 <label for="txtEmail">Email</label>
-                                <input type="text" class="form-control" id="txtEmail" name="txtEmail" value="${login.email}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
+                                <input type="text" class="form-control" id="txtEmail" name="txtEmail" value="${login.email}" disabled="" >
                                                                                      
                             </div>
                             <div class="form-group">
                                 <label for="txtSenha">Senha</label>
-                                <input type="text" class="form-control" id="txtSenha" name="txtSenha" value="${login.senha}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
+                                <input type="text" class="form-control" id="txtSenha" name="txtSenha" value="${login.senha}" readonly >
                                                                                      
                             </div>
                                 <div class="form-group">
                             <br>
-                            <button type="submit" class="btn btn-success"> Confirmar</button> </div>   
+                            
                         </form>
                     </div>
                 </div>

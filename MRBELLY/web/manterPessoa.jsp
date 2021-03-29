@@ -57,7 +57,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <form action="ManterPessoa?acao=confirmarOperacao&operacao=${operacao}" method="post">
+                    <form  method="post">
 
                         <div class="form-group">
                             <label for="txtCodPessoa">Código do Pessoa</label>
@@ -66,26 +66,26 @@
                         </div>
                         <div class="form-group">
                             <label for="txtNome">Nome</label>
-                            <input type="text" class="form-control" id="txtNome" name="txtNome" value="${pessoa.nome}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+                            <input type="text" class="form-control" id="txtNome" name="txtNome" value="${pessoa.nome}"readonly>
 
                             </div>
                             <div class="form-group">
                                 <label for="txtSobrenome">Sobrenome</label>
-                                <input type="text" class="form-control" id="txtSobrenome" name="txtSobrenome" value="${pessoa.sobrenome}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>                                                      
+                                <input type="text" class="form-control" id="txtSobrenome" name="txtSobrenome" value="${pessoa.sobrenome}"readonly>                                                      
                             </div>
                             <div class="form-group">
                                 <label for="txtRg">RG</label>
-                                <input type="text" class="form-control" id="txtRg" name="txtRg" value="${pessoa.rg}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+                                <input type="text" class="form-control" id="txtRg" name="txtRg" value="${pessoa.rg}" readonly>
 
                             </div>
                             <div class="form-group">
                                 <label for="txtCpf">CPF</label>
-                                <input type="text" class="form-control" id="txtCpf" name="txtCpf" value="${pessoa.cpf}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>                                                      
+                                <input type="text" class="form-control" id="txtCpf" name="txtCpf" value="${pessoa.cpf}" readonly>                                                      
                             </div>
                             <div class="form-group">
                                 <label  for="txtSexo">Sexo</label>
 
-                                <select class="form-control" id="txtSexo" name="txtSexo" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+                                <select class="form-control" id="txtSexo" name="txtSexo" readonly>
                                     <option value="M" <c:if test="${pessoa.sexo=='M'}">selected=""</c:if>>Masculino</option>
                                     <option value="F" <c:if test="${pessoa.sexo=='F'}">selected=""</c:if>>Feminimo</option>
                                     <option value="O" <c:if test="${pessoa.sexo=='O'}">selected=""</c:if>>Outros</option>
@@ -93,11 +93,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="txtCadastro">Data de Cadastro</label>
-                                <input type="text" class="form-control" id="txtCadastro" name="txtCadastro" value="${pessoa.dataCadastro}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>                                                      
+                                <input type="text" class="form-control" id="txtCadastro" name="txtCadastro" value="${pessoa.dataCadastro}" readonly>                                                      
                         </div>
-                        <div class="form-group">
-                            <br>
-                            <button type="submit" class="btn btn-success"> Confirmar</button> </div>   
+                        
                     </form>
                 </div>
             </div>
