@@ -45,7 +45,7 @@
                 <div class="mb-4"><a href="pesquisaLocador" class="quickBold  ">LOCADORES</a></div>
                 <div class="mb-4"><a href="pesquisaLocatario" class="quickBold ">LOCATARIOS</a></div>
                 <div class="mb-4"><a href="pesquisaPessoa" class="quickBold ">PESSOAS</a></div>
-                <div class="mb-4"><a href="pesquisaTelefone" class="quickBold ">TELEFONES</a></div>
+                
             </div>
         </div>
         <!--Fim Menus-->
@@ -79,7 +79,7 @@
                     </tbody>
                 </table>
                 <form action="ManterLogin?acao=prepararOperacao&operacao=Incluir" method="post">
-                    <input class="btn btn-success" type="submit" name="btnIncluir" value="Incluir">
+                    
                 </form>
             </div></div>
 

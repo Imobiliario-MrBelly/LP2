@@ -94,12 +94,42 @@ conexao.setAutoCommit(false);
 
         try {
             conexao = BD.getInstancia().getConexao();
+            conexao.setAutoCommit(false);
+            
+             comando = conexao.prepareStatement("UPDATE endereco SET rua=?, numero=?, cep=?, cidade=?, uf=? WHERE id=?;");
+            comando.setString(1, locador.getEndereco().getRua());
+            comando.setString(2, locador.getEndereco().getNumero());
+            comando.setString(3, locador.getEndereco().getCep());
+            comando.setString(4, locador.getEndereco().getCidade());
+            comando.setString(5, locador.getEndereco().getUf());
+            comando.setInt(6, locador.getEndereco().getId());
+            
+            
+            comando = conexao.prepareStatement("UPDATE login SET email=?, senha=? WHERE id=?;");
+            comando.setString(1, locador.getLogin().getEmail());
+            comando.setString(2, locador.getLogin().getSenha());
+            comando.setInt(3, locador.getLogin().getId());
+            
+            
+           
+            
+            comando = conexao.prepareStatement("UPDATE pessoa SET nome=?, sobrenome=?,  rg=?, cpf=?, sexo=?, telefone=? WHERE id=?;");
+
+            comando.setString(1, locador.getPessoa().getNome());
+            comando.setString(2, locador.getPessoa().getSobrenome());
+            comando.setString(3, locador.getPessoa().getRg());
+            comando.setString(4, locador.getPessoa().getCpf());
+            comando.setString(5, locador.getPessoa().getSexo());
+            comando.setString(6, locador.getPessoa().getTelefone());
+            comando.setInt(7, locador.getPessoa().getId());
+            
+            
             comando = conexao.prepareStatement("UPDATE locador SET login=?, endereco=?,pessoa=? WHERE id=?;");
             comando.setInt(1, locador.getLogin().getId());
             comando.setInt(2, locador.getEndereco().getId());
             comando.setInt(3, locador.getPessoa().getId());
             comando.setInt(4, locador.getId());
-
+            conexao.commit();
             return comando.executeUpdate() > 0;
         } finally {
             fecharConexao(conexao, comando);

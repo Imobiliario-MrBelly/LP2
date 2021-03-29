@@ -42,7 +42,7 @@
                 <div class="mb-4"><a href="pesquisaLocador" class="quickBold  ">LOCADORES</a></div>
                 <div class="mb-4"><a href="pesquisaLocatario" class="quickBold ">LOCATARIOS</a></div>
                 <div class="mb-4"><a href="pesquisaPessoa" class="quickBold ">PESSOAS</a></div>
-                <div class="mb-4"><a href="pesquisaTelefone" class="quickBold ">TELEFONES</a></div>
+                
             </div>
         </div>
         <!--Fim Menus-->
@@ -85,9 +85,9 @@
                         <div class="form-group"> 
                             <input type="text" class="form-control" id="txtCodLocador" name="txtCodLocador" value="${locador.id}" readonly style="display:none">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="display: none">
                             <label for="txtCodPessoa">Código Pessoa</label>
-                            <input type="text" class="form-control" id="txtCodPessoa" name="txtCodPessoa" value="${locador.pessoa.id}" readonly>
+                            <input type="text" class="form-control" id="txtCodPessoa" name="txtCodPessoa" value="${locador.pessoa.id}" readonly style="display: none">
 
                         </div>
                         <div class="form-group">
@@ -125,7 +125,7 @@
                         </div>
 
                         <div class="col-sm-12" id="quadro2">
-                            <div class="form-group">
+                            <div class="form-group" style="display: none">
                                 <label for="txtCodEndereco">Código do Endereço</label>
                                 <input type="text" class="form-control" id="txtCodEndereco" name="txtCodEndereco" value="${locador.endereco.id}" readonly>
 
@@ -157,7 +157,7 @@
                             </div>
                         </div>
                         <div class="col-sm-12" id="quadro3">
-                            <div class="form-group">
+                            <div class="form-group" style="display: none">
                                 <label for="txtCodLogin">Código do Login</label>
                                 <input type="text" class="form-control" id="txtCodLogin" name="txtCodLogin" value="${locador.login.id}" readonly>
                         </div>

@@ -42,7 +42,7 @@
                 <div class="mb-4"><a href="pesquisaLocador" class="quickBold  ">LOCADORES</a></div>
                 <div class="mb-4"><a href="pesquisaLocatario" class="quickBold ">LOCATARIOS</a></div>
                 <div class="mb-4"><a href="pesquisaPessoa" class="quickBold ">PESSOAS</a></div>
-                <div class="mb-4"><a href="pesquisaTelefone" class="quickBold ">TELEFONES</a></div>
+                
             </div>
         </div>
         <!--Fim Menus-->

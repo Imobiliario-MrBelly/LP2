@@ -41,7 +41,15 @@ public class ManterImovel extends HttpServlet {
      private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException {
         String operacao = request.getParameter("operacao");
         
-       Endereco endereco = Endereco.obterEndereco(Integer.parseInt(request.getParameter("txtEndereco")));
+        String cep = request.getParameter("txtCep");
+        String rua = request.getParameter("txtRua");
+        String numero = request.getParameter("txtNumero");
+        String cidade = request.getParameter("txtCidade");
+        String uf = request.getParameter("txtUF");
+        
+        
+        
+       Endereco endereco = null;
        double area = Double.parseDouble(request.getParameter("txtArea"));
        String descricao = request.getParameter("txtDescricao");
        double condomino = Double.parseDouble(request.getParameter("txtCondominio"));
@@ -51,10 +59,12 @@ public class ManterImovel extends HttpServlet {
        Imovel imovel = null ;
         try{
             if (operacao.equals("Incluir")){
+                endereco=new Endereco(rua, numero, cep, cidade, uf);
                 imovel=new Imovel(endereco, area, descricao, condomino, iptu, garagem, locador);
                 imovel.gravar();
             }else{
                 int codImovel = Integer.parseUnsignedInt(request.getParameter("txtCodImovel"));
+               endereco = Endereco.obterEndereco(Integer.parseUnsignedInt(request.getParameter("txtCodEndereco")));
                 imovel= new Imovel(codImovel, endereco, area, descricao, condomino, iptu, garagem, locador);
                 if (operacao.equals("Editar")){
                     imovel.editar();

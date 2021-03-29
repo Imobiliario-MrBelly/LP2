@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import models.Endereco;
@@ -25,9 +26,27 @@ public class ImovelDAO extends DAO {
 
         try {
             conexao = BD.getInstancia().getConexao();
-            comando = conexao.prepareStatement("INSERT INTO imovel (tamanho, "
-                    + "descricao,garagem ,iptu, condomino, endereco,locador) VALUES "
-                    + "(?,?,?,?,?,?);");
+            conexao.setAutoCommit(false);
+            
+            
+            comando = conexao.prepareStatement("INSERT INTO endereco (rua, numero, cep, cidade, uf) VALUES (?,?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
+            comando.setString(1, imovel.getEndereco().getRua());
+            comando.setString(2, imovel.getEndereco().getNumero());
+            comando.setString(3, imovel.getEndereco().getCep());
+            comando.setString(4, imovel.getEndereco().getCidade());
+            comando.setString(5, imovel.getEndereco().getUf());
+            comando.executeUpdate();
+            
+            
+            ResultSet rs = comando.getGeneratedKeys();
+            int id = 0;
+            while (rs.next()) {
+                id = rs.getInt(1);
+            }
+            imovel.getEndereco().setId(id);
+            comando = conexao.prepareStatement("INSERT INTO imovel (area, "
+                    + "descricao,garagem ,iptu, condominio, endereco,locador) VALUES "
+                    + "(?,?,?,?,?,?,?);");
             comando.setDouble(1, imovel.getArea());
             comando.setString(2, imovel.getDescricao());
             comando.setInt(3, imovel.getGaragem());
@@ -36,6 +55,7 @@ public class ImovelDAO extends DAO {
             comando.setInt(6, imovel.getEndereco().getId());
             comando.setInt(7, imovel.getLocador().getId());
             comando.executeUpdate();
+            conexao.commit();
         } finally {
             fecharConexao(conexao, comando);
         }
@@ -47,7 +67,7 @@ public class ImovelDAO extends DAO {
 
         try {
             conexao = BD.getInstancia().getConexao();
-            comando = conexao.prepareStatement("UPDATE imovel SET tamanho=?, descricao=?, iptu=?, condominio=?, endereco=? ,locador=?,garagem=? WHERE id=?;");
+            comando = conexao.prepareStatement("UPDATE imovel SET area=?, descricao=?, iptu=?, condominio=?, endereco=? ,locador=?,garagem=? WHERE id=?;");
             comando.setDouble(1, imovel.getArea());
             comando.setString(2, imovel.getDescricao());
             comando.setDouble(3, imovel.getIptu());
