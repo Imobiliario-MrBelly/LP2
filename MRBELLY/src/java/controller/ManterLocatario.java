@@ -43,7 +43,7 @@ public class ManterLocatario extends HttpServlet {
         String operacao = request.getParameter("operacao");
 
         String nome = new String(request.getParameter("txtNome").getBytes("ISO-8859-1"), "UTF-8");
-        String sobrenome = request.getParameter("txtSobrenome");
+        String sobrenome = new String(request.getParameter("txtSobrenome").getBytes("ISO-8859-1"), "UTF-8");
         String rg = request.getParameter("txtRg");
         String cpf = request.getParameter("txtCpf");
         String sexo = request.getParameter("txtSexo");
@@ -51,7 +51,7 @@ public class ManterLocatario extends HttpServlet {
         Date dataCadastro = new Date();
 
         String email = request.getParameter("txtEmail");
-        String senha = request.getParameter("txtSenha");
+        String senha = new String(request.getParameter("txtSenha").getBytes("ISO-8859-1"), "UTF-8");
 
         Pessoa pessoa = null;
         Login login = null;

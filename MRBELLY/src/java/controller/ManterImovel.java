@@ -7,6 +7,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,7 +39,7 @@ public class ManterImovel extends HttpServlet {
         }
     }
  
-     private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException {
+     private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException, UnsupportedEncodingException {
         String operacao = request.getParameter("operacao");
         
         String cep = request.getParameter("txtCep");
@@ -51,7 +52,7 @@ public class ManterImovel extends HttpServlet {
         
        Endereco endereco = null;
        double area = Double.parseDouble(request.getParameter("txtArea"));
-       String descricao = request.getParameter("txtDescricao");
+       String descricao = new String(request.getParameter("txtDescricao").getBytes("ISO-8859-1"), "UTF-8");
        double condomino = Double.parseDouble(request.getParameter("txtCondominio"));
        double iptu = Double.parseDouble(request.getParameter("txtIptu"));
        int garagem = Integer.parseInt(request.getParameter("txtGaragem"));

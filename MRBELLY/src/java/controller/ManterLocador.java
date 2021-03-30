@@ -45,22 +45,22 @@ public class ManterLocador extends HttpServlet {
     private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException, ParseException, CloneNotSupportedException, Exception {
         String operacao = request.getParameter("operacao");
 
-        String nome = request.getParameter("txtNome");
-        String sobrenome = request.getParameter("txtSobrenome");
+        String nome = new String(request.getParameter("txtNome").getBytes("ISO-8859-1"), "UTF-8");
+        String sobrenome = new String(request.getParameter("txtSobrenome").getBytes("ISO-8859-1"), "UTF-8");
         String rg = request.getParameter("txtRg");
         String cpf = request.getParameter("txtCpf");
         String sexo = request.getParameter("txtSexo");
         String telefone = request.getParameter("txtTelefone");
 
         String cep = request.getParameter("txtCep");
-        String rua = request.getParameter("txtRua");
+        String rua = new String(request.getParameter("txtRua").getBytes("ISO-8859-1"), "UTF-8");
         String numero = request.getParameter("txtNumero");
-        String cidade = request.getParameter("txtCidade");
+        String cidade = new String(request.getParameter("txtCidade").getBytes("ISO-8859-1"), "UTF-8");
         String uf = request.getParameter("txtUF");
         Date dataCadastro = new Date();
 
         String email = request.getParameter("txtEmail");
-        String senha = request.getParameter("txtSenha");
+        String senha = new String(request.getParameter("txtSenha").getBytes("ISO-8859-1"), "UTF-8");
 
         Pessoa pessoa = null;
         Endereco endereco = null;
