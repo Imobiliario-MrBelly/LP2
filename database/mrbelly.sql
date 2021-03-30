@@ -6,7 +6,7 @@
 -- Tempo de geração: 20-Mar-2021 às 14:12
 -- Versão do servidor: 8.0.21
 -- versão do PHP: 7.3.21
-drop database mrbelly;
+ drop database if exists mrbelly ;
 create database mrbelly;
 use  mrbelly;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";

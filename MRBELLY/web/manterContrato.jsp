@@ -68,7 +68,7 @@
                             <div class="form-group">
                                 <label for="txtImovel">Imovel:</label>
                                 
-                                <select name="txtImovel" id="txtImovel">
+                                <select name="txtImovel" id="txtImovel"<c:if test="${operacao=='Excluir'}">readonly tabindex="-1"</c:if>>
                                     <c:if test = "${operacao=='Incluir'}">
                                         <c:forEach items="${imoveis}" var="imovel">
 
@@ -96,7 +96,7 @@
                         </div>
                         <div class="form-group">
                             <label for="txtLocatario">Locatario:</label>
-                            <select name="txtLocatario" id="txtLocatario">
+                            <select name="txtLocatario" id="txtLocatario" <c:if test="${operacao=='Excluir'}">readonly tabindex="-1"</c:if>>
 
                                 <c:forEach items="${locatarios}" var="locatario">
                                     <option value="${locatario.id}"
