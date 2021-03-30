@@ -237,3 +237,10 @@ input[type="radio"] + label{
     border-radius: 8px;
     box-shadow: 0px 0px 20px #cbcbcb;
   }
+  
+  
+  select[readonly] {
+  background: #eee; /*Simular campo inativo - Sugestão @GabrielRodrigues*/
+  pointer-events: none;
+  touch-action: none;
+}
