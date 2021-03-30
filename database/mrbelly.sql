@@ -6,7 +6,9 @@
 -- Tempo de geração: 20-Mar-2021 às 14:12
 -- Versão do servidor: 8.0.21
 -- versão do PHP: 7.3.21
-
+drop database mrbelly;
+create database mrbelly;
+use  mrbelly;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -65,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `endereco` (
   `uf` varchar(2) NOT NULL,
   `complemento` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Extraindo dados da tabela `endereco`
@@ -100,7 +102,7 @@ CREATE TABLE IF NOT EXISTS `imovel` (
   `locador` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `locador` (`locador`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Extraindo dados da tabela `imovel`
@@ -127,7 +129,7 @@ CREATE TABLE IF NOT EXISTS `locador` (
   KEY `pessoa` (`pessoa`),
   KEY `login` (`login`),
   KEY `endereco` (`endereco`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Extraindo dados da tabela `locador`
@@ -152,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `locatario` (
   PRIMARY KEY (`id`),
   KEY `pessoa` (`pessoa`),
   KEY `login` (`login`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Extraindo dados da tabela `locatario`
@@ -176,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `login` (
   `email` varchar(32) NOT NULL,
   `status` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Extraindo dados da tabela `login`
@@ -207,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `pessoa` (
   `cadastro` date NOT NULL,
   `telefone` varchar(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Extraindo dados da tabela `pessoa`
@@ -216,7 +218,7 @@ CREATE TABLE IF NOT EXISTS `pessoa` (
 INSERT INTO `pessoa` (`id`, `nome`, `cpf`, `rg`, `sobrenome`, `sexo`, `cadastro`, `telefone`) VALUES
 (1, 'Rennan', '11111111111', '11111111', 'Damião', 'M', '2021-03-20', '111111'),
 (2, 'Junio', '22222222222', '22222222', 'Goulartizinho', 'M', '2021-03-20', '111111'),
-(3, 'Vinicius', '33333333333', '33333333', 'Vasconcelos', 'M', '2021-03-20', '111111'),
+(3, 'Vinícius', '33333333333', '33333333', 'Vasconcelos', 'M', '2021-03-20', '111111'),
 (4, 'Claudemir', '44444444444', '44444444', 'Valdisnei', 'M', '2021-03-20', '111111'),
 (5, 'Tony', '55555555555', '55555555', 'Ramos', 'M', '2021-03-20', '111111'),
 (6, 'Luís', '66666666666', '66666666', 'Inácio', 'M', '2021-03-20', '111111');
@@ -254,6 +256,4 @@ ALTER TABLE `locatario`
   ADD CONSTRAINT `locatario_ibfk_2` FOREIGN KEY (`login`) REFERENCES `login` (`id`) ON DELETE CASCADE;
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+select * from pessoa;
