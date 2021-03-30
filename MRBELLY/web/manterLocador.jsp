@@ -111,7 +111,7 @@
                             <div class="form-group">
                                 <label  for="txtSexo">Sexo</label>
 
-                                <select class="form-control" id="txtSexo" name="txtSexo" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+                                <select class="form-control" id="txtSexo" name="txtSexo" <c:if test="${operacao=='Excluir'}">readonly tabindex="-1" aria-disabled="true"</c:if>>
                                 <option value="M" <c:if test="${locador.pessoa.sexo=='M'}">selected=""</c:if>>Masculino</option>
                                 <option value="F" <c:if test="${locador.pessoa.sexo=='F'}">selected=""</c:if>>Feminimo</option>
                                 <option value="O" <c:if test="${locador.pessoa.sexo=='O'}">selected=""</c:if>>Outros</option>
@@ -119,7 +119,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="txtTelefone">Telefone</label>
-                                <input required type="text" class="form-control" id="txtTelefone" name="txtTelefone" value="${locador.pessoa.telefone}" <c:if test="${operacao=='Excluir'}">readonly</c:if>maxlength="11">                                                      
+                                <input required type="text" class="form-control" id="txtTelefone" name="txtTelefone" value="${locador.pessoa.telefone}" <c:if test="${operacao=='Excluir'}">readonly</c:if> maxlength="11">                                                      
                             </div>
 
                         </div>
