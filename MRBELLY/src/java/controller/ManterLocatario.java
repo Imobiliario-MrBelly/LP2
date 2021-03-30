@@ -6,6 +6,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.logging.Level;
@@ -38,10 +39,10 @@ public class ManterLocatario extends HttpServlet {
         }
     }
 
-    private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException {
+    private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException, UnsupportedEncodingException {
         String operacao = request.getParameter("operacao");
 
-        String nome = request.getParameter("txtNome");
+        String nome = new String(request.getParameter("txtNome").getBytes("ISO-8859-1"), "UTF-8");
         String sobrenome = request.getParameter("txtSobrenome");
         String rg = request.getParameter("txtRg");
         String cpf = request.getParameter("txtCpf");

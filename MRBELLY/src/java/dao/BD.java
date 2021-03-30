@@ -22,7 +22,7 @@ public class BD {
         //conexao = DriverManager.getConnection("jdbc:mysql://localhost/mrbelly", "root", "");
         
         // conexão Vinícius
-        conexao = DriverManager.getConnection("jdbc:mysql://localhost:3308/mrbelly", "root", "");
+        conexao = DriverManager.getConnection("jdbc:mysql://localhost:3308/mrbelly?useUnicode=true&characterEncoding=UTF-8", "root", "");
        return conexao;
 
 
