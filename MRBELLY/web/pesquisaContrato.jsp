@@ -14,7 +14,7 @@
     <body>
 
         <!--Menus-->
-        <nav class="navbar nav-personalizado px-5 py-4">
+        <nav class="navbar nav-personalizado fixed-top px-5 py-4">
             <a class="navbar-brand"><img src="../client/css/img/Logo home.png" alt=""></a>
 
             <div class="dropdown">
