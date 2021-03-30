@@ -73,7 +73,7 @@
                     </tbody>
                 </table>
                 <form action="ManterLocatario?acao=prepararOperacao&operacao=Incluir" method="post">
-                    <input class="btn btn-success" type="submit" name="btnIncluir" value="Incluir">
+                    <input required class="btn btn-success" type="submit" name="btnIncluir" value="Incluir">
                 </form>
 
 

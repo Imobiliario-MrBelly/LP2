@@ -44,7 +44,7 @@
             </div>
             <div class='row mb-4'>
               <div class='col-md-12'>
-                <input type='text' name='nome' id='nome'>
+                <input required type='text' name='nome' id='nome'>
               </div>
             </div>
             <div class='row'>
@@ -54,17 +54,17 @@
             </div>
             <div class='row mb-4'>
               <div class='col-md-12'>
-                <input type='email' name='email' id='email'>
+                <input required type='email' name='email' id='email'>
               </div>
             </div>
             <div class='row mb-4'>
               <div class='col-md-3'>
                 <label class="roboto" style="color: #586E80;" for='ddd'>DDD</label>
-                <input type='text' name='ddd' id='ddd'>
+                <input required type='text' name='ddd' id='ddd'>
               </div>
               <div class='col-md-4'>
                 <label class="roboto" style="color: #586E80;" for='numero'>Número</label>
-                <input type='text' name='numero' id='numero'>
+                <input required type='text' name='numero' id='numero'>
               </div>
               <div class='col-md-5'>
                 <label class="roboto " style="color: #586E80;" for='tipoTelefone'>Descrição</label>
@@ -80,10 +80,10 @@
             </div>
             <div class='row mt-4 mb-5 mx-1 d-flex'>
               <div class='row col-md-6 align-items-center'>
-                <input class="col-4" type='radio' name='tipoPessoa' id='pessoaFisica' value='fisica' onclick='tipo(this.value)'><label class="col-8" for='fisica'> Pessoa Fisica</label>
+                <input required class="col-4" type='radio' name='tipoPessoa' id='pessoaFisica' value='fisica' onclick='tipo(this.value)'><label class="col-8" for='fisica'> Pessoa Fisica</label>
               </div>
               <div class='row col-md-6 align-items-center'>
-                <input class="col-3" type='radio' name='tipoPessoa' id='pessoaJuridica' value='juridica' onclick='tipo(this.value)'><label class="col-9" for='juridica'> Pessoa Jurídica</label>
+                <input required class="col-3" type='radio' name='tipoPessoa' id='pessoaJuridica' value='juridica' onclick='tipo(this.value)'><label class="col-9" for='juridica'> Pessoa Jurídica</label>
               </div>
             </div>
             <div class='row justify-content-between d-flex align-content-end '>
@@ -110,7 +110,7 @@
                   <label class="roboto" style="color: #586E80;" for='sobrenome'>Sobrenome</label>
                 </div>
                 <div class='col-md-12'>
-                  <input type='text' name='sobrenome' id='sobrenome'>
+                  <input required type='text' name='sobrenome' id='sobrenome'>
                 </div>
               </div>
               <div class='row mb-4'>
@@ -118,7 +118,7 @@
                   <label class="roboto" style="color: #586E80;" for='cpf'>CPF</label>
                 </div>
                 <div class='col-md-12'>
-                  <input type='text' name='cpf' id='cpf'>
+                  <input required type='text' name='cpf' id='cpf'>
                 </div>
               </div>
               <div class='row mb-4'>
@@ -126,21 +126,21 @@
                   <label class="roboto" style="color: #586E80;" for='rg'>RG</label>
                 </div>
                 <div class='col-md-12'>
-                  <input type='text' name='rg' id='rg'>
+                  <input required type='text' name='rg' id='rg'>
                 </div>
               </div>
               <div class='row mb-4'>
                 <div class='col-md-12'><label class="roboto" style="color: #586E80;" for='nascimento'>Data de Nascimento</label></div>
                 <div class='col-md-12'>
-                  <input class="px-2" type='date' name='nascimento' id='nascimento'>
+                  <input required class="px-2" type='date' name='nascimento' id='nascimento'>
                 </div>
               </div>
               <div class='row mt-2 mx-1'>
                 <div class='col-md-6 row align-items-center'>
-                  <input class="col-2" type='radio' name='sexo' id='masculino' value='M'><label class="col-10" for='masculino'> Masculino</label>
+                  <input required class="col-2" type='radio' name='sexo' id='masculino' value='M'><label class="col-10" for='masculino'> Masculino</label>
                 </div>
                 <div class='row col-md-6 align-items-center'>
-                  <input class="col-2" type='radio' name='sexo' id='feminino' value='F'><label class="col-10" for='feminino'> Feminino</label>
+                  <input required class="col-2" type='radio' name='sexo' id='feminino' value='F'><label class="col-10" for='feminino'> Feminino</label>
                 </div>
               </div>
             </div>
@@ -150,7 +150,7 @@
                   <label class="roboto" style="color: #586E80;" for='cnpj'>CNPJ</label>
                 </div>
                 <div class='col-md-12'>
-                  <input type='text' name='cnpj' id='cnpj'>
+                  <input required type='text' name='cnpj' id='cnpj'>
                 </div>
               </div>
               <div class='row mb-4'>
@@ -158,7 +158,7 @@
                   <label class="roboto" style="color: #586E80;" for='razaoSocial'>Razão Social</label>
                 </div>
                 <div class='col-md-12'>
-                  <input type='text' name='razaoSocial' id='razaoSocial'>
+                  <input required type='text' name='razaoSocial' id='razaoSocial'>
                 </div>
               </div>
               <!-- Botão do modal -->
@@ -183,7 +183,7 @@
                           <label class="roboto" style="color: #586E80;" for='nome'>Nome</label>
                         </div>
                         <div class='col-md-12'>
-                          <input type='text' name='nome' id='nome'>
+                          <input required type='text' name='nome' id='nome'>
                         </div>
                       </div>
                       <div class='row my-3'>
@@ -191,7 +191,7 @@
                           <label class="roboto" style="color: #586E80;" for='sobrenome'>Sobrenome</label>
                         </div>
                         <div class='col-md-12'>
-                          <input type='text' name='sobrenome' id='sobrenome'>
+                          <input required type='text' name='sobrenome' id='sobrenome'>
                         </div>
                       </div>
                       <div class='row my-3'>
@@ -199,7 +199,7 @@
                           <label class="roboto" style="color: #586E80;" for='cpf'>CPF</label>
                         </div>
                         <div class='col-md-12'>
-                          <input type='text' name='cpf' id='cpf'>
+                          <input required type='text' name='cpf' id='cpf'>
                         </div>
                       </div>
                       <div class='row my-3'>
@@ -207,21 +207,21 @@
                           <label class="roboto" style="color: #586E80;" for='rg'>RG</label>
                         </div>
                         <div class='col-md-12'>
-                          <input type='text' name='rg' id='rg'>
+                          <input required type='text' name='rg' id='rg'>
                         </div>
                       </div>
                       <div class='row my-3'>
                         <div class='col-md-12'><label class="roboto" style="color: #586E80;" for='nascimento'>Data de Nascimento</label></div>
                         <div class='col-md-12'>
-                          <input class="px-2" type='date' name='nascimento' id='nascimento'>
+                          <input required class="px-2" type='date' name='nascimento' id='nascimento'>
                         </div>
                       </div>
                       <div class='row mb-2 mt-3 mx-1'>
                         <div class='col-md-6 row align-items-center'>
-                          <input class="col-2" type='radio' name='sexo' id='masculino' value='M'><label class="col-10" for='masculino'> Masculino</label>
+                          <input required class="col-2" type='radio' name='sexo' id='masculino' value='M'><label class="col-10" for='masculino'> Masculino</label>
                         </div>
                         <div class='col-md-6 row align-items-center'>
-                          <input class="col-2" type='radio' name='sexo' id='feminino' value='F'><label for='feminino' class="col-10"> Feminino</label>
+                          <input required class="col-2" type='radio' name='sexo' id='feminino' value='F'><label for='feminino' class="col-10"> Feminino</label>
                         </div>
                       </div>
                     </div>
@@ -259,17 +259,17 @@
                 <label class="roboto" style="color: #586E80;" for='cep'>CEP</label>
               </div>
               <div class='col-md-12'>
-                <input name='cep' type='text' id='cep' value='' maxlength='9' onblur='pesquisaCep(this.value);'>
+                <input required name='cep' type='text' id='cep' value='' maxlength='9' onblur='pesquisaCep(this.value);'>
               </div>
             </div>
             <div class='row mb-3'>
               <div class='col-md-9'>
                 <label class="roboto" style="color: #586E80;" for='rua'>Logradouro</label>
-                <input name='rua' type='text' id='rua'>
+                <input required name='rua' type='text' id='rua'>
               </div>
               <div class='col-md-3 '>
                 <label for='complemento'>Nº</label>
-                <input name='complemento' type='text' id='complemento'>
+                <input required name='complemento' type='text' id='complemento'>
               </div>
             </div>
             <div class='row mb-3'>
@@ -277,17 +277,17 @@
                 <label class="roboto" style="color: #586E80;" for='bairro'>Bairro</label>
               </div>
               <div class='col-md-12'>
-                <input name='bairro' type='text' id='bairro'>
+                <input required name='bairro' type='text' id='bairro'>
               </div>
             </div>
             <div class='row mb-3'>
               <div class='col-md-3'>
                 <label class="roboto" style="color: #586E80;" for='uf'>Estado</label>
-                <input name='uf' type='text' id='uf'>
+                <input required name='uf' type='text' id='uf'>
               </div>
               <div class='col-md-9'>
                 <label class="roboto" style="color: #586E80;" for='cidade'>Cidade</label>
-                <input name='cidade' type='text' id='cidade'>
+                <input required name='cidade' type='text' id='cidade'>
               </div>
             </div>
             <div class='row'>
@@ -314,7 +314,7 @@
             </div>
             <div class='row mb-3'>
               <div class='col-md-12'>
-                <input type="password" name="senha" id="senha">
+                <input required type="password" name="senha" id="senha">
               </div>
             </div>
             <div class='row'>
@@ -324,7 +324,7 @@
             </div>
             <div class='row mb-3'>
               <div class='col-md-12'>
-                <input type="password" name="confirmaSenha" id="connfirmaSenha">
+                <input required type="password" name="confirmaSenha" id="connfirmaSenha">
               </div>
             </div>
             <div class='row'>

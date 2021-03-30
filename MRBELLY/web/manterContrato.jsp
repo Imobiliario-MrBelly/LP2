@@ -61,7 +61,7 @@
 
                         <div class="form-group">
                             <label for="txtCodContrato">Código do Contrato</label>
-                            <input type="text" class="form-control" id="txtCodContrato" name="txtCodContrato" value="${contrato.id}" readonly>
+                            <input required type="text" class="form-control" id="txtCodContrato" name="txtCodContrato" value="${contrato.id}" readonly>
 
                         </div>
                         <div class="form-group">
@@ -108,17 +108,17 @@
                         </div>
                         <div class="form-group">
                             <label for="txtInicio">Data de Início</label>
-                            <input type="date" class="form-control" id="txtInicio" name="txtInicio" value="${contrato.dataInicio}"<c:if test="${operacao=='Excluir'}">readonly</c:if>>
+                            <input required type="date" class="form-control" id="txtInicio" name="txtInicio" value="${contrato.dataInicio}"<c:if test="${operacao=='Excluir'}">readonly</c:if>>
 
                             </div>
                             <div class="form-group">
                                 <label for="txtFim">Data de Término</label>
-                                <input type="date" class="form-control" id="txtFim" name="txtFim" value="${contrato.dataFim}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+                                <input required type="date" class="form-control" id="txtFim" name="txtFim" value="${contrato.dataFim}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
 
                             </div>
                             <div class="form-group">
                                 <label for="txtValor">Valor</label>
-                                <input type="text" class="form-control" id="txtValor" name="txtValor" value="${contrato.valor}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+                                <input required type="text" class="form-control" id="txtValor" name="txtValor" value="${contrato.valor}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
 
                         </div>
                         <div class="form-group">

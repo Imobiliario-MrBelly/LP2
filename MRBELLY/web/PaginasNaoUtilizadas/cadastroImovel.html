@@ -47,16 +47,16 @@
               <div class='container'>
                 <div class="row">
                   <div class="col-md-3">
-                    <label><input type="radio" name="tipoImovel" id="casa" value="casa"> Casa</label>
+                    <label><input required type="radio" name="tipoImovel" id="casa" value="casa"> Casa</label>
                   </div>
                   <div class="col-md-3">
-                    <label><input type="radio" name="tipoImovel" id="apartamento" value="apartamento"> Apartamento</label>
+                    <label><input required type="radio" name="tipoImovel" id="apartamento" value="apartamento"> Apartamento</label>
                   </div>
                   <div class="col-md-3">
-                    <label><input type="radio" name="tipoImovel" id="comercial" value="comercial"> Comercial</label>
+                    <label><input required type="radio" name="tipoImovel" id="comercial" value="comercial"> Comercial</label>
                   </div>
                   <div class="col-md-3">
-                    <label><input type="radio" name="tipoImovel" id="garagem" value="garagem"> Garagem</label>
+                    <label><input required type="radio" name="tipoImovel" id="garagem" value="garagem"> Garagem</label>
                   </div>
                 </div>
                 <div class='row'>
@@ -64,17 +64,17 @@
                     <label for='cep'>CEP</label>
                   </div>
                   <div class='col-md-12'>
-                    <input name='cep' type='text' id='cep' value='' maxlength='9' onblur='pesquisaCep(this.value);'>
+                    <input required name='cep' type='text' id='cep' value='' maxlength='9' onblur='pesquisaCep(this.value);'>
                   </div>
                 </div>
                 <div class='row'>
                   <div class='col-md-9'>
                     <label for='rua'>Logradouro</label>
-                    <input name='rua' type='text' id='rua'>
+                    <input required name='rua' type='text' id='rua'>
                   </div>
                   <div class='col-md-3'>
                     <label for='complemento'>Nº</label>
-                    <input name='complemento' type='text' id='complemento'>
+                    <input required name='complemento' type='text' id='complemento'>
                   </div>
                 </div>
                 <div class='row'>
@@ -82,17 +82,17 @@
                     <label for='bairro'>Bairro</label>
                   </div>
                   <div class='col-md-12'>
-                    <input name='bairro' type='text' id='bairro'>
+                    <input required name='bairro' type='text' id='bairro'>
                   </div>
                 </div>
                 <div class='row'>
                   <div class='col-md-3'>
                     <label for='uf'>Estado</label>
-                    <input name='uf' type='text' id='uf'>
+                    <input required name='uf' type='text' id='uf'>
                   </div>
                   <div class='col-md-9'>
                     <label for='cidade'>Cidade</label>
-                    <input name='cidade' type='text' id='cidade'>
+                    <input required name='cidade' type='text' id='cidade'>
                   </div>
                 </div>
               </div>

@@ -80,30 +80,30 @@
                     <div class="col-sm-12" id="quadro1">
 
                         <div class="form-group"> 
-                            <input type="text" class="form-control" id="txtCodLocatario" name="txtCodLocatario" value="${locatario.id}" readonly style="display:none">
+                            <input required type="text" class="form-control" id="txtCodLocatario" name="txtCodLocatario" value="${locatario.id}" readonly style="display:none">
                         </div>
                         <div class="form-group">
                             <label for="txtCodPessoa">Código Pessoa</label>
-                            <input type="text" class="form-control" id="txtCodPessoa" name="txtCodPessoa" value="${locatario.pessoa.id}" readonly>
+                            <input required type="text" class="form-control" id="txtCodPessoa" name="txtCodPessoa" value="${locatario.pessoa.id}" readonly>
 
                         </div>
                         <div class="form-group">
                             <label for="txtNome">Nome</label>
-                            <input type="text" class="form-control" id="txtNome" name="txtNome" value="${locatario.pessoa.nome}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+                            <input required type="text" class="form-control" id="txtNome" name="txtNome" value="${locatario.pessoa.nome}" <c:if test="${operacao=='Excluir'}">readonly</c:if> maxlength="45">
 
                             </div>
                             <div class="form-group">
                                 <label for="txtSobrenome">Sobrenome</label>
-                                <input type="text" class="form-control" id="txtSobrenome" name="txtSobrenome" value="${locatario.pessoa.sobrenome}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>                                                      
+                                <input required type="text" class="form-control" id="txtSobrenome" name="txtSobrenome" value="${locatario.pessoa.sobrenome}" <c:if test="${operacao=='Excluir'}">readonly</c:if> maxlength="50">                                                      
                             </div>
                             <div class="form-group">
                                 <label for="txtRg">RG</label>
-                                <input type="text" class="form-control" id="txtRg" name="txtRg" value="${locatario.pessoa.rg}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+                                <input required type="text" class="form-control" id="txtRg" name="txtRg" value="${locatario.pessoa.rg}" <c:if test="${operacao=='Excluir'}">readonly</c:if> maxlength="20">
 
                             </div>
                             <div class="form-group">
                                 <label for="txtCpf">CPF</label>
-                                <input type="text" class="form-control" id="txtCpf" name="txtCpf" value="${locatario.pessoa.cpf}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>                                                      
+                                <input required type="text" class="form-control" id="txtCpf" name="txtCpf" value="${locatario.pessoa.cpf}" <c:if test="${operacao=='Excluir'}">readonly</c:if> maxlength="11">                                                      
                             </div>
                             <div class="form-group">
                                 <label  for="txtSexo">Sexo</label>
@@ -116,7 +116,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="txtTelefone">Telefone</label>
-                                <input type="text" class="form-control" id="txtTelefone" name="txtTelefone" value="${locatario.pessoa.telefone}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>                                                      
+                                <input required type="text" class="form-control" id="txtTelefone" name="txtTelefone" value="${locatario.pessoa.telefone}" <c:if test="${operacao=='Excluir'}">readonly</c:if> maxlength="11">                                                      
                             </div>
 
                         </div>
@@ -125,15 +125,15 @@
                         <div class="col-sm-12" id="quadro2">
                             <div class="form-group">
                                 <label for="txtCodLogin">Código do Login</label>
-                                <input type="text" class="form-control" id="txtCodLogin" name="txtCodLogin" value="${locatario.login.id}" readonly>
+                                <input required type="text" class="form-control" id="txtCodLogin" name="txtCodLogin" value="${locatario.login.id}" readonly>
                         </div>
                         <div class="form-group">
                             <label for="txtEmail">Email</label>
-                            <input type="text" class="form-control" id="txtEmail" name="txtEmail" value="${locatario.login.email}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
+                            <input required type="text" class="form-control" id="txtEmail" name="txtEmail" value="${locatario.login.email}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
                             </div>
                             <div class="form-group">
                                 <label for="txtSenha">Senha</label>
-                                <input type="text" class="form-control" id="txtSenha" name="txtSenha" value="${locatario.login.senha}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
+                                <input required type="text" class="form-control" id="txtSenha" name="txtSenha" value="${locatario.login.senha}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
 
                         </div>
                     </div>

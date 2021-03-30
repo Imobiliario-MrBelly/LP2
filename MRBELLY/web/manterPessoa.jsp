@@ -61,26 +61,26 @@
 
                         <div class="form-group">
                             <label for="txtCodPessoa">Código do Pessoa</label>
-                            <input type="text" class="form-control" id="txtCodPessoa" name="txtCodPessoa" value="${pessoa.id}" readonly="">
+                            <input required type="text" class="form-control" id="txtCodPessoa" name="txtCodPessoa" value="${pessoa.id}" readonly="">
 
                         </div>
                         <div class="form-group">
                             <label for="txtNome">Nome</label>
-                            <input type="text" class="form-control" id="txtNome" name="txtNome" value="${pessoa.nome}"readonly>
+                            <input required type="text" class="form-control" id="txtNome" name="txtNome" value="${pessoa.nome}"readonly>
 
                             </div>
                             <div class="form-group">
                                 <label for="txtSobrenome">Sobrenome</label>
-                                <input type="text" class="form-control" id="txtSobrenome" name="txtSobrenome" value="${pessoa.sobrenome}"readonly>                                                      
+                                <input required type="text" class="form-control" id="txtSobrenome" name="txtSobrenome" value="${pessoa.sobrenome}"readonly>                                                      
                             </div>
                             <div class="form-group">
                                 <label for="txtRg">RG</label>
-                                <input type="text" class="form-control" id="txtRg" name="txtRg" value="${pessoa.rg}" readonly>
+                                <input required type="text" class="form-control" id="txtRg" name="txtRg" value="${pessoa.rg}" readonly>
 
                             </div>
                             <div class="form-group">
                                 <label for="txtCpf">CPF</label>
-                                <input type="text" class="form-control" id="txtCpf" name="txtCpf" value="${pessoa.cpf}" readonly>                                                      
+                                <input required type="text" class="form-control" id="txtCpf" name="txtCpf" value="${pessoa.cpf}" readonly>                                                      
                             </div>
                             <div class="form-group">
                                 <label  for="txtSexo">Sexo</label>
@@ -93,7 +93,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="txtCadastro">Data de Cadastro</label>
-                                <input type="text" class="form-control" id="txtCadastro" name="txtCadastro" value="${pessoa.dataCadastro}" readonly>                                                      
+                                <input required type="text" class="form-control" id="txtCadastro" name="txtCadastro" value="${pessoa.dataCadastro}" readonly>                                                      
                         </div>
                         
                     </form>

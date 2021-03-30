@@ -67,6 +67,16 @@ public class ImovelDAO extends DAO {
 
         try {
             conexao = BD.getInstancia().getConexao();
+            conexao.setAutoCommit(false);
+            comando = conexao.prepareStatement("UPDATE endereco SET rua=?, numero=?, cep=?, cidade=?, uf=? WHERE id=?;");
+            comando.setString(1, imovel.getEndereco().getRua());
+            comando.setString(2, imovel.getEndereco().getNumero());
+            comando.setString(3, imovel.getEndereco().getCep());
+            comando.setString(4, imovel.getEndereco().getCidade());
+            comando.setString(5, imovel.getEndereco().getUf());
+            comando.setInt(6, imovel.getEndereco().getId());
+            comando.executeUpdate();
+            
             comando = conexao.prepareStatement("UPDATE imovel SET area=?, descricao=?, iptu=?, condominio=?, endereco=? ,locador=?,garagem=? WHERE id=?;");
             comando.setDouble(1, imovel.getArea());
             comando.setString(2, imovel.getDescricao());
@@ -76,7 +86,13 @@ public class ImovelDAO extends DAO {
             comando.setInt(6, imovel.getLocador().getId());
             comando.setInt(7, imovel.getGaragem());
             comando.setInt(8, imovel.getId());
-            return comando.executeUpdate() > 0;
+            comando.executeUpdate();
+            
+            
+           
+             
+             conexao.commit();
+             return true;
         } finally {
             fecharConexao(conexao, comando);
         }

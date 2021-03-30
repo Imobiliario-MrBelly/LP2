@@ -64,7 +64,8 @@ public class ManterImovel extends HttpServlet {
                 imovel.gravar();
             }else{
                 int codImovel = Integer.parseUnsignedInt(request.getParameter("txtCodImovel"));
-               endereco = Endereco.obterEndereco(Integer.parseUnsignedInt(request.getParameter("txtCodEndereco")));
+              int  codEndereco = Integer.parseUnsignedInt(request.getParameter("txtCodEndereco"));
+              endereco = new Endereco(codEndereco, rua, numero, cep , cidade, uf);
                 imovel= new Imovel(codImovel, endereco, area, descricao, condomino, iptu, garagem, locador);
                 if (operacao.equals("Editar")){
                     imovel.editar();

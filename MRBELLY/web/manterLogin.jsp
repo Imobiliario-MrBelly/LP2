@@ -59,17 +59,17 @@
                         
                             <div class="form-group">
                                 <label for="txtCodLogin">Código do Login</label>
-                                <input type="text" class="form-control" id="txtCodLogin" name="txtCodLogin" readonly="" value="${login.id}" >
+                                <input required type="text" class="form-control" id="txtCodLogin" name="txtCodLogin" readonly="" value="${login.id}" >
                                                                                      
                             </div>
                             <div class="form-group">
                                 <label for="txtEmail">Email</label>
-                                <input type="text" class="form-control" id="txtEmail" name="txtEmail" value="${login.email}" disabled="" >
+                                <input required type="text" class="form-control" id="txtEmail" name="txtEmail" value="${login.email}" disabled="" >
                                                                                      
                             </div>
                             <div class="form-group">
                                 <label for="txtSenha">Senha</label>
-                                <input type="text" class="form-control" id="txtSenha" name="txtSenha" value="${login.senha}" readonly >
+                                <input required type="text" class="form-control" id="txtSenha" name="txtSenha" value="${login.senha}" readonly >
                                                                                      
                             </div>
                                 <div class="form-group">

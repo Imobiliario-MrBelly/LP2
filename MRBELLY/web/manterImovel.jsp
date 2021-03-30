@@ -81,40 +81,40 @@
                     <div class="col-sm-12">
                         <form action="ManterImovel?acao=confirmarOperacao&operacao=${operacao}" method="post">
                             <div class="col-sm-12" id="quadro1">
-                                <div class="form-group">
+                                <div class="form-group" style="display: none">
                                     <label for="txtCodImovel">Código do Imóvel</label>
-                                    <input type="text" class="form-control" id="txtCodImovel" name="txtCodImovel" value="${imovel.id}" readonly>
+                                    <input required type="text" class="form-control" id="txtCodImovel" name="txtCodImovel" value="${imovel.id}" readonly>
 
                                 </div>
                                 <div class="form-group" style="display: none">
                                     <label for="txtCodEndereco">Código Pessoa</label>
-                                    <input type="text" class="form-control" id="txtCodEndereco" name="txtCodEndereco" value="${imovel.endereco.id}" readonly style="display: none">
+                                    <input required type="text" class="form-control" id="txtCodEndereco" name="txtCodEndereco" value="${imovel.endereco.id}" readonly style="display: none">
 
                                 </div>
 
                                 <div class="form-group">
                                     <label for="txtArea">Área</label>
-                                    <input type="text" class="form-control" id="txtArea" name="txtArea" value="${imovel.area}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
+                                    <input required type="text" class="form-control" id="txtArea" name="txtArea" value="${imovel.area}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
 
                                     </div>
                                     <div class="form-group">
                                         <label for="txtDescricao">Descrição</label>
-                                        <input type="text" class="form-control" id="txtDescricao" name="txtDescricao" value="${imovel.descricao}"<c:if test="${operacao=='Excluir'}">readonly</c:if>>
+                                        <input required type="text" class="form-control" id="txtDescricao" name="txtDescricao" value="${imovel.descricao}"<c:if test="${operacao=='Excluir'}">readonly</c:if> maxlength="100">
 
                                     </div>
                                     <div class="form-group">
                                         <label for="txtCondominio">Valor do Condomínio</label>
-                                        <input type="text" class="form-control" id="txtCondominio" name="txtCondominio" value="${imovel.condominio}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
+                                        <input required type="text" class="form-control" id="txtCondominio" name="txtCondominio" value="${imovel.condominio}"<c:if test="${operacao=='Excluir'}">readonly</c:if> >
 
                                     </div>
                                     <div class="form-group">
                                         <label for="txtIptu">Valor do IPTU</label>
-                                        <input type="text" class="form-control" id="txtIptu" name="txtIptu" value="${imovel.iptu}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+                                        <input required type="text" class="form-control" id="txtIptu" name="txtIptu" value="${imovel.iptu}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
 
                                     </div>
                                     <div class="form-group">
                                         <label for="txtGaragem">Quantidade de Garagens</label>
-                                        <input type="text" class="form-control" id="txtGaragem" name="txtGaragem" value="${imovel.garagem}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+                                        <input required type="text" class="form-control" id="txtGaragem" name="txtGaragem" value="${imovel.garagem}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
 
                                     </div>
                                     <div class="form-group">
@@ -132,34 +132,30 @@
                                 </div>
                             </div>
                             <div class="col-sm-12" id="quadro2">
-                                <div class="form-group">
-                                    <label for="txtCodEndereco">Código do Endereço</label>
-                                    <input type="text" class="form-control" id="txtCodEndereco" name="txtCodEndereco" value="${locador.endereco.id}" readonly>
-
-                                </div>
+                               
                                 <div class="form-group">
                                     <label for="txtCep">Cep</label>
-                                    <input type="text" class="form-control" id="txtCep" name="txtCep" value="${locador.endereco.cep}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+                                    <input required type="text" class="form-control" id="txtCep" name="txtCep" value="${imovel.endereco.cep}" <c:if test="${operacao=='Excluir'}">readonly</c:if> maxlength="8">
 
                                     </div>
                                     <div class="form-group">
                                         <label for="txtRua">Rua</label>
-                                        <input type="text" class="form-control" id="txtRua" name="txtRua" value="${locador.endereco.rua}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+                                        <input required type="text" class="form-control" id="txtRua" name="txtRua" value="${imovel.endereco.rua}" <c:if test="${operacao=='Excluir'}">readonly</c:if> maxlength="40">
 
                                     </div>
                                     <div class="form-group">
                                         <label for="txtNumero">Número</label>
-                                        <input type="text" class="form-control" id="txtNumero" name="txtNumero" value="${locador.endereco.numero}"<c:if test="${operacao=='Excluir'}">readonly</c:if>>
+                                        <input required type="text" class="form-control" id="txtNumero" name="txtNumero" value="${imovel.endereco.numero}"<c:if test="${operacao=='Excluir'}">readonly</c:if> maxlength="5">
 
                                     </div>
                                     <div class="form-group">
                                         <label for="txtCidade">Cidade</label>
-                                        <input type="text" class="form-control" id="txtCidade" name="txtCidade" value="${locador.endereco.cidade}" <c:if test="${operacao=='Excluir'}">readonly</c:if>>
+                                        <input required type="text" class="form-control" id="txtCidade" name="txtCidade" value="${imovel.endereco.cidade}" <c:if test="${operacao=='Excluir'}">readonly</c:if> maxlength="30">
 
                                     </div>
                                     <div class="form-group">
                                         <label for="txtUF">UF</label>
-                                        <input type="text" class="form-control" id="txtUF" name="txtUF" value="${locador.endereco.uf}" <c:if test="${operacao=='Excluir'}">readonly</c:if> >
+                                        <input required type="text" class="form-control" id="txtUF" name="txtUF" value="${imovel.endereco.uf}" <c:if test="${operacao=='Excluir'}">readonly</c:if> maxlength="2" >
 
                                 </div>
                             </div>
