@@ -41,7 +41,7 @@ public class pesquisaLogin extends HttpServlet {
             view = request.getRequestDispatcher("/pesquisaLogin.jsp");
             view.forward(request, response);
         } catch (SQLException | ClassNotFoundException ex) {
-           throw new ServletException(ex);
+            throw new ServletException(ex);
         }
     }
 

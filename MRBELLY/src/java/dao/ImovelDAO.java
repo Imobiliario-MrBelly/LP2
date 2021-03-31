@@ -27,8 +27,7 @@ public class ImovelDAO extends DAO {
         try {
             conexao = BD.getInstancia().getConexao();
             conexao.setAutoCommit(false);
-            
-            
+
             comando = conexao.prepareStatement("INSERT INTO endereco (rua, numero, cep, cidade, uf) VALUES (?,?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
             comando.setString(1, imovel.getEndereco().getRua());
             comando.setString(2, imovel.getEndereco().getNumero());
@@ -36,8 +35,7 @@ public class ImovelDAO extends DAO {
             comando.setString(4, imovel.getEndereco().getCidade());
             comando.setString(5, imovel.getEndereco().getUf());
             comando.executeUpdate();
-            
-            
+
             ResultSet rs = comando.getGeneratedKeys();
             int id = 0;
             while (rs.next()) {
@@ -76,7 +74,7 @@ public class ImovelDAO extends DAO {
             comando.setString(5, imovel.getEndereco().getUf());
             comando.setInt(6, imovel.getEndereco().getId());
             comando.executeUpdate();
-            
+
             comando = conexao.prepareStatement("UPDATE imovel SET area=?, descricao=?, iptu=?, condominio=?, endereco=? ,locador=?,garagem=? WHERE id=?;");
             comando.setDouble(1, imovel.getArea());
             comando.setString(2, imovel.getDescricao());
@@ -87,12 +85,9 @@ public class ImovelDAO extends DAO {
             comando.setInt(7, imovel.getGaragem());
             comando.setInt(8, imovel.getId());
             comando.executeUpdate();
-            
-            
-           
-             
-             conexao.commit();
-             return true;
+
+            conexao.commit();
+            return true;
         } finally {
             fecharConexao(conexao, comando);
         }

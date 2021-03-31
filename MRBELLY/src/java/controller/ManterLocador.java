@@ -73,7 +73,7 @@ public class ManterLocador extends HttpServlet {
                 pessoa = new Pessoa(nome, sobrenome, rg, cpf, sexo, dataCadastro, telefone);
                 endereco = new Endereco(rua, numero, cep, cidade, uf);
                 login = new Login(email, senha);
-                locador=new Locador(pessoa, endereco, login);
+                locador = new Locador(pessoa, endereco, login);
                 locador.gravar();
 
             } else {
@@ -112,11 +112,12 @@ public class ManterLocador extends HttpServlet {
                         login.excluir();
                         locador.excluir();
                     }
-                }}
-            
-                RequestDispatcher view = request.getRequestDispatcher("pesquisaLocador");
-                view.forward(request, response);
-            
+                }
+            }
+
+            RequestDispatcher view = request.getRequestDispatcher("pesquisaLocador");
+            view.forward(request, response);
+
         } catch (IOException e) {
             throw new ServletException(e);
         } catch (ServletException e) {

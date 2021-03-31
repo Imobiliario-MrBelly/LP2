@@ -36,42 +36,42 @@ public class ManterEndereco extends HttpServlet {
         }
     }
 
-     private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException {
+    private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException {
         String operacao = request.getParameter("operacao");
-       String cep = request.getParameter("txtCep");
-       String rua = request.getParameter("txtRua");
-       String numero = request.getParameter("txtNumero");
-       String cidade = request.getParameter("txtCidade");
-       String uf = request.getParameter("txtUF");
-       Endereco endereco;
-       
-        try{
-            if (operacao.equals("Incluir")){
+        String cep = request.getParameter("txtCep");
+        String rua = request.getParameter("txtRua");
+        String numero = request.getParameter("txtNumero");
+        String cidade = request.getParameter("txtCidade");
+        String uf = request.getParameter("txtUF");
+        Endereco endereco;
+
+        try {
+            if (operacao.equals("Incluir")) {
                 endereco = new Endereco(rua, numero, cep, cidade, uf);
                 endereco.gravar();
-            }else{
+            } else {
                 int codEndereco = Integer.parseUnsignedInt(request.getParameter("txtCodEndereco"));
                 endereco = new Endereco(codEndereco, rua, numero, cep, cidade, uf);
-                if (operacao.equals("Editar")){
+                if (operacao.equals("Editar")) {
                     endereco.editar();
-                }else{if(operacao.equals("Excluir")){
-                    endereco.excluir();
-                }
+                } else {
+                    if (operacao.equals("Excluir")) {
+                        endereco.excluir();
+                    }
                 }
             }
             RequestDispatcher view = request.getRequestDispatcher("pesquisaEndereco");
             view.forward(request, response);
-        }catch(IOException e ){
+        } catch (IOException e) {
             throw new ServletException(e);
-        }catch(SQLException e){
+        } catch (SQLException e) {
             throw new ServletException(e);
-        }catch(ClassNotFoundException e ){
-            throw  new ServletException(e);
-        }catch(ServletException e ){
-            throw  e;
+        } catch (ClassNotFoundException e) {
+            throw new ServletException(e);
+        } catch (ServletException e) {
+            throw e;
         }
     }
-
 
     private void prepararOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException {
         try {

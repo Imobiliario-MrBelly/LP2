@@ -27,12 +27,12 @@ public class LoginDAO extends DAO {
         try {
             conexao = BD.getInstancia().getConexao();
             conexao.setAutoCommit(false);
-            
+
             comando = conexao.prepareStatement("INSERT INTO login (senha, email, status) VALUES (?,?,0);", Statement.RETURN_GENERATED_KEYS);
             comando.setString(1, login.getSenha());
             comando.setString(2, login.getEmail());
             comando.executeUpdate();
-            
+
             ResultSet rs = comando.getGeneratedKeys();
             int id = 0;
             while (rs.next()) {

@@ -28,8 +28,8 @@ public class LocadorDAO extends DAO {
         //ola mundo
         try {
             conexao = BD.getInstancia().getConexao();
-conexao.setAutoCommit(false);
- comando = conexao.prepareStatement("INSERT INTO pessoa (nome, cpf, rg, sobrenome,"
+            conexao.setAutoCommit(false);
+            comando = conexao.prepareStatement("INSERT INTO pessoa (nome, cpf, rg, sobrenome,"
                     + " sexo, cadastro, telefone) VALUES (?,?,?,?,?,curdate(),?);", Statement.RETURN_GENERATED_KEYS);
 
             comando.setString(1, locador.getPessoa().getNome());
@@ -46,36 +46,35 @@ conexao.setAutoCommit(false);
                 id = rs.getInt(1);
             }
             locador.getPessoa().setId(id);
-            id=0;
-            
-             comando = conexao.prepareStatement("INSERT INTO login (senha, email, status) VALUES (?,?,0);", Statement.RETURN_GENERATED_KEYS);
+            id = 0;
+
+            comando = conexao.prepareStatement("INSERT INTO login (senha, email, status) VALUES (?,?,0);", Statement.RETURN_GENERATED_KEYS);
             comando.setString(1, locador.getLogin().getSenha());
             comando.setString(2, locador.getLogin().getEmail());
             comando.executeUpdate();
-            
+
             rs = comando.getGeneratedKeys();
-           
+
             while (rs.next()) {
                 id = rs.getInt(1);
             }
             locador.getLogin().setId(id);
-            
-            
-             comando = conexao.prepareStatement("INSERT INTO endereco (rua, numero, cep, cidade, uf) VALUES (?,?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
+
+            comando = conexao.prepareStatement("INSERT INTO endereco (rua, numero, cep, cidade, uf) VALUES (?,?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
             comando.setString(1, locador.getEndereco().getRua());
             comando.setString(2, locador.getEndereco().getNumero());
             comando.setString(3, locador.getEndereco().getCep());
             comando.setString(4, locador.getEndereco().getCidade());
             comando.setString(5, locador.getEndereco().getUf());
             comando.executeUpdate();
-            
-           rs = comando.getGeneratedKeys();
+
+            rs = comando.getGeneratedKeys();
             id = 0;
             while (rs.next()) {
                 id = rs.getInt(1);
             }
             locador.getEndereco().setId(id);
-            
+
             comando = conexao.prepareStatement("INSERT INTO locador (pessoa,login,endereco) VALUES (?,?,?);");
             comando.setInt(1, locador.getPessoa().getId());
             comando.setInt(2, locador.getLogin().getId());
@@ -95,24 +94,20 @@ conexao.setAutoCommit(false);
         try {
             conexao = BD.getInstancia().getConexao();
             conexao.setAutoCommit(false);
-            
-             comando = conexao.prepareStatement("UPDATE endereco SET rua=?, numero=?, cep=?, cidade=?, uf=? WHERE id=?;");
+
+            comando = conexao.prepareStatement("UPDATE endereco SET rua=?, numero=?, cep=?, cidade=?, uf=? WHERE id=?;");
             comando.setString(1, locador.getEndereco().getRua());
             comando.setString(2, locador.getEndereco().getNumero());
             comando.setString(3, locador.getEndereco().getCep());
             comando.setString(4, locador.getEndereco().getCidade());
             comando.setString(5, locador.getEndereco().getUf());
             comando.setInt(6, locador.getEndereco().getId());
-            
-            
+
             comando = conexao.prepareStatement("UPDATE login SET email=?, senha=? WHERE id=?;");
             comando.setString(1, locador.getLogin().getEmail());
             comando.setString(2, locador.getLogin().getSenha());
             comando.setInt(3, locador.getLogin().getId());
-            
-            
-           
-            
+
             comando = conexao.prepareStatement("UPDATE pessoa SET nome=?, sobrenome=?,  rg=?, cpf=?, sexo=?, telefone=? WHERE id=?;");
 
             comando.setString(1, locador.getPessoa().getNome());
@@ -122,8 +117,7 @@ conexao.setAutoCommit(false);
             comando.setString(5, locador.getPessoa().getSexo());
             comando.setString(6, locador.getPessoa().getTelefone());
             comando.setInt(7, locador.getPessoa().getId());
-            
-            
+
             comando = conexao.prepareStatement("UPDATE locador SET login=?, endereco=?,pessoa=? WHERE id=?;");
             comando.setInt(1, locador.getLogin().getId());
             comando.setInt(2, locador.getEndereco().getId());

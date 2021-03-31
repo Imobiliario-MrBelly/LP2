@@ -7,24 +7,24 @@ import java.sql.SQLException;
 public class BD {
 
     private static BD instancia = new BD();
-    public static BD getInstancia(){
+
+    public static BD getInstancia() {
         return instancia;
     }
 
-    private BD(){}
+    private BD() {
+    }
 
-    public Connection getConexao() throws ClassNotFoundException, SQLException{
+    public Connection getConexao() throws ClassNotFoundException, SQLException {
 
         Connection conexao = null;
-        
+
         Class.forName("com.mysql.cj.jdbc.Driver");
-        
+
         //conexao = DriverManager.getConnection("jdbc:mysql://localhost/mrbelly", "root", "");
-        
         // conexão Vinícius
         conexao = DriverManager.getConnection("jdbc:mysql://localhost:3308/mrbelly?useUnicode=true&characterEncoding=UTF-8", "root", "");
-       return conexao;
-
+        return conexao;
 
     }
 

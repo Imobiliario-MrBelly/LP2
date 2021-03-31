@@ -33,12 +33,12 @@ public class pesquisaEndereco extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
-            
+
             request.setAttribute("Enderecos", Endereco.obterEnderecos());
             RequestDispatcher view;
             view = request.getRequestDispatcher("/pesquisaEndereco.jsp");
             view.forward(request, response);
-            
+
         } catch (SQLException | ClassNotFoundException ex) {
             throw new ServletException(ex);
         }

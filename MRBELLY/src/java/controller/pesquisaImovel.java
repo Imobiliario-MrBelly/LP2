@@ -5,7 +5,6 @@ package controller;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
@@ -36,14 +35,14 @@ public class pesquisaImovel extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try  {
+        try {
             request.setAttribute("Imoveis", Imovel.obterImoveis());
             RequestDispatcher view = request.getRequestDispatcher("/pesquisaImovel.jsp");
-            view.forward(request,response);
+            view.forward(request, response);
         } catch (SQLException ex) {
-           throw new ServletException(ex);
+            throw new ServletException(ex);
         } catch (ClassNotFoundException ex) {
-           throw new ServletException(ex);
+            throw new ServletException(ex);
         }
     }
 

@@ -79,11 +79,11 @@ public class Contrato {
         this.valor = valor;
     }
 
-    
     public static List<Contrato> obterContratos() throws SQLException, ClassNotFoundException {
         return ContratoDAO.getInstancia().obterContratos();
     }
-    public static Contrato obterContrato(int id) throws SQLException, ClassNotFoundException{
+
+    public static Contrato obterContrato(int id) throws SQLException, ClassNotFoundException {
         return ContratoDAO.getInstancia().obterContrato(id);
     }
 
@@ -96,6 +96,6 @@ public class Contrato {
     }
 
     public void editar() throws SQLException, ClassNotFoundException {
-       ContratoDAO.getInstancia().alterar(this);
+        ContratoDAO.getInstancia().alterar(this);
     }
 }

@@ -25,6 +25,7 @@ public class Pessoa {
         this.dataCadastro = dataCadastro;
         this.telefone = telefone;
     }
+
     public Pessoa(int id, String nome, String sobrenome, String rg, String cpf, String sexo, Date dataCadastro, String telefone) {
         this.id = id;
         this.nome = nome;

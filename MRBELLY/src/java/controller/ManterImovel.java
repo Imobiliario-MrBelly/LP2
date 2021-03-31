@@ -38,53 +38,50 @@ public class ManterImovel extends HttpServlet {
             prepararOperacao(request, response);
         }
     }
- 
-     private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException, UnsupportedEncodingException {
+
+    private void confirmarOperacao(HttpServletRequest request, HttpServletResponse response) throws SQLException, ClassNotFoundException, ServletException, UnsupportedEncodingException {
         String operacao = request.getParameter("operacao");
-        
+
         String cep = request.getParameter("txtCep");
         String rua = request.getParameter("txtRua");
         String numero = request.getParameter("txtNumero");
         String cidade = request.getParameter("txtCidade");
         String uf = request.getParameter("txtUF");
-        
-        
-        
-       Endereco endereco = null;
-       double area = Double.parseDouble(request.getParameter("txtArea"));
-       String descricao = new String(request.getParameter("txtDescricao").getBytes("ISO-8859-1"), "UTF-8");
-       double condomino = Double.parseDouble(request.getParameter("txtCondominio"));
-       double iptu = Double.parseDouble(request.getParameter("txtIptu"));
-       int garagem = Integer.parseInt(request.getParameter("txtGaragem"));
-       Locador locador = Locador.obterLocador(Integer.parseInt(request.getParameter("txtLocador")));
-       Imovel imovel = null ;
-        try{
-            if (operacao.equals("Incluir")){
-                endereco=new Endereco(rua, numero, cep, cidade, uf);
-                imovel=new Imovel(endereco, area, descricao, condomino, iptu, garagem, locador);
+
+        Endereco endereco = null;
+        double area = Double.parseDouble(request.getParameter("txtArea"));
+        String descricao = new String(request.getParameter("txtDescricao").getBytes("ISO-8859-1"), "UTF-8");
+        double condomino = Double.parseDouble(request.getParameter("txtCondominio"));
+        double iptu = Double.parseDouble(request.getParameter("txtIptu"));
+        int garagem = Integer.parseInt(request.getParameter("txtGaragem"));
+        Locador locador = Locador.obterLocador(Integer.parseInt(request.getParameter("txtLocador")));
+        Imovel imovel = null;
+        try {
+            if (operacao.equals("Incluir")) {
+                endereco = new Endereco(rua, numero, cep, cidade, uf);
+                imovel = new Imovel(endereco, area, descricao, condomino, iptu, garagem, locador);
                 imovel.gravar();
-            }else{
+            } else {
                 int codImovel = Integer.parseUnsignedInt(request.getParameter("txtCodImovel"));
-              int  codEndereco = Integer.parseUnsignedInt(request.getParameter("txtCodEndereco"));
-              endereco = new Endereco(codEndereco, rua, numero, cep , cidade, uf);
-                imovel= new Imovel(codImovel, endereco, area, descricao, condomino, iptu, garagem, locador);
-                if (operacao.equals("Editar")){
+                int codEndereco = Integer.parseUnsignedInt(request.getParameter("txtCodEndereco"));
+                endereco = new Endereco(codEndereco, rua, numero, cep, cidade, uf);
+                imovel = new Imovel(codImovel, endereco, area, descricao, condomino, iptu, garagem, locador);
+                if (operacao.equals("Editar")) {
                     imovel.editar();
-                }else{
-                    if(operacao.equals("Excluir")){
-                    imovel.excluir();
-                }
+                } else {
+                    if (operacao.equals("Excluir")) {
+                        imovel.excluir();
+                    }
                 }
             }
             RequestDispatcher view = request.getRequestDispatcher("pesquisaImovel");
             view.forward(request, response);
-        }catch(IOException e ){
+        } catch (IOException e) {
             throw new ServletException(e);
-        }catch(ServletException e ){
-            throw  e;
+        } catch (ServletException e) {
+            throw e;
         }
     }
-
 
     private void prepararOperacao(HttpServletRequest request, HttpServletResponse response) throws ServletException, SQLException {
         try {

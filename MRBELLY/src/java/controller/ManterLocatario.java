@@ -62,7 +62,7 @@ public class ManterLocatario extends HttpServlet {
             if (operacao.equals("Incluir")) {
                 pessoa = new Pessoa(nome, sobrenome, rg, cpf, sexo, dataCadastro, telefone);
                 login = new Login(email, senha);
-                locatario=new Locatario(pessoa, login);
+                locatario = new Locatario(pessoa, login);
                 locatario.gravar();
 
             } else {

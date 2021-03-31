@@ -6,8 +6,7 @@ import java.util.List;
 
 public class Imovel {
 
-   
-    private int id ;
+    private int id;
     private Endereco endereco;
     private double area;
     private String descricao;
@@ -27,7 +26,6 @@ public class Imovel {
         this.locador = locador;
     }
 
-
     public Imovel(Endereco endereco, double area, String descricao, double condominio, double iptu, int garagem, Locador locador) {
         this.endereco = endereco;
         this.area = area;
@@ -37,8 +35,6 @@ public class Imovel {
         this.garagem = garagem;
         this.locador = locador;
     }
-
-    
 
     public Locador getLocador() {
         return locador;
@@ -55,7 +51,6 @@ public class Imovel {
     public void setId(int id) {
         this.id = id;
     }
-    
 
     public double getIptu() {
         return iptu;
@@ -96,7 +91,7 @@ public class Imovel {
     public void setCondominio(double condominio) {
         this.condominio = condominio;
     }
-    
+
     public int getGaragem() {
         return garagem;
     }
@@ -104,21 +99,24 @@ public class Imovel {
     public void setGaragem(int garagem) {
         this.garagem = garagem;
     }
-    
-     public static List<Imovel> obterImoveis() throws SQLException, ClassNotFoundException {
-      return ImovelDAO.getInstancia().obterImoveis();
+
+    public static List<Imovel> obterImoveis() throws SQLException, ClassNotFoundException {
+        return ImovelDAO.getInstancia().obterImoveis();
     }
-      public static Imovel obterImovel(int id ) throws SQLException, ClassNotFoundException {
-      return ImovelDAO.getInstancia().obterImovel(id);
+
+    public static Imovel obterImovel(int id) throws SQLException, ClassNotFoundException {
+        return ImovelDAO.getInstancia().obterImovel(id);
     }
 
     public void gravar() throws SQLException, ClassNotFoundException {
-       ImovelDAO.getInstancia().gravar(this);
+        ImovelDAO.getInstancia().gravar(this);
     }
 
     public void editar() throws SQLException, ClassNotFoundException {
-        ImovelDAO.getInstancia().alterar(this);}
+        ImovelDAO.getInstancia().alterar(this);
+    }
 
     public void excluir() throws SQLException, ClassNotFoundException {
-    ImovelDAO.getInstancia().excluir(this); }
+        ImovelDAO.getInstancia().excluir(this);
+    }
 }

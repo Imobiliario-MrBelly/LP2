@@ -36,12 +36,12 @@ public class pesquisaPessoa extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try {
-            
+
             request.setAttribute("Pessoas", Pessoa.obterPessoas());
             RequestDispatcher view;
             view = request.getRequestDispatcher("/pesquisaPessoa.jsp");
             view.forward(request, response);
-            
+
         } catch (SQLException | ClassNotFoundException ex) {
             throw new ServletException(ex);
         }

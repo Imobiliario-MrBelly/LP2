@@ -24,7 +24,7 @@ public class EnderecoDAO extends DAO {
         try {
             conexao = BD.getInstancia().getConexao();
             conexao.setAutoCommit(false);
-            
+
             comando = conexao.prepareStatement("INSERT INTO endereco (rua, numero, cep, cidade, uf) VALUES (?,?,?,?,?);", Statement.RETURN_GENERATED_KEYS);
             comando.setString(1, endereco.getRua());
             comando.setString(2, endereco.getNumero());
@@ -32,7 +32,7 @@ public class EnderecoDAO extends DAO {
             comando.setString(4, endereco.getCidade());
             comando.setString(5, endereco.getUf());
             comando.executeUpdate();
-            
+
             ResultSet rs = comando.getGeneratedKeys();
             int id = 0;
             while (rs.next()) {
