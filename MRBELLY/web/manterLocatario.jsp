@@ -54,7 +54,9 @@
                     <h1> Manter Locatário - ${operacao}</h1>
                 </div>
             </div>
-
+            <c:if test="${operacao=='Incluir'}">
+            <div class="row" style="margin-top:20px;"><p id="mostrar">Nome do Locatário:</p></div>
+            </c:if>
             <div class="row"> 
                 <div class="container">
                     <br>
@@ -89,7 +91,7 @@
                         </div>
                         <div class="form-group">
                             <label for="txtNome">Nome</label>
-                            <input required type="text" class="form-control" id="txtNome" name="txtNome" value="${locatario.pessoa.nome}" <c:if test="${operacao=='Excluir'}">readonly</c:if> maxlength="45">
+                            <input onblur="mostraNome()" required type="text" class="form-control" id="txtNome" name="txtNome" value="${locatario.pessoa.nome}" <c:if test="${operacao=='Excluir'}">readonly</c:if> maxlength="45">
 
                             </div>
                             <div class="form-group">
@@ -179,6 +181,11 @@
         <script src='./js/utilities/bootstrap.js'></script>
         <script src='./js/utilities/jquery-3.5.1.js'></script>
         <script src='./js/main.js'></script>
+        <script>
+            function mostraNome() {
+                document.getElementById("mostrar").innerHTML = "Nome do Locatário: " + document.getElementById("txtNome").value;
+            }
+        </script>
 
     </body>
 

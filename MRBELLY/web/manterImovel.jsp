@@ -135,7 +135,7 @@
                                
                                 <div class="form-group">
                                     <label for="txtCep">Cep</label>
-                                    <input required type="text" class="form-control" id="txtCep" name="txtCep" value="${imovel.endereco.cep}" <c:if test="${operacao=='Excluir'}">readonly</c:if> maxlength="8">
+                                    <input onblur="pesquisaCep(this.value);" required type="text" class="form-control" id="txtCep" name="txtCep" value="${imovel.endereco.cep}" <c:if test="${operacao=='Excluir'}">readonly</c:if> maxlength="8">
 
                                     </div>
                                     <div class="form-group">

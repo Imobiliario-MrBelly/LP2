@@ -42,7 +42,7 @@
                 <div class="mb-4"><a href="pesquisaLocador" class="quickBold  ">LOCADORES</a></div>
                 <div class="mb-4"><a href="pesquisaLocatario" class="quickBold ">LOCATARIOS</a></div>
                 <div class="mb-4"><a href="pesquisaPessoa" class="quickBold ">PESSOAS</a></div>
-                
+
             </div>
         </div>
         <!--Fim Menus-->
@@ -54,45 +54,47 @@
                     <h1> Manter Locador - ${operacao}</h1>
                 </div>
             </div>
-
-            <div class="row"> 
-                <div class="container">
-                    <br>
-                    <div class="row">
-                        <div class="col-sm-4" >
-                            <button type="button" id="q1" onclick="q1()">Dados Pessoais</button>
+            <c:if test="${operacao=='Incluir'}">
+            <div class="row" style="margin-top:20px;"><p id="mostrar">Nome do Locador:</p></div>
+            </c:if>
+                <div class="row"> 
+                    <div class="container">
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-4" >
+                                <button type="button" id="q1" onclick="q1()">Dados Pessoais</button>
+                            </div>
+                            <div class="col-sm-4">
+                                <button type="button" id="q2" onclick="q2()">Endereço</button>
+                            </div>
+                            <div class="col-sm-4">
+                                <button type="button" id="q3" onclick="q3()">Login</button>
+                            </div>
                         </div>
-                        <div class="col-sm-4">
-                            <button type="button" id="q2" onclick="q2()">Endereço</button>
-                        </div>
-                        <div class="col-sm-4">
-                            <button type="button" id="q3" onclick="q3()">Login</button>
-                        </div>
+                        <style>
+                            #q1, #q2, #q3{
+                                border: 1px solid black;
+                                width: 100%;
+                                height: 40px;
+                                border-radius: 5px;
+                            }
+                        </style>
+                        <br>
                     </div>
-                    <style>
-                        #q1, #q2, #q3{
-                            border: 1px solid black;
-                            width: 100%;
-                            height: 40px;
-                            border-radius: 5px;
-                        }
-                    </style>
-                    <br>
-                </div>
-                <form action="ManterLocador?acao=confirmarOperacao&operacao=${operacao}" method="post">
+                    <form action="ManterLocador?acao=confirmarOperacao&operacao=${operacao}" method="post">
                     <div class="col-sm-12" id="quadro1">
 
                         <div class="form-group"> 
                             <input required type="text" class="form-control" id="txtCodLocador" name="txtCodLocador" value="${locador.id}" readonly style="display:none">
                         </div>
-                        <div class="form-group" style="display: none">
+                        <div class="form-group">
                             <label for="txtCodPessoa">Código Pessoa</label>
-                            <input required type="text" class="form-control" id="txtCodPessoa" name="txtCodPessoa" value="${locador.pessoa.id}" readonly style="display: none">
+                            <input required type="text" class="form-control" id="txtCodPessoa" name="txtCodPessoa" value="${locador.pessoa.id}" readonly>
 
                         </div>
                         <div class="form-group">
                             <label for="txtNome">Nome</label>
-                            <input required type="text" class="form-control" id="txtNome" name="txtNome" value="${locador.pessoa.nome}" <c:if test="${operacao=='Excluir'}">readonly</c:if> maxlength="45">
+                            <input onblur="mostraNome()" required type="text" class="form-control" id="txtNome" name="txtNome" value="${locador.pessoa.nome}" <c:if test="${operacao=='Excluir'}">readonly</c:if> maxlength="45">
 
                             </div>
                             <div class="form-group">
@@ -132,7 +134,7 @@
                         </div>
                         <div class="form-group">
                             <label for="txtCep">Cep</label>
-                            <input required type="text" class="form-control" id="txtCep" name="txtCep" value="${locador.endereco.cep}" <c:if test="${operacao=='Excluir'}">readonly</c:if> maxlength="8">
+                            <input onblur="pesquisaCep(this.value);" required type="text" class="form-control" id="txtCep" name="txtCep" value="${locador.endereco.cep}" <c:if test="${operacao=='Excluir'}">readonly</c:if> maxlength="8">
 
                             </div>
                             <div class="form-group">
@@ -227,6 +229,11 @@
         <script src='./js/utilities/bootstrap.js'></script>
         <script src='./js/utilities/jquery-3.5.1.js'></script>
         <script src='./js/main.js'></script>
+        <script>
+            function mostraNome() {
+                document.getElementById("mostrar").innerHTML = "Nome do Locador: " + document.getElementById("txtNome").value;
+            }
+        </script>
 
     </body>
 

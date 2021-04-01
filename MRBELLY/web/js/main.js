@@ -4,18 +4,16 @@ function abrirPagina(link) {
 }
 // Preenchimento automático pelo CEP
 function limparEndereco() {
-    document.getElementById('rua').value = ("");
-    document.getElementById('bairro').value = ("");
-    document.getElementById('cidade').value = ("");
-    document.getElementById('uf').value = ("");
+    document.getElementById('txtRua').value = ("");
+    document.getElementById('txtCidade').value = ("");
+    document.getElementById('txtUF').value = ("");
 }
 
 function preencherEndereco(conteudo) {
     if (!("erro" in conteudo)) {
-        document.getElementById('rua').value = (conteudo.logradouro);
-        document.getElementById('bairro').value = (conteudo.bairro);
-        document.getElementById('cidade').value = (conteudo.localidade);
-        document.getElementById('uf').value = (conteudo.uf);
+        document.getElementById('txtRua').value = (conteudo.logradouro);
+        document.getElementById('txtCidade').value = (conteudo.localidade);
+        document.getElementById('txtUF').value = (conteudo.uf);
     }
     else {
         limparEndereco();
@@ -27,10 +25,9 @@ function pesquisaCep(valor) {
     if (cep != "") {
         var validacep = /^[0-9]{8}$/;
         if (validacep.test(cep)) {
-            document.getElementById('rua').value = "...";
-            document.getElementById('bairro').value = "...";
-            document.getElementById('cidade').value = "...";
-            document.getElementById('uf').value = "...";
+            document.getElementById('txtRua').value = "...";
+            document.getElementById('txtCidade').value = "...";
+            document.getElementById('txtUF').value = "...";
             var script = document.createElement('script');
             script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=preencherEndereco';
             document.body.appendChild(script);
